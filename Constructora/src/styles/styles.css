@@ -1,0 +1,27 @@
+/*
+ * Empty Stylesheet file.
+ */
+.fondo-login {
+    -fx-background-image: url("../resources/fondo.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 526px 450px;
+
+}
+.label{
+    -fx-font-size:17px;
+    -fx-text-fill: white;
+}
+.label-login{
+    -fx-font-size:25px;
+    -fx-text-fill: white;
+}
+.login-marco{
+    -fx-border-color: White;
+    -fx-border-radius: 15px;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+.login-boton{
+    -fx-text-fill: white;
+    -fx-background-color: #9d0b0b;
+}

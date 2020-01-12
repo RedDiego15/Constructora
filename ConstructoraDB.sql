@@ -106,7 +106,7 @@ values(250,'1105164931',3,true,'derecha',40,4,4,150000);
 insert into Casas (Metros_cuadrados,cliente,NumPlantas,Esquinera,Orientacion,TmnPatio,NumHabitaciones,NumBanios,Precio)
 values(150,'1105164931',2,false,'derecha',40,3,3,100000);
 
--- Diego esta asociado a la casa 1 y 2
+-- Diego esta asociado a la casa 1 y 2 contra prueba
  insert into Usuarios (cedula,contrasenia,rol) values('123','711383a59fda05336fd2ccf70c8059d1523eb41a',1);
 
 
