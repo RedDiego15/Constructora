@@ -7,8 +7,37 @@ package Model;
 
 /**
  *
- * @author Lenovo comp
+ * @author Diego Rojas
  */
-public abstract class User {
+public class User {
     
+    protected String cedula;
+    private String contrasenia;
+    protected String rol;
+    
+    protected String nombre;
+    protected String apellido;
+    protected String celular;
+    protected String correo;
+    protected String direccion;
+    protected String cargo;
+    protected String estadoCivil;
+
+    public User(String cedula, String nombre, String apellido, String celular, String correo, String direccion, String cargo, String estadoCivil, String rol) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.celular = celular;
+        this.correo = correo;
+        this.direccion = direccion;
+        this.cargo = cargo;
+        this.estadoCivil = estadoCivil;
+        this.rol = rol;
+    }
+    
+    public User(String cedula, String contrasenia, String rol) {
+        this.cedula = cedula;
+        this.contrasenia = contrasenia;
+        this.rol = rol;
+    }
 }

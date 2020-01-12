@@ -18,7 +18,7 @@ public class Conexion {
     public String driver = "com.mysql.cj.jdbc.Driver";
 
     // Nombre de la base de datos
-    public String database = "ConstructoraDB";
+    public String database = "Constructora";
 
     // Host
     public String hostname = "127.0.0.1";
@@ -30,10 +30,10 @@ public class Conexion {
     public String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database + "?useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false";
 
     // Nombre de usuario
-    public String username = "123";
+    public String username = "Constructor1";
 
     // Clave de usuario
-    public String password = "prueba";
+    public String password = "constructor2020";
 
     public Connection conectarMySQL() {
         Connection conn = null;

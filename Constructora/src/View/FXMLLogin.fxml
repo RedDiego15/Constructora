@@ -17,11 +17,11 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Label layoutX="83.0" layoutY="100.0" stylesheets="@../styles/styles.css" text="Cedula" />
-            <PasswordField id="passField" layoutX="166.0" layoutY="163.0" />
-            <TextField id="txtCedula" layoutX="166.0" layoutY="101.0" />
-            <Label layoutX="76.0" layoutY="162.0" prefHeight="26.0" prefWidth="90.0" stylesheets="@../styles/styles.css" text="contraseña" />
-            <Button id="btnIngresar" layoutX="198.0" layoutY="236.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="117.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Ingresar">
+            <Label layoutX="76.0" layoutY="101.0" stylesheets="@../styles/styles.css" text="Cedula" />
+            <PasswordField id="passField" fx:id="txtPass" layoutX="166.0" layoutY="163.0" promptText="contraseña" />
+            <TextField id="txtCedula" fx:id="txtCedula" layoutX="166.0" layoutY="101.0" promptText="Cedula" />
+            <Label layoutX="76.0" layoutY="162.0" prefHeight="26.0" prefWidth="90.0" stylesheets="@../styles/styles.css" text="Contraseña" />
+            <Button id="btnIngresar" fx:id="btnIngresar" layoutX="198.0" layoutY="236.0" mnemonicParsing="false" onAction="#accionIngresar" prefHeight="30.0" prefWidth="117.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Ingresar">
                <font>
                   <Font size="14.0" />
                </font>

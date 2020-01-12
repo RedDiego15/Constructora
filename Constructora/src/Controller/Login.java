@@ -5,8 +5,11 @@
  */
 package Controller;
 
+import Model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -14,7 +17,48 @@ import java.sql.PreparedStatement;
  */
 public class Login {
     private Conexion conex;
-    private Connection con;
+    private Connection connection;
     private PreparedStatement ps;
+    private ResultSet res;
+    private String cedula;
+    private String pass;
+    private User user;
+
+    public Login(String cedula,String pass) {
+        this.cedula = cedula;
+        this.pass = pass;
+    }
+    
+    public boolean accionIngresar() {
+        try {
+            conex = new Conexion();
+            connection = conex.conectarMySQL();
+            ps = connection.prepareStatement("call iniciaSesion(?)");
+            ps.setString(1, cedula);
+            res = ps.executeQuery();
+            if (res.next()) {
+                return validaPass();
+            } else {
+                util.Util.mostrarDialogAlert("El usuario no existe.");
+                return false;
+            }
+        } catch (SQLException e) {
+            util.Util.mostrarDialogAlert(e.getMessage());
+        }
+        return false;
+    }
+    
+    public boolean validaPass() throws SQLException{
+        if(res.getString("contrasenia").equals(util.Util.codificarPass(pass))){
+            user = new User(res.getString("cedula"),res.getString("contrasenia"), res.getString("rol"));
+            connection.close();
+            return true;
+        }else{
+            util.Util.mostrarDialogAlert("La contraseña no coincide");
+            return false;
+        }
+    }
+    
+    
     
 }

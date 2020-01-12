@@ -145,10 +145,26 @@ select* from casas;
  -- drop table Usuarios;
 -- DELETE from Casas where idCasa =2;
 
+
+delimiter $
+create procedure iniciaSesion(in ced varchar(10))
+Begin
+	select * from usuarios where cedula=ced;
+end $
+delimiter ;
 show tables;
 
+create user 'Constructor1' IDENTIFIED BY 'constructor2020';
+
+grant execute on Constructora TO 'Constructor1';
+
+grant select,update,insert on Constructora.Empresas to 'Constructor1';
+
+grant select,update,insert on Constructora.Usuarios to 'Constructor1';
+
+grant select,update,insert on Constructora.Elementos to 'Constructor1';
 
 
-
-
-
+FLUSH PRIVILEGES;
+grant all privileges on *.* to 'Constructor1';
+SHOW GRANTS FOR 'Constructor1';
