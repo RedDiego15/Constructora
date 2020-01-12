@@ -1,5 +1,11 @@
 create database Constructora;
 use Constructora;
+create table Usuarios(
+	cedula varchar(10) primary Key,
+    Pasaporte varchar(20),
+    Contrasenia  varchar(50),
+    rol char
+);
 create table Empresas(
 	idEmpresa int auto_increment primary Key,
     Nombre varchar(100),
@@ -101,7 +107,7 @@ insert into Casas (Metros_cuadrados,cliente,NumPlantas,Esquinera,Orientacion,Tmn
 values(150,'1105164931',2,false,'derecha',40,3,3,100000);
 
 -- Diego esta asociado a la casa 1 y 2
- 
+ insert into Usuarios (cedula,contrasenia,rol) values('123','711383a59fda05336fd2ccf70c8059d1523eb41a',1);
 
 
 
@@ -136,7 +142,7 @@ select* from casas;
 -- drop table clientes;
 -- drop table casas;
 -- drop table elementos_casa;
--- drop table elementos;
+ -- drop table Usuarios;
 -- DELETE from Casas where idCasa =2;
 
 show tables;
