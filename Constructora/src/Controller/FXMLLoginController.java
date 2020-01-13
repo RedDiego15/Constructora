@@ -62,6 +62,9 @@ public class FXMLLoginController implements Initializable {
            
 
     }
+     public void accionIngresarSinInicio(){
+         this.nuevaVentana();
+     }
     //
      private void nuevaVentana() {
         try {

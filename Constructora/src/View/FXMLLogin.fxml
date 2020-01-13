@@ -21,7 +21,12 @@
             <PasswordField id="passField" fx:id="txtPass" layoutX="166.0" layoutY="163.0" promptText="contraseña" />
             <TextField id="txtCedula" fx:id="txtCedula" layoutX="166.0" layoutY="101.0" promptText="Cedula" />
             <Label layoutX="76.0" layoutY="162.0" prefHeight="26.0" prefWidth="90.0" stylesheets="@../styles/styles.css" text="Contraseña" />
-            <Button id="btnIngresar" fx:id="btnIngresar" layoutX="198.0" layoutY="236.0" mnemonicParsing="false" onAction="#accionIngresar" prefHeight="30.0" prefWidth="117.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Ingresar">
+            <Button id="btnIngresar" fx:id="btnIngresar" layoutX="166.0" layoutY="218.0" mnemonicParsing="false" onAction="#accionIngresar" prefHeight="30.0" prefWidth="149.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Ingresar">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button id="btnIngresar" fx:id="btnIngresar1" layoutX="76.0" layoutY="295.0" mnemonicParsing="false" onAction="#accionIngresarSinInicio" prefHeight="30.0" prefWidth="239.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Continuar Sin Iniciar Sesion">
                <font>
                   <Font size="14.0" />
                </font>
