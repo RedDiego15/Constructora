@@ -74,12 +74,6 @@ public class FXMLLoginController implements Initializable {
             Parent root = fxmlLoader.load();
             FXMLMainController menu = fxmlLoader.getController();
             menu.setRoot(stage);
-            
-            /*
-            menu.setUser(this.user);
-           
-            menu.setActual(stage);
-            menu.cargarDatos();*/
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Menú Principal");
