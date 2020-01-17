@@ -14,26 +14,29 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
+    
+    private static Conexion conex = new Conexion();
+    
     //com.mysql.jdbc.Driver
-    public String driver = "com.mysql.cj.jdbc.Driver";
+    private String driver = "com.mysql.cj.jdbc.Driver";
 
     // Nombre de la base de datos
-    public String database = "Constructora";
+    private String database = "Constructora";
 
     // Host
-    public String hostname = "127.0.0.1";
+    private String hostname = "127.0.0.1";
 
     // Puerto
-    public String port = "3306";
+    private String port = "3306";
 
     // Ruta de nuestra base de datos (desactivamos el uso de SSL con "?useSSL=false")
-    public String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database + "?useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false";
+    private String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database + "?useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false";
 
     // Nombre de usuario
-    public String username = "Constructor1";
+    private String username = "Constructor1";
 
     // Clave de usuario
-    public String password = "constructor2020";
+    private String password = "constructor2020";
 
     public Connection conectarMySQL() {
         Connection conn = null;
@@ -47,6 +50,10 @@ public class Conexion {
         }
 
         return conn;
+    }
+    
+     public static Conexion getConex() {
+        return conex;
     }
 
 }
