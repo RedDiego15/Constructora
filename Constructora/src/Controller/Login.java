@@ -16,9 +16,8 @@ import java.sql.SQLException;
  * @author Diego Rojas
  */
 public class Login {
-    private Conexion conex;
     private Connection connection;
-    private PreparedStatement ps;
+    private PreparedStatement preparedStatement;
     private ResultSet res;
     private String cedula;
     private String pass;
@@ -30,11 +29,11 @@ public class Login {
     
     public boolean accionIngresar() {
         try {
-            conex = new Conexion();
-            connection = conex.conectarMySQL();
-            ps = connection.prepareStatement("call iniciaSesion(?)");
-            ps.setString(1, cedula);
-            res = ps.executeQuery();
+            
+            connection = Conexion.getConex().conectarMySQL();
+            preparedStatement = connection.prepareStatement("call iniciaSesion(?)");
+            preparedStatement.setString(1, cedula);
+            res = preparedStatement.executeQuery();
             if (res.next()) {
                 return validaPass();
             } else {

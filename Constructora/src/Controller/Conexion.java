@@ -14,6 +14,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
+    
+    private static Conexion conex = new Conexion();
 
     // Nombre de la base de datos
     private final String database = "Constructora";
@@ -31,8 +33,11 @@ public class Conexion {
     private final String username = "root"; 
 
     // Clave de usuario
+ 
     private final String password = "root"; 
-
+    
+     private Conexion(){}
+     
     public Connection conectarMySQL() {
         Connection conn = null;
 
@@ -46,5 +51,7 @@ public class Conexion {
         return conn;
     }
 
-
+    public static Conexion getConex() {
+        return conex;
+    }
 }
