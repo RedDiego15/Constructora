@@ -28,10 +28,10 @@ public class Conexion {
     private final String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database;
 
     // Nombre de usuario
-    private final String username = "root"; //user de mysql por lo general es root
+    private final String username = "Constructor1"; 
 
     // Clave de usuario
-    private final String password = "root"; //aqui poner la clave de la database de tu mysql
+    private final String password = "constructor2020"; 
 
     public Connection conectarMySQL() {
         Connection conn = null;
