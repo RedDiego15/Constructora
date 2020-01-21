@@ -22,7 +22,6 @@ public class Login {
     private ResultSet res;
     private String cedula;
     private String pass;
-    private User user;
 
     public Login(String cedula,String pass) {
         this.cedula = cedula;
@@ -31,7 +30,7 @@ public class Login {
     
     public boolean accionIngresar() {
         try {
-            conex = new Conexion();
+            conex = Conexion.getConex();
             connection = conex.conectarMySQL();
             ps = connection.prepareStatement("call iniciaSesion(?)");
             ps.setString(1, cedula);
@@ -50,7 +49,6 @@ public class Login {
     
     public boolean validaPass() throws SQLException{
         if(res.getString("contrasenia").equals(util.Util.codificarPass(pass))){
-            user = new User(res.getString("cedula"),res.getString("contrasenia"), res.getString("rol"));
             connection.close();
             return true;
         }else{

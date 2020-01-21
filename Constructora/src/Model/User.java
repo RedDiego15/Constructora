@@ -9,10 +9,10 @@ package Model;
  *
  * @author Diego Rojas
  */
-public class User {
+public abstract class User {
     
     protected String cedula;
-    private String contrasenia;
+ //   private String contrasenia;
     protected String rol;
     
     protected String nombre;
@@ -35,9 +35,5 @@ public class User {
         this.rol = rol;
     }
     
-    public User(String cedula, String contrasenia, String rol) {
-        this.cedula = cedula;
-        this.contrasenia = contrasenia;
-        this.rol = rol;
-    }
+    
 }
