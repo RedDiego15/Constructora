@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import Model.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -28,15 +26,13 @@ import javafx.stage.Stage;
  * @author Diego Rojas
  * 
  */
-public class FXMLLoginController implements Initializable {
+public class FXMLLoginController extends Ventana implements Initializable{
     @FXML
     private TextField txtCedula;
     @FXML
-    private Button btnIngresar;
-    @FXML
     private PasswordField txtPass;
-  
-    private Stage root;
+    
+    private final FXMLMainController main = new FXMLMainController();
     private Login login;
    
     /**
@@ -49,43 +45,27 @@ public class FXMLLoginController implements Initializable {
     }
      public void accionIngresar() {
         if(validaCampos() && login.accionIngresar()){
-            this.abrirVentana();
+            this.abrir();
             
         }else{
              util.Util.mostrarDialogAlert("No existe usuario con esa Informacion");
-        }
-          
+        }     
     }
      public void accionAbrirVentana(){
-         abrirVentana();
-     }
-    //
-     
-     private void abrirVentana(){
+             this.abrir();
+    }
+   
+    @Override
+     public void abrirVentana(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLMain.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLLogin.fxml"));
             Parent root = loader.load();
-            FXMLMainController main = loader.getController();
-            main.setRoot(Ventana.getVentana().nuevaVentana(loader,root));
+            FXMLLoginController main = loader.getController();
+            main.setRoot(nuevaVentana(root));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-     
-     /*
-     private void accionAbrirVentana() throws IOException{
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLMain.fxml"));
-        Parent root = loader.load();
-        FXMLMainController login = loader.getController();
-        login.setRoot(stage);
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Sistema Constructora");
-        stage.setResizable(false);
-        stage.show();
-     
-     }*/
     private boolean validaCampos(){
         if(!txtCedula.getText().equals("") && !txtPass.getText().equals("")){ 
             login = new Login(txtCedula.getText(),txtPass.getText());
@@ -95,11 +75,11 @@ public class FXMLLoginController implements Initializable {
         }
         return false;
     }
-    
+    private void abrir(){
+        main.abrirVentana();
+        this.cerrarVentana();
+    }
     public void setRoot(Stage root) {
         this.root = root;
     }
-
-   
-    
 }

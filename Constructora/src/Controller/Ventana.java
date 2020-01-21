@@ -15,19 +15,17 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Diego Rojas
+ * @author Lenovo comp
  */
-public class Ventana {
+public abstract class Ventana{
+    protected Stage root;
     
-    private static Ventana ventana = new Ventana();
-
-    public Ventana() {
+    
+    public void cerrarVentana(){
+        this.root.close();
     }
-
-    public static Ventana getVentana() {
-        return ventana;
-    }
-    public Stage nuevaVentana(FXMLLoader fxmlLoader,Parent root){
+    
+    protected Stage nuevaVentana(Parent root) {
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -35,8 +33,8 @@ public class Ventana {
         stage.setResizable(false);
         stage.show();
         return stage;
-
-    
     }
     
+    public abstract void abrirVentana();
+
 }
