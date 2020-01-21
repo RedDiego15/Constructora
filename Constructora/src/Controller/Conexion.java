@@ -21,22 +21,23 @@ public class Conexion {
     private final String database = "Constructora";
 
     // Host
-    private final String hostname = "127.0.0.1";
+    private final String hostname = "127.0.0.1"; 
 
     // Puerto
-    private final String port = "3306";
+    private final String port = "3308";
 
     // Ruta de nuestra base de datos (desactivamos el uso de SSL con "?useSSL=false")
     private final String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database;
 
     // Nombre de usuario
-    private final String username = "Constructor1"; 
+    private final String username = "root"; 
 
     // Clave de usuario
-    private final String password = "constructor2020"; 
+ 
+    private final String password = "root"; 
     
-    private Conexion(){}
-
+     private Conexion(){}
+     
     public Connection conectarMySQL() {
         Connection conn = null;
 
@@ -52,5 +53,4 @@ public class Conexion {
     public static Conexion getConex() {
         return conex;
     }
-
 }

@@ -119,23 +119,24 @@ insert into Elementos (Tipo_de_Elemento,Precio) values("podadora",100);
 insert into Elementos (Tipo_de_Elemento,Precio) values("lampara",100);
 -- Despues los organizo en elementos casa
 
-insert into Elementos_Casa (Casa,Elemento)
+insert into Elementos_casa (Casa,Elemento)
 values(1,1);
-insert into Elementos_Casa (Casa,Elemento)
-values(1,2);insert into Elementos_Casa (Casa,Elemento)
+insert into Elementos_casa (Casa,Elemento)
+values(1,2);
+insert into Elementos_casa (Casa,Elemento)
 values(1,3);
 
-insert into Elementos_Casa (Casa,Elemento)
+insert into Elementos_casa (Casa,Elemento)
 values(2,1);
 
 
-SELECT * from empresas em
-join clientes c on em.idEmpresa = c.idEmpresa
-join casas ca on ca.cliente = c.cedula
-join elementos_casa el on el.casa = ca.idCasa
-join elementos e on e.idElemento = el.Elemento;
+SELECT * from Empresas em
+join Clientes c on em.idEmpresa = c.idEmpresa
+join Casas ca on ca.cliente = c.cedula
+join Elementos_casa el on el.casa = ca.idCasa
+join Elementos e on e.idElemento = el.Elemento;
 
-select* from casas;
+select* from Casas;
 
 -- drop database Constructora;
 -- drop table empresas;
