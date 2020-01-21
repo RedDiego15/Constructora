@@ -46,8 +46,5 @@ public class Conexion {
         return conn;
     }
 
-     public static void main(String args[]){
-        Conexion c = new Conexion();
-        c.conectarMySQL();
-    }
+
 }

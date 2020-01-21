@@ -9,6 +9,15 @@ package Model;
  *
  * @author GaryBarzola
  */
-public class CasaBuilder {
+public abstract class CasaBuilder {
+    
+    protected Casa casa;
+    
+    public Casa getCasa(){
+        return casa;
+    }
+    
+    public abstract void definirCasaBase();
+    public abstract void definirExtras();
     
 }
