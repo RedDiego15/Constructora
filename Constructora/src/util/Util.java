@@ -93,39 +93,6 @@ public class Util {
         Pattern pattern = Pattern.compile(patron);
         return pattern.matcher(cadena).find();
     }
-/*
-    public static LinkedList crearListaDepartamentos() {
-        LinkedList<String> departamentos = new LinkedList<>();
-        Conexion conex;
-        Connection con;
-        PreparedStatement ps;
-        ResultSet res;
-        try {
-            conex = new Conexion();
-            con = conex.conectarMySQL();
-            ps = con.prepareStatement("select ID from departamento");
-            res = ps.executeQuery();
-            while (res.next()) {
-                departamentos.add(res.getString("ID"));
-            }
-        } catch (Exception e) {
-            mostrarDialogAlert(e.getMessage());
-        }
-        return departamentos;
-    }
-*/
-    public static File cargarFoto() {
-        File imgFile = null;
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Buscar Imagen");
-        // Agregar filtros para facilitar la busqueda
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Images", "*.jpeg", "*.jpg", "*.png", "*.bmp", "*.gif")
-        );
-        // Obtener la imagen seleccionada
-        imgFile = fileChooser.showOpenDialog(null);
-        return imgFile;
-    }
 
     public static String codificarPass(String pass) {
         try {

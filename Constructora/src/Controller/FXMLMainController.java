@@ -5,9 +5,15 @@
  */
 package Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -15,11 +21,11 @@ import javafx.stage.Stage;
  *
  * @author Diego Rojas
  */
-public class FXMLMainController implements Initializable {
+public class FXMLMainController extends Ventana implements Initializable {
 
     
     
-    private Stage root;
+    
     /**
      * Initializes the controller class.
      */
@@ -34,6 +40,19 @@ public class FXMLMainController implements Initializable {
 
     public void setRoot(Stage root) {
         this.root = root;
+    }
+
+    @Override
+    public void abrirVentana() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLMain.fxml"));
+            Parent root = loader.load();
+            FXMLMainController main = loader.getController();
+            main.setRoot(nuevaVentana(root));
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
 }
