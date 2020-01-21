@@ -30,7 +30,7 @@ public class Login {
     
     public boolean accionIngresar() {
         try {
-            conex = Conexion.getConex();
+            conex = new Conexion();
             connection = conex.conectarMySQL();
             ps = connection.prepareStatement("call iniciaSesion(?)");
             ps.setString(1, cedula);
