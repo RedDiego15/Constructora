@@ -13,7 +13,7 @@ public class CasaParaisoBuilder extends CasaBuilder{
     
     @Override
     public void definirCasaBase(){
-        casa = new Casa();
+        casa = new Casa(this.getClass().getName());
         casa.setNumHabitaciones(3);
         //añadir caracterisitcas a nuestra conveniencia
     }
