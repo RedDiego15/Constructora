@@ -27,7 +27,7 @@ import javax.xml.bind.DatatypeConverter;
 
 /**
  *
- * @author JONATHAN
+ * @author Diego Rojas
  */
 public class Util {
 
@@ -39,39 +39,7 @@ public class Util {
         }
         return true;
     }
-
-    public static String FileToBase64(File img) {
-        String encodedBase64 = null;
-        try {
-            FileInputStream fileInputStreamReader = new FileInputStream(img);
-            byte[] bytes = new byte[(int) img.length()];
-            fileInputStreamReader.read(bytes);
-            encodedBase64 = new String(DatatypeConverter.printBase64Binary(bytes));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return encodedBase64;
-    }
-
-    public static boolean Base64ToFile(String codificado, String ruta) throws IOException {
-        byte[] valueDecoded = Base64.getDecoder().decode(codificado);
-        OutputStream out = null;
-        try {
-            out = new FileOutputStream("src/resources/tmp/" + ruta);
-            out.write(valueDecoded);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-            return false;
-        } finally {
-            if (out != null) {
-                out.close();
-            }
-        }
-        return true;
-    }
+    
 
     public static void mostrarDialog(String texto) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -89,10 +57,6 @@ public class Util {
         alert.showAndWait();
     }
 
-    public static boolean verificarPatron(String patron, String cadena) {
-        Pattern pattern = Pattern.compile(patron);
-        return pattern.matcher(cadena).find();
-    }
 
     public static String codificarPass(String pass) {
         try {

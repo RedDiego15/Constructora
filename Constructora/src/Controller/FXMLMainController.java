@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 public class FXMLMainController extends Ventana implements Initializable {
 
     
-    
+    private Stage root;
     
     /**
      * Initializes the controller class.

@@ -19,7 +19,6 @@ import javafx.stage.Stage;
  */
 public class Main extends Application{
     
-    private User user;
     
     @Override
     public void start(Stage stage) throws Exception {
