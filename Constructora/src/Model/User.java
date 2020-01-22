@@ -12,7 +12,6 @@ package Model;
 public abstract class User {
     
     protected String cedula;
- //   private String contrasenia;
     protected String rol;
     
     protected String nombre;

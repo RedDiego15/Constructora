@@ -26,7 +26,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button id="btnIngresar" fx:id="btnIngresar1" layoutX="76.0" layoutY="295.0" mnemonicParsing="false" onAction="#abrirVentana" prefHeight="30.0" prefWidth="239.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Continuar Sin Iniciar Sesion">
+            <Button id="btnIngresar" fx:id="btnIngresar1" layoutX="76.0" layoutY="295.0" mnemonicParsing="false" onAction="#accionAbrirVentana" prefHeight="30.0" prefWidth="239.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Continuar Sin Iniciar Sesion">
                <font>
                   <Font size="14.0" />
                </font>

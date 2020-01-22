@@ -100,11 +100,14 @@ insert into Empresas (Nombre,Direccion,Telefono_Trabajo,cedula_cliente) values("
 
 insert into Clientes values("1105164931",1,"1263456",'Diego','Rojas','0995977694','correo@','alborada X','soltero','CTO',2);
 
-insert into Casas (Metros_cuadrados,cliente,NumPlantas,Esquinera,Orientacion,TmnPatio,NumHabitaciones,NumBanios,Precio)
+insert into Casas (Metros_cuadrados,cliente,NumPlantas,Esquinera,Orientacion,TmnPatio,NumHabitaciones,NumBanios,Precio) -- casa cielo
 values(250,'1105164931',3,true,'derecha',40,4,4,150000);
 
-insert into Casas (Metros_cuadrados,cliente,NumPlantas,Esquinera,Orientacion,TmnPatio,NumHabitaciones,NumBanios,Precio)
+insert into Casas (Metros_cuadrados,cliente,NumPlantas,Esquinera,Orientacion,TmnPatio,NumHabitaciones,NumBanios,Precio) -- casa paraiso
 values(150,'1105164931',2,false,'derecha',40,3,3,100000);
+
+insert into Casas (Metros_cuadrados,NumPlantas,Esquinera,Orientacion,TmnPatio,NumHabitaciones,NumBanios,Precio) -- casa oasis
+values(150,1,false,'derecha',60,2,1,60000);
 
 -- Diego esta asociado a la casa 1 y 2 contra prueba
  insert into Usuarios (cedula,contrasenia,rol) values('123','711383a59fda05336fd2ccf70c8059d1523eb41a',1);
@@ -113,10 +116,14 @@ values(150,'1105164931',2,false,'derecha',40,3,3,100000);
 
 
 -- Primero debe existir el Elemento 
-insert into Elementos (Tipo_de_Elemento,Precio) values("cerrucho",100);
-insert into Elementos (Tipo_de_Elemento,Precio) values("cortadora",100);
-insert into Elementos (Tipo_de_Elemento,Precio) values("podadora",100);
-insert into Elementos (Tipo_de_Elemento,Precio) values("lampara",100);
+insert into Elementos (Tipo_de_Elemento,Precio) values("Piso Porcelanato Nacional",100);
+insert into Elementos (Tipo_de_Elemento,Precio) values("Piso Porcelanato importado",150);
+insert into Elementos (Tipo_de_Elemento,Precio) values("grifería estándar",50);
+insert into Elementos (Tipo_de_Elemento,Precio) values("grifería Italiana",100);
+insert into Elementos (Tipo_de_Elemento,Precio) values("iluminación tradicional ",60);
+insert into Elementos (Tipo_de_Elemento,Precio) values("iluminación led ",120);
+insert into Elementos (Tipo_de_Elemento,Precio) values("baños insonorizados",200);
+insert into Elementos (Tipo_de_Elemento,Precio) values("Techo con aislante térmico ",500);
 -- Despues los organizo en elementos casa
 
 insert into Elementos_casa (Casa,Elemento)
@@ -128,6 +135,15 @@ values(1,3);
 
 insert into Elementos_casa (Casa,Elemento)
 values(2,1);
+
+-- DELETE FROM  Elementos_casa WHERE idEC = 4;
+
+
+SELECT * FROM elementos_casa;
+
+-- DELETE FROM  Elementos WHERE idElemento = 4;
+
+SELECT * FROM elementos;
 
 
 SELECT * from Empresas em
@@ -157,7 +173,10 @@ show tables;
 
 create user 'Constructor1' IDENTIFIED BY 'constructor2020';
 
-grant execute on Constructora TO 'Constructor1';
+
+
+create user 'Constructor1' IDENTIFIED BY 'constructor2020';
+
 
 grant select,update,insert on Constructora.Empresas to 'Constructor1';
 
@@ -166,6 +185,14 @@ grant select,update,insert on Constructora.Usuarios to 'Constructor1';
 grant select,update,insert on Constructora.Elementos to 'Constructor1';
 
 
+
+grant all privileges on Constructora to 'Constructor1';
 FLUSH PRIVILEGES;
-grant all privileges on *.* to 'Constructor1';
 SHOW GRANTS FOR 'Constructor1';
+
+-- grant select,update,insert on Constructora.Usuarios to 'Constructor2';
+
+SELECT * FROM elementos_casa;
+
+SELECT * FROM elementos;
+

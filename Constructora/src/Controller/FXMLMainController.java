@@ -10,10 +10,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -23,8 +26,15 @@ import javafx.stage.Stage;
  */
 public class FXMLMainController extends Ventana implements Initializable {
 
+    @FXML
+    private AnchorPane raiz;
+    @FXML
+    private ScrollPane scrollPane;
+    @FXML
+    private Label lbCasaEscogida;
     
     
+    private Stage root;
     
     /**
      * Initializes the controller class.
