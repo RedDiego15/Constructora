@@ -11,10 +11,11 @@ package Model;
  */
 public class CasaCieloBuilder extends CasaBuilder{
     
+    
 
     @Override
     public void definirCasaBase(){
-        casa = new Casa();
+        casa = new Casa(this.getClass().getName());
         casa.setNumHabitaciones(4);
         //añadir caracterisitcas a nuestra conveniencia
     }
