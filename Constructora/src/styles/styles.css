@@ -13,7 +13,7 @@
     -fx-text-fill: white;
 }
 .label-login{
-    -fx-font-size:25px;
+    -fx-font-size:15px;
     -fx-text-fill: white;
 }
 .login-marco{
@@ -24,4 +24,23 @@
 .login-boton{
     -fx-text-fill: white;
     -fx-background-color: #9d0b0b;
+}
+/*
+MAIN
+*/
+.fondo-Main{
+    -fx-background-color: #35495e;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+}
+.headerMain{
+    -fx-alignment: CENTER;
+    
+    
+}
+.label-informacion{
+    -fx-font-size:13px;
+    -fx-text-fill: black;
+        
+    
 }
