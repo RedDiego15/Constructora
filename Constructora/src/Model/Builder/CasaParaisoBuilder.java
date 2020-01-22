@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Model.Builder;
+
+import Model.Builder.CasaBuilder;
+import Model.Casa;
 
 /**
  *
  * @author GaryBarzola
  */
-public class CasaCieloBuilder extends CasaBuilder{
+public class CasaParaisoBuilder extends CasaBuilder{
     
-    
-
     @Override
     public void definirCasaBase(){
         casa = new Casa(this.getClass().getName());
-        casa.setNumHabitaciones(4);
+        casa.setNumHabitaciones(3);
         //añadir caracterisitcas a nuestra conveniencia
     }
 
