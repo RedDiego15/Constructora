@@ -5,7 +5,6 @@
  */
 package Model.Builder;
 
-import Model.Builder.CasaBuilder;
 import Model.Casa;
 
 /**
