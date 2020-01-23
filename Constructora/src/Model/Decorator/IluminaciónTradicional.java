@@ -30,7 +30,7 @@ public class IluminaciónTradicional extends CasaDecorator{
 
     @Override
     public double obtenerPresupuesto(){
-        return getCasa().obtenerPresupuesto()+15;
+        return getCasa().obtenerPresupuesto()+60;
     }
     
 }

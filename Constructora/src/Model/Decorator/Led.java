@@ -30,7 +30,7 @@ public class Led extends CasaDecorator{
 
     @Override
     public double obtenerPresupuesto(){
-        return getCasa().obtenerPresupuesto()+20;
+        return getCasa().obtenerPresupuesto()+120;
     }
     
 }

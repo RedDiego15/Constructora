@@ -5,13 +5,17 @@
  */
 package Controller;
 
+import Model.Builder.CasaDirector;
+import Model.Decorator.Decorable;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -27,8 +31,44 @@ public class FXMLCeldaElementoController implements Initializable {
     private Label lblNombreE;
     @FXML
     private Label lblPrecio;
+    @FXML
+    private Button btnAgregar;
     
     private double precio;
+    
+    private CasaDirector casa;
+    private Decorable decorator;
+
+    
+    
+    
+    
+    public FXMLCeldaElementoController(String nombre,String precio,double valor,CasaDirector casa){
+        root = new HBox(15);
+        this.casa = casa;
+        this.btnAgregar = new Button("AGREGAR");
+        this.btnAgregar.setOnAction(e -> agregarDetalle());
+        this.lblNombreE = new Label(nombre);
+        this.lblPrecio = new Label(precio);
+        this.precio = valor;
+        organice();
+    }
+    
+    
+    
+    public void setCasa(CasaDirector casa) {
+        this.casa = casa;
+    }
+    
+    private void organice(){
+        this.lblNombreE.setId("label-informacion-Elemento");
+        this.lblPrecio.setId("label-informacion-precio");
+        this.lblNombreE.getStylesheets().add("styles/styles.css");
+        this.lblPrecio.getStylesheets().add("styles/styles.css");
+        root.getChildren().addAll(this.lblNombreE,this.lblPrecio,this.btnAgregar);
+    
+    }
+    
     
     
     
@@ -48,17 +88,10 @@ public class FXMLCeldaElementoController implements Initializable {
     public Label getLblPrecio() {
         return lblPrecio;
     }
-
-    public double getPrecio() {
-        return precio;
-    }
-
     public void setRoot(HBox root) {
         this.root = root;
     }
     
- 
-
     public HBox getRoot() {
         return root;
     }
@@ -70,6 +103,17 @@ public class FXMLCeldaElementoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
+    
+    public void accionAgregar(){
+    
+    }
+    
+    private void agregarDetalle(){
+        /*
+        1ero ejecutar un query y comprar 
+        */
+    
+    }
     
     
     

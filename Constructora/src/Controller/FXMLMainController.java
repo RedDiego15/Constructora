@@ -76,7 +76,8 @@ public class FXMLMainController extends Ventana implements Initializable {
         holderScroll = new VBox(15); 
         try {
             while(res.next()){
-                HBox celda = obtenerCelda(res.getString("Tipo_de_elemento"),res.getString("Precio"),Double.parseDouble(res.getString("Precio")));
+                HBox celda = this.obtenerCelda(res);
+                //HBox celda = obtenerCelda(res.getString("Tipo_de_elemento"),res.getString("Precio"));
                 this.holderScroll.getChildren().add(celda);
                 this.scrollPane.setDisable(false);
             }
@@ -86,21 +87,32 @@ public class FXMLMainController extends Ventana implements Initializable {
         }
     }
     
-    private HBox obtenerCelda(String nombre,String precio,double valor){
+    private HBox obtenerCelda(ResultSet res){
         try {
+        /*String nombre,String precio*/
+        
+        FXMLCeldaElementoController celda = new  FXMLCeldaElementoController(res.getString("Tipo_de_elemento"),res.getString("Precio"),Double.parseDouble(res.getString("Precio")),casa);
+        return celda.getRoot();
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        
+        
+        /*try {
+            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLCeldaElemento.fxml"));
             HBox raiz = loader.load();
-            System.out.println(raiz);
             Label lb = (Label) raiz.getChildren().get(0);
-            //System.out.println(raiz.getChildren().get(0));
             lb.setText(nombre+" ");
             Label lb2 = (Label) raiz.getChildren().get(1);
             lb2.setText("Precio: "+precio+" ");
             return raiz;
         } catch (IOException ex) {
             Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //FXMLCeldaElementoController celda = new  FXMLCeldaElementoController(res.getString("Tipo_de_elemento"),res.getString("Precio"),Double.parseDouble(res.getString("Precio")));
+        }*/
         return null;
     }
 }

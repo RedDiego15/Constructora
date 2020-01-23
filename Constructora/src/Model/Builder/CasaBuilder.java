@@ -40,6 +40,8 @@ public abstract class CasaBuilder {
             casa.setNumHabitaciones(Integer.parseInt(res.getString("NumHabitaciones")));
             casa.setNumBanios(Integer.parseInt(res.getString("numBanios")));
             casa.setPrecio_base(Double.parseDouble(res.getString("Precio")));
+            //falta poner todas las cosas extra en false
+            casa.setAislanteTérmicoEnTecho(false);
             } else {
                 util.Util.mostrarDialogAlert("Fallo en la conexion para casaCielo");
                 
