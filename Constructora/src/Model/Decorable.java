@@ -15,5 +15,5 @@ public interface Decorable {
 
     public String getTipo();
     
-    public float obtenerPresupuesto();
+    public double obtenerPresupuesto();
 }

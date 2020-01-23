@@ -5,6 +5,10 @@
  */
 package Model;
 
+import Controller.Conexion;
+import Controller.DataBase;
+import java.sql.SQLException;
+
 /**
  *
  * @author GaryBarzola
@@ -16,7 +20,30 @@ public class CasaCieloBuilder extends CasaBuilder{
     @Override
     public void definirCasaBase(){
         casa = new Casa(this.getClass().getName());
-        casa.setNumHabitaciones(4);
+        try {
+            res = DataBase.getDataB().executeQuery("SELECT * FROM Casas where idCasa = 1");
+            if (res.next()) {
+                 
+            casa.setMtsCuadrados(Double.parseDouble(res.getString("Metros_cuadrados")));
+            casa.setNumPlantas(Integer.parseInt(res.getString("NumPlantas")));
+            System.out.println("lo de esquinera "+res.getString("Esquinera"));
+            casa.setEsEsquinera(Boolean.getBoolean(res.getString("Esquinera"))); //aqui un errordeberia ser boolean true
+            casa.setNumHabitaciones(Integer.parseInt(res.getString("NumHabitaciones")));
+            casa.setNumBanios(Integer.parseInt(res.getString("numBanios")));
+            casa.setPrecio_base((float) Double.parseDouble(res.getString("Esquinera")));
+            //casa.setPrecioBase(Double.parseDouble(res.getString("Precio")));
+            } else {
+                util.Util.mostrarDialogAlert("Fallo en la conexion para casaCielo");
+                
+            }
+        } catch (SQLException e) {
+            util.Util.mostrarDialogAlert(e.getMessage());
+        }
+        
+        
+       /* 
+        casa = new Casa(this.getClass().getName());
+        casa.setNumHabitaciones(4);*/
         //añadir caracterisitcas a nuestra conveniencia
     }
 

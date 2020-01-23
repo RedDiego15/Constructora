@@ -12,11 +12,7 @@
       <Label layoutX="128.0" layoutY="10.0" prefHeight="35.0" prefWidth="159.0" text="Realiza tu Diseño" />
       <Button layoutX="625.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Inicia Sesion" />
       <Button layoutX="745.0" layoutY="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Registrate" />
-      <ScrollPane fx:id="scrollPane" disable="true" layoutX="108.0" layoutY="441.0" prefHeight="232.0" prefWidth="649.0">
-         <content>
-            <Label fx:id="lbCasaEscogida" prefHeight="47.0" prefWidth="648.0" text="Label" />
-         </content>
-      </ScrollPane>
+      <ScrollPane fx:id="scrollPane" layoutX="208.0" layoutY="441.0" prefHeight="232.0" prefWidth="501.0" />
       <Label layoutX="395.0" layoutY="63.0" text="Casas Basicas" />
       <AnchorPane layoutX="7.0" layoutY="127.0" prefHeight="271.0" prefWidth="280.0" styleClass="login-marco" stylesheets="@../styles/styles.css">
          <children>
@@ -25,7 +21,7 @@
                   <Label alignment="TOP_LEFT" layoutX="14.0" prefHeight="189.0" prefWidth="126.0" styleClass="label-informacion" stylesheets="@../styles/styles.css" text="#Habitaciones: 4  Metros cuadrados: 250                    #plantas: 3  Esquinera: si Orientacion: Derecha  #Habitaciones: 4 #Baños: 4           Precio: 150000" wrapText="true" />
                </children>
             </AnchorPane>
-            <Button layoutX="93.0" layoutY="238.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Seleccionar" />
+            <Button layoutX="93.0" layoutY="238.0" mnemonicParsing="false" onAction="#accionSeleccionCielo" prefHeight="25.0" prefWidth="76.0" text="Seleccionar" />
             <ImageView fitHeight="158.0" fitWidth="126.0" layoutX="5.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/casaCielo.jpeg" />
@@ -67,6 +63,6 @@
          </children>
       </AnchorPane>
       <Button layoutX="650.0" layoutY="687.0" mnemonicParsing="false" text="Guardar Diseño" />
-      <Label layoutX="108.0" layoutY="406.0" prefHeight="35.0" prefWidth="250.0" text="Añadir Elementos Adicionales" />
+      <Label layoutX="208.0" layoutY="406.0" prefHeight="35.0" prefWidth="250.0" text="Añadir Elementos Adicionales" />
    </children>
 </AnchorPane>

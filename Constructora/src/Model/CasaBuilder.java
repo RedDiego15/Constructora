@@ -5,11 +5,17 @@
  */
 package Model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author GaryBarzola
  */
 public abstract class CasaBuilder {
+    
+    protected ResultSet res;
     
     protected Casa casa;
     

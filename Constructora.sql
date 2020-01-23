@@ -194,5 +194,5 @@ SHOW GRANTS FOR 'Constructor1';
 
 SELECT * FROM elementos_casa;
 
-SELECT * FROM elementos;
+SELECT * FROM Elementos;
 

@@ -7,14 +7,61 @@ package Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
  *
- * @author Lenovo comp
+ * @author Diego Rojas
  */
 public class FXMLCeldaElementoController implements Initializable {
+    @FXML
+    private HBox root;
+    @FXML
+    private CheckBox checkBox;
+    @FXML
+    private Label lblNombreE;
+    @FXML
+    private Label lblPrecio;
+    
+    private double precio;
+    
+    
+    
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public CheckBox getCheckBox() {
+        return checkBox;
+    }
+
+    public Label getLblNombreE() {
+        return lblNombreE;
+    }
+
+    public Label getLblPrecio() {
+        return lblPrecio;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setRoot(HBox root) {
+        this.root = root;
+    }
+    
+ 
+
+    public HBox getRoot() {
+        return root;
+    }
 
     /**
      * Initializes the controller class.
@@ -22,6 +69,9 @@ public class FXMLCeldaElementoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    } 
+    
+    
+    
     
 }

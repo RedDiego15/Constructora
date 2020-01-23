@@ -34,7 +34,7 @@ public abstract class CasaDecorator implements Decorable {
     }
     
 
-    public float obtenerPresupuesto(){
+    public double obtenerPresupuesto(){
         return getCasa().obtenerPresupuesto();
     }
     

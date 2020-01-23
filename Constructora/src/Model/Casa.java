@@ -11,13 +11,13 @@ package Model;
  */
 public class Casa implements Decorable{
     
-    protected int mtsCuadrados;
+    protected double mtsCuadrados;
     protected int  numPlantas;
     protected boolean esEsquinera;
     protected boolean  PatioGrande;
     protected int numHabitaciones;
     protected int numBanios;
-    protected int PrecioBase;
+    protected double PrecioBase; //precio final despues de anadirle mas cosas
     protected String name;
     protected float precio_base;
     
@@ -25,7 +25,7 @@ public class Casa implements Decorable{
         this.name=tipo;
     }
 
-    public int getMtsCuadrados() {
+    public double getMtsCuadrados() {
         return mtsCuadrados;
     }
 
@@ -49,7 +49,7 @@ public class Casa implements Decorable{
         return numBanios;
     }
 
-    public int getPrecioBase() {
+    public double getPrecioBase() {
         return PrecioBase;
     }
 
@@ -61,7 +61,7 @@ public class Casa implements Decorable{
         return precio_base;
     }
 
-    public void setMtsCuadrados(int mtsCuadrados) {
+    public void setMtsCuadrados(double mtsCuadrados) {
         this.mtsCuadrados = mtsCuadrados;
     }
 
@@ -85,7 +85,7 @@ public class Casa implements Decorable{
         this.numBanios = numBanios;
     }
 
-    public void setPrecioBase(int PrecioBase) {
+    public void setPrecioBase(double PrecioBase) {
         this.PrecioBase = PrecioBase;
     }
 
@@ -110,7 +110,7 @@ public class Casa implements Decorable{
     }
 
     @Override
-    public float obtenerPresupuesto() {
+    public double obtenerPresupuesto() {
         return this.PrecioBase;
     }
     
