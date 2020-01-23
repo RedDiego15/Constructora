@@ -30,7 +30,7 @@ public abstract class Ventana{
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Menú Principal");
-        stage.setResizable(false);
+     //   stage.setResizable(false);
         stage.show();
         return stage;
     }
