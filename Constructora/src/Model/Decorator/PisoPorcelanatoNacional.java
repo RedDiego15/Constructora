@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Model.Decorator;
+
+import Model.Casa;
 
 /**
  *
@@ -16,14 +18,20 @@ public class PisoPorcelanatoNacional extends CasaDecorator{
     }
 
     @Override
-    public String getTipo() {
+    public String getTipo(){
         return getCasa().getTipo();
     }
     
-    public String getDescription(){
+    @Override
+    public String getDescripcion(){
+        getCasa().setPisosPorcelanatoNacional(true);
         return getCasa().getDescripcion();
     }
 
+    @Override
+    public double obtenerPresupuesto(){
+        return getCasa().obtenerPresupuesto()+10;
+    }
     
     
 }

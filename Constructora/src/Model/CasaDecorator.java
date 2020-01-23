@@ -5,6 +5,8 @@
  */
 package Model;
 
+import Model.Decorator.Decorable;
+
 /**
  *
  * @author CltControl

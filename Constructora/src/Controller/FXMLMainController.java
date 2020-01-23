@@ -6,8 +6,8 @@
 package Controller;
 
 import Model.Casa;
-import Model.CasaCieloBuilder;
-import Model.CasaDirector;
+import Model.Builder.CasaCieloBuilder;
+import Model.Builder.CasaDirector;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -92,7 +92,7 @@ public class FXMLMainController extends Ventana implements Initializable {
             HBox raiz = loader.load();
             System.out.println(raiz);
             Label lb = (Label) raiz.getChildren().get(0);
-            System.out.println(raiz.getChildren().get(0));
+            //System.out.println(raiz.getChildren().get(0));
             lb.setText(nombre+" ");
             Label lb2 = (Label) raiz.getChildren().get(1);
             lb2.setText("Precio: "+precio+" ");

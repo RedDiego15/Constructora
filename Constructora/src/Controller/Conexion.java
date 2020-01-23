@@ -31,6 +31,7 @@ public class Conexion {
     private final String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database + "?useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false" ;
 
     // Nombre de usuario
+
     private final String username = "root"; 
 
     // Clave de usuario

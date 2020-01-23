@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Model.Builder;
+
+import Model.Builder.CasaBuilder;
+import Model.Casa;
 
 import Controller.Conexion;
 import Controller.DataBase;
@@ -30,8 +33,7 @@ public class CasaCieloBuilder extends CasaBuilder{
             casa.setEsEsquinera(Boolean.getBoolean(res.getString("Esquinera"))); //aqui un errordeberia ser boolean true
             casa.setNumHabitaciones(Integer.parseInt(res.getString("NumHabitaciones")));
             casa.setNumBanios(Integer.parseInt(res.getString("numBanios")));
-            casa.setPrecio_base((float) Double.parseDouble(res.getString("Esquinera")));
-            //casa.setPrecioBase(Double.parseDouble(res.getString("Precio")));
+            casa.setPrecio_base(Double.parseDouble(res.getString("Precio")));
             } else {
                 util.Util.mostrarDialogAlert("Fallo en la conexion para casaCielo");
                 

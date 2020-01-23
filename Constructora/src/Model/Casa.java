@@ -5,21 +5,33 @@
  */
 package Model;
 
+import Model.Decorator.Decorable;
+
 /**
  *
  * @author GaryBarzola
  */
 public class Casa implements Decorable{
     
+
     protected double mtsCuadrados;
+
+    protected String name;    
     protected int  numPlantas;
-    protected boolean esEsquinera;
-    protected boolean  PatioGrande;
     protected int numHabitaciones;
     protected int numBanios;
     protected double PrecioBase; //precio final despues de anadirle mas cosas
-    protected String name;
-    protected float precio_base;
+    protected double precio_base;
+    protected boolean esEsquinera;
+    protected boolean  PatioGrande;
+    protected boolean pisosPorcelanatoNacional;
+    protected boolean pisosPorcelanatoImportado;
+    protected boolean griferíaEstándar;
+    protected boolean griferíaItaliana;
+    protected boolean iluminaciónTradicional;
+    protected boolean led; 
+    protected boolean bañosInsonorizados; 
+    protected boolean aislanteTérmicoEnTecho;
     
     public Casa(String tipo){
         this.name=tipo;
@@ -49,6 +61,7 @@ public class Casa implements Decorable{
         return numBanios;
     }
 
+
     public double getPrecioBase() {
         return PrecioBase;
     }
@@ -57,9 +70,6 @@ public class Casa implements Decorable{
         return name;
     }
 
-    public float getPrecio_base() {
-        return precio_base;
-    }
 
     public void setMtsCuadrados(double mtsCuadrados) {
         this.mtsCuadrados = mtsCuadrados;
@@ -85,6 +95,11 @@ public class Casa implements Decorable{
         this.numBanios = numBanios;
     }
 
+    public void setPrecio_base(double precio_base) {
+        this.precio_base = precio_base;
+    }
+
+
     public void setPrecioBase(double PrecioBase) {
         this.PrecioBase = PrecioBase;
     }
@@ -93,10 +108,38 @@ public class Casa implements Decorable{
         this.name = name;
     }
 
-    public void setPrecio_base(float precio_base) {
-        this.precio_base = precio_base;
+    public void setPisosPorcelanatoNacional(boolean pisosPorcelanatoNacional) {
+        this.pisosPorcelanatoNacional = pisosPorcelanatoNacional;
     }
 
+    public void setPisosPorcelanatoimportado(boolean pisosPorcelanatoimportado) {
+        this.pisosPorcelanatoImportado = pisosPorcelanatoimportado;
+    }
+
+    public void setGriferíaEstándar(boolean griferíaEstándar) {
+        this.griferíaEstándar = griferíaEstándar;
+    }
+
+    public void setGriferíaitaliana(boolean griferíaitaliana) {
+        this.griferíaItaliana = griferíaitaliana;
+    }
+
+    public void setIluminaciónTradicional(boolean iluminaciónTradicional) {
+        this.iluminaciónTradicional = iluminaciónTradicional;
+    }
+
+    public void setLed(boolean led) {
+        this.led = led;
+    }
+
+    public void setBañosInsonorizados(boolean bañosInsonorizados) {
+        this.bañosInsonorizados = bañosInsonorizados;
+    }
+
+    public void setAislanteTérmicoEnTecho(boolean aislanteTérmicoEnTecho) {
+        this.aislanteTérmicoEnTecho = aislanteTérmicoEnTecho;
+    }
+    
     
 
     @Override
