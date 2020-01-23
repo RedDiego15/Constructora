@@ -5,10 +5,8 @@
  */
 package Model.Builder;
 
-import Model.Builder.CasaBuilder;
 import Model.Casa;
 
-import Controller.Conexion;
 import Controller.DataBase;
 import java.sql.SQLException;
 
