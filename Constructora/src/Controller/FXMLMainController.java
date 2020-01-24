@@ -8,6 +8,9 @@ package Controller;
 import Model.Casa;
 import Model.Builder.CasaCieloBuilder;
 import Model.Builder.CasaDirector;
+import Model.Decorator.ImplementacionDiego.Decor;
+import Model.Decorator.Decorable;
+import Model.Decorator.ImplementacionDiego.Decoracion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -72,6 +75,7 @@ public class FXMLMainController extends Ventana implements Initializable {
     public void accionSeleccionCielo(){
         casa = new CasaDirector(new CasaCieloBuilder());
         casa.construirCasa();
+        System.out.println("en la accion"+casa.getCasa().getPrecioBase());
         ResultSet res = DataBase.getDataB().executeQuery("SELECT * FROM Elementos;");
         holderScroll = new VBox(15); 
         try {
@@ -90,29 +94,18 @@ public class FXMLMainController extends Ventana implements Initializable {
     private HBox obtenerCelda(ResultSet res){
         try {
         /*String nombre,String precio*/
+        //Decorable decorator = new 
+        double precio = Double.parseDouble(res.getString("Precio"));
+        String nombre = res.getString("Tipo_de_elemento");
+        FXMLCeldaElementoController celda = new  FXMLCeldaElementoController(nombre,res.getString("Precio"),precio,casa);
+        Decor decorable = new Decoracion(nombre,casa);
+        celda.setDecorator(decorable);
         
-        FXMLCeldaElementoController celda = new  FXMLCeldaElementoController(res.getString("Tipo_de_elemento"),res.getString("Precio"),Double.parseDouble(res.getString("Precio")),casa);
         return celda.getRoot();
         
         } catch (SQLException ex) {
             Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        
-        
-        
-        /*try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLCeldaElemento.fxml"));
-            HBox raiz = loader.load();
-            Label lb = (Label) raiz.getChildren().get(0);
-            lb.setText(nombre+" ");
-            Label lb2 = (Label) raiz.getChildren().get(1);
-            lb2.setText("Precio: "+precio+" ");
-            return raiz;
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
         return null;
     }
 }

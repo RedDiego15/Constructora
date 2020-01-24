@@ -6,7 +6,9 @@
 package Controller;
 
 import Model.Builder.CasaDirector;
+import Model.Decorator.ImplementacionDiego.Decor;
 import Model.Decorator.Decorable;
+import Model.Decorator.ImplementacionDiego.Decoracion;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -37,8 +39,9 @@ public class FXMLCeldaElementoController implements Initializable {
     private double precio;
     
     private CasaDirector casa;
-    private Decorable decorator;
-
+   // private Decorable decoracion;
+    
+    private Decor decoracion;
     
     
     
@@ -96,22 +99,24 @@ public class FXMLCeldaElementoController implements Initializable {
         return root;
     }
 
+    public void setDecorator(Decor decorator) {
+        this.decoracion = decorator;
+    }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    } 
-    
-    public void accionAgregar(){
-    
     }
     
     private void agregarDetalle(){
-        /*
-        1ero ejecutar un query y comprar 
-        */
+        Decoracion decoration = (Decoracion) decoracion;
+        
+        decoracion = decoration.obtenerElemento();
+        
+        System.out.println(decoracion.obtenerPresupuesto());
     
     }
     

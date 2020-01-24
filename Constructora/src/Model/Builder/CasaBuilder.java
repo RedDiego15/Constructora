@@ -39,7 +39,7 @@ public abstract class CasaBuilder {
             casa.setEsEsquinera(Boolean.getBoolean(res.getString("Esquinera"))); //aqui un errordeberia ser boolean true
             casa.setNumHabitaciones(Integer.parseInt(res.getString("NumHabitaciones")));
             casa.setNumBanios(Integer.parseInt(res.getString("numBanios")));
-            casa.setPrecio_base(Double.parseDouble(res.getString("Precio")));
+            casa.setPrecioBase(Double.parseDouble(res.getString("Precio")));
             //falta poner todas las cosas extra en false
             casa.setAislanteTérmicoEnTecho(false);
             } else {
