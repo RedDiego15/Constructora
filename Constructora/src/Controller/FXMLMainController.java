@@ -8,6 +8,8 @@ package Controller;
 import Model.Casa;
 import Model.Builder.CasaCieloBuilder;
 import Model.Builder.CasaDirector;
+import Model.Builder.CasaOasisBuilder;
+import Model.Builder.CasaParaisoBuilder;
 import Model.Decorator.ImplementacionDiego.Decor;
 import Model.Decorator.Decorable;
 import Model.Decorator.ImplementacionDiego.Decoracion;
@@ -40,18 +42,14 @@ public class FXMLMainController extends Ventana implements Initializable {
     private ScrollPane scrollPane;
     private VBox holderScroll;
     private Stage root;
-    
     private CasaDirector casa;
-    
-    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
+    }
     public Stage getRoot() {
         return root;
     }
@@ -59,29 +57,33 @@ public class FXMLMainController extends Ventana implements Initializable {
     public void setRoot(Stage root) {
         this.root = root;
     }
-
     @Override
     public void abrirVentana() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLMain.fxml"));
             Parent root = loader.load();
             FXMLMainController main = loader.getController();
-            main.setRoot(nuevaVentana(root));
+            main.setRoot(nuevaVentana(root,"Main"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
+    
     public void accionSeleccionCielo(){
         casa = new CasaDirector(new CasaCieloBuilder());
         casa.construirCasa();
         System.out.println("en la accion"+casa.getCasa().getPrecioBase());
+       
+        this.crearCeldas();
+        
+    }
+    private void crearCeldas(){
         ResultSet res = DataBase.getDataB().executeQuery("SELECT * FROM Elementos;");
         holderScroll = new VBox(15); 
         try {
             while(res.next()){
                 HBox celda = this.obtenerCelda(res);
-                //HBox celda = obtenerCelda(res.getString("Tipo_de_elemento"),res.getString("Precio"));
                 this.holderScroll.getChildren().add(celda);
                 this.scrollPane.setDisable(false);
             }
@@ -89,7 +91,7 @@ public class FXMLMainController extends Ventana implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    } 
     
     private HBox obtenerCelda(ResultSet res){
         try {
@@ -107,5 +109,34 @@ public class FXMLMainController extends Ventana implements Initializable {
             Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public void accionSeleccionParaiso(){
+        casa = new CasaDirector(new CasaParaisoBuilder());
+        casa.construirCasa();
+        System.out.println("en la accion"+casa.getCasa().getPrecioBase());
+        this.crearCeldas();
+    }
+    public void accionSeleccionOasis(){
+        casa = new CasaDirector(new CasaOasisBuilder());
+        casa.construirCasa();
+        System.out.println("en la accion"+casa.getCasa().getPrecioBase());
+        this.crearCeldas();
+    
+    }
+    public void accionIniciaSesion(){
+        FXMLLoginController login = new FXMLLoginController();
+        login.abrirVentana();
+    }
+    public void accionRegistrarse(){
+         FXMLRegisterController register = new FXMLRegisterController();
+         register.abrirVentana();
+    }
+    
+    
+    public void accionGuardarDiseno(){
+        if(casa == null){
+            util.Util.mostrarDialogAlert("Debe Seleccionar una Casa Basica");
+        }
     }
 }

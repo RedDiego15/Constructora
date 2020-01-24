@@ -38,7 +38,7 @@ MAIN
     
     
 }
-#label-informacion{
+.label-informacion{
     -fx-font-size:13px;
     -fx-text-fill: black;
 }

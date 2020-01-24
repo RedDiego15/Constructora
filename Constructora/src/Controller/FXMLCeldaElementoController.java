@@ -117,6 +117,8 @@ public class FXMLCeldaElementoController implements Initializable {
         decoracion = decoration.obtenerElemento();
         
         System.out.println(decoracion.obtenerPresupuesto());
+        
+        this.btnAgregar.setDisable(true);
     
     }
     

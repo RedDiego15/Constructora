@@ -14,11 +14,11 @@
             <AnchorPane prefHeight="760.0" prefWidth="904.0" styleClass="fondo-Main" stylesheets="@../styles/styles.css">
                <children>
                   <Label layoutX="91.0" layoutY="13.0" prefHeight="35.0" prefWidth="159.0" text="Realiza tu Diseño" />
-                  <Button layoutX="660.0" layoutY="18.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Inicia Sesion" />
-                  <Button layoutX="767.0" layoutY="18.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Registrate" />
+                  <Button layoutX="660.0" layoutY="18.0" mnemonicParsing="false" onAction="#accionIniciaSesion" prefHeight="25.0" prefWidth="92.0" text="Inicia Sesion" />
+                  <Button layoutX="767.0" layoutY="18.0" mnemonicParsing="false" onAction="#accionRegistrarse" prefHeight="25.0" prefWidth="92.0" text="Registrate" />
                   <ScrollPane fx:id="scrollPane" disable="true" layoutX="154.0" layoutY="466.0" prefHeight="249.0" prefWidth="567.0" />
                   <Label layoutX="366.0" layoutY="79.0" prefHeight="30.0" prefWidth="107.0" text="Casas Basicas" />
-                  <AnchorPane layoutX="312.0" layoutY="136.0" prefHeight="271.0" prefWidth="281.0" styleClass="login-marco" stylesheets="@../styles/styles.css">
+                  <AnchorPane layoutX="312.0" layoutY="136.0" prefHeight="271.0" prefWidth="277.0" styleClass="login-marco" stylesheets="@../styles/styles.css">
                      <children>
                         <AnchorPane layoutX="131.0" layoutY="27.0" prefHeight="200.0" prefWidth="140.0" stylesheets="@../styles/styles.css">
                            <children>
@@ -34,14 +34,14 @@
                         <Label layoutX="104.0" layoutY="1.0" text="Cielo" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="14.0" layoutY="136.0" prefHeight="271.0" prefWidth="280.0" styleClass="login-marco" stylesheets="@../styles/styles.css">
+                  <AnchorPane layoutX="8.0" layoutY="136.0" prefHeight="271.0" prefWidth="280.0" styleClass="login-marco" stylesheets="@../styles/styles.css">
                      <children>
                         <AnchorPane layoutX="140.0" layoutY="27.0" prefHeight="217.0" prefWidth="119.0">
                            <children>
                               <Label alignment="TOP_LEFT" layoutX="7.0" prefHeight="200.0" prefWidth="126.0" styleClass="label-informacion" stylesheets="@../styles/styles.css" text="#Habitaciones: 3  Metros cuadrados: 150                    #plantas: 2  Esquinera: no Orientacion: Derecha  #Habitaciones: 3 #Baños: 3           Precio: 100000" wrapText="true" />
                            </children>
                         </AnchorPane>
-                        <Button layoutX="99.0" layoutY="238.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Seleccionar" />
+                        <Button layoutX="99.0" layoutY="238.0" mnemonicParsing="false" onAction="#accionSeleccionParaiso" prefHeight="25.0" prefWidth="76.0" text="Seleccionar" />
                         <ImageView fitHeight="158.0" fitWidth="126.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/casaParaiso.jpg" />
@@ -51,14 +51,14 @@
                      </children>
                   </AnchorPane>
                   <Label layoutX="154.0" layoutY="431.0" prefHeight="35.0" prefWidth="250.0" text="Añadir Elementos Adicionales" />
-                  <AnchorPane layoutX="606.0" layoutY="136.0" prefHeight="271.0" prefWidth="275.0" styleClass="login-marco">
+                  <AnchorPane layoutX="610.0" layoutY="136.0" prefHeight="271.0" prefWidth="275.0" styleClass="login-marco">
                      <children>
                         <AnchorPane layoutX="156.0" layoutY="27.0" prefHeight="200.0" prefWidth="112.0">
                            <children>
                               <Label alignment="TOP_LEFT" prefHeight="200.0" prefWidth="126.0" styleClass="label-informacion" stylesheets="@../styles/styles.css" text="#Habitaciones: 4  Metros cuadrados: 250                    #plantas: 3  Esquinera: si Orientacion: Derecha  #Habitaciones: 4 #Baños: 4           Precio: 150000" wrapText="true" />
                            </children>
                         </AnchorPane>
-                        <Button layoutX="110.0" layoutY="238.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Seleccionar" />
+                        <Button layoutX="110.0" layoutY="238.0" mnemonicParsing="false" onAction="#accionSeleccionOasis" prefHeight="25.0" prefWidth="76.0" text="Seleccionar" />
                         <ImageView fitHeight="83.0" fitWidth="140.0" layoutX="8.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/casaOasis.jpg" />
@@ -67,7 +67,7 @@
                         <Label layoutX="115.0" layoutY="1.0" text="Oasis" />
                      </children>
                   </AnchorPane>
-                  <Button layoutX="627.0" layoutY="724.0" mnemonicParsing="false" text="Guardar Diseño" />
+                  <Button layoutX="627.0" layoutY="724.0" mnemonicParsing="false" onAction="#accionGuardarDiseno" text="Guardar Diseño" />
                </children>
             </AnchorPane>
          </content>
