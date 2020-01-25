@@ -47,9 +47,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
         if(validaCampos() && login.accionIngresar()){
             this.abrir();
             
-        }else{
-             util.Util.mostrarDialogAlert("No existe usuario con esa Informacion");
-        }     
+        } 
     }
      public void accionAbrirVentana(){
              this.abrir();
@@ -61,7 +59,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLLogin.fxml"));
             Parent root = loader.load();
             FXMLLoginController main = loader.getController();
-            main.setRoot(nuevaVentana(root));
+            main.setRoot(nuevaVentana(root,"Login"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -30,7 +30,7 @@ public class PisoPorcelanatoNacional extends CasaDecorator{
 
     @Override
     public double obtenerPresupuesto(){
-        return getCasa().obtenerPresupuesto()+10;
+        return getCasa().obtenerPresupuesto()+100;
     }
     
     

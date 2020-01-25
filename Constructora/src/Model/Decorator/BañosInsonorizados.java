@@ -30,7 +30,7 @@ public class BañosInsonorizados extends CasaDecorator{
 
     @Override
     public double obtenerPresupuesto(){
-        return getCasa().obtenerPresupuesto()+30;
+        return getCasa().obtenerPresupuesto()+200;
     }
     
 }

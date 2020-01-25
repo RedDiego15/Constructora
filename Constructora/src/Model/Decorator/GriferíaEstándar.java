@@ -30,7 +30,7 @@ public class GriferíaEstándar extends CasaDecorator{
 
     @Override
     public double obtenerPresupuesto(){
-        return getCasa().obtenerPresupuesto()+8;    
+        return getCasa().obtenerPresupuesto()+50;    
     }
     
     

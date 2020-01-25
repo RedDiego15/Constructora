@@ -41,6 +41,16 @@ MAIN
 .label-informacion{
     -fx-font-size:13px;
     -fx-text-fill: black;
-        
+}
+#label-informacion-Elemento{
+    -fx-Pref-Width:200;
+    -fx-font-size:15px;
+    -fx-text-fill: black;
+    
+}
+#label-informacion-precio{
+    -fx-Pref-Width:80;
+    -fx-font-size:15px;
+    -fx-text-fill: black;
     
 }

@@ -30,6 +30,6 @@ public class AislanteTérmicoEnTecho extends CasaDecorator{
 
     @Override
     public double obtenerPresupuesto(){
-        return getCasa().obtenerPresupuesto()+60;
+        return getCasa().obtenerPresupuesto()+500;
     }
 }
