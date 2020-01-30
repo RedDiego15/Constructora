@@ -70,14 +70,7 @@ public class FXMLMainController extends Ventana implements Initializable {
         
     }
     
-    public void accionSeleccionCielo(){
-        casa = new CasaDirector(new CasaCieloBuilder());
-        casa.construirCasa();
-        System.out.println("en la accion"+casa.getCasa().getPrecioBase());
-       
-        this.crearCeldas();
-        
-    }
+   
     private void crearCeldas(){
         ResultSet res = DataBase.getDataB().executeQuery("SELECT * FROM Elementos;");
         holderScroll = new VBox(15); 
@@ -95,8 +88,6 @@ public class FXMLMainController extends Ventana implements Initializable {
     
     private HBox obtenerCelda(ResultSet res){
         try {
-        /*String nombre,String precio*/
-        //Decorable decorator = new 
         double precio = Double.parseDouble(res.getString("Precio"));
         String nombre = res.getString("Tipo_de_elemento");
         FXMLCeldaElementoController celda = new  FXMLCeldaElementoController(nombre,res.getString("Precio"),precio,casa);
@@ -111,6 +102,14 @@ public class FXMLMainController extends Ventana implements Initializable {
         return null;
     }
     
+     public void accionSeleccionCielo(){
+        casa = new CasaDirector(new CasaCieloBuilder());
+        casa.construirCasa();
+        System.out.println("en la accion"+casa.getCasa().getPrecioBase());
+       
+        this.crearCeldas();
+        
+    }
     public void accionSeleccionParaiso(){
         casa = new CasaDirector(new CasaParaisoBuilder());
         casa.construirCasa();

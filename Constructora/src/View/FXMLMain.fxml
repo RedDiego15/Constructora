@@ -67,7 +67,7 @@
                         <Label layoutX="115.0" layoutY="1.0" text="Oasis" />
                      </children>
                   </AnchorPane>
-                  <Button layoutX="627.0" layoutY="724.0" mnemonicParsing="false" onAction="#accionGuardarDiseno" text="Guardar Diseño" />
+                  <Button disable="true" layoutX="627.0" layoutY="724.0" mnemonicParsing="false" onAction="#accionGuardarDiseno" text="Guardar Diseño" />
                </children>
             </AnchorPane>
          </content>

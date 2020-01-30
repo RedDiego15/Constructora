@@ -57,12 +57,6 @@ public class FXMLCeldaElementoController implements Initializable {
         organice();
     }
     
-    
-    
-    public void setCasa(CasaDirector casa) {
-        this.casa = casa;
-    }
-    
     private void organice(){
         this.lblNombreE.setId("label-informacion-Elemento");
         this.lblPrecio.setId("label-informacion-precio");
@@ -73,9 +67,6 @@ public class FXMLCeldaElementoController implements Initializable {
     }
     
     
-    
-    
-
     public void setPrecio(double precio) {
         this.precio = precio;
     }

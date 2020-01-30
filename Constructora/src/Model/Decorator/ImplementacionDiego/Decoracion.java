@@ -11,17 +11,19 @@ import Model.Builder.CasaDirector;
 
 /**
  *
- * @author Lenovo comp
+ * @author Diego Rojas
  */
 public class Decoracion implements Decor{
     private String nombre;
     private CasaDirector casa;
+    private double precio;
     //private ElementoDecorator decorator;
     
     
     public Decoracion(String nombre,CasaDirector casa){
         this.nombre = nombre;
         this.casa = casa;
+        this.precio = casa.getCasa().getPrecioBase();
     }
 
     @Override
@@ -31,16 +33,32 @@ public class Decoracion implements Decor{
 
     @Override
     public double obtenerPresupuesto() {
-        return this.casa.getCasa().getPrecioBase();
+        //return this.casa.getCasa().getPrecioBase();
+        return this.precio;
     }
     
     public Decor obtenerElemento(){
         if(nombre.equals("Techo con aislante térmico ")){
-            System.out.println("entro a techoAis con espacio");
             return new TechoAislanteTermico(this);
         }else if(nombre.equals("Piso Porcelanato Nacional")){
-            System.out.println("falta implementar");
+            return new PisoPorcelanatoNacional(this);
+        }else if(nombre.equals("Piso Porcelanato importado")){
+            return new PisoPorcelanatoImportado(this);
+        }else if(nombre.equals("grifería estándar")){ 
+            return new GrafiteriaEstandar(this);
+        }else if(nombre.equals("grifería Italiana")){
+            return new GrafiteriaItaliana(this);
+        }else if(nombre.equals("iluminación tradicional ")){
+            return new IluminacionTradicional(this);
+        }else if(nombre.equals("iluminación led ")){
+            return new Led(this);       
+        }else if(nombre.equals("baños insonorizados")){
+            return new BañosInsonorizados(this);
+        }else if(nombre.equals("Techo con aislante térmico ")){
+            return new TechoAislanteTermico(this);
+        
         }
+            
         /*
         faltaria para los demas elementos para cada caso
         */
