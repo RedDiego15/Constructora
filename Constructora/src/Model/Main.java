@@ -38,7 +38,7 @@ public class Main extends Application{
          
         Decoracion decoration = (Decoracion) decorable;
         
-        decorable = new TechoAislanteTermico(decorable);
+        decorable = decoration.obtenerElemento();//new TechoAislanteTermico(decorable);
         decorable = new Led(decorable);
 
         
@@ -49,7 +49,7 @@ public class Main extends Application{
         */
         
         System.out.println("decorable 1 "+decorable.obtenerPresupuesto());
-        System.out.println("decorable 2 "+decorable2.obtenerPresupuesto());
+        //System.out.println("decorable 2 "+decorable2.obtenerPresupuesto());
         System.out.println("Casa"+casa.getCasa().getPrecioBase());
 
         
