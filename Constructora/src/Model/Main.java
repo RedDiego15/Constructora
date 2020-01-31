@@ -35,20 +35,20 @@ public class Main extends Application{
         Decor decorable = new Decoracion("Techo con aislante térmico ",casa);
         Decor decorable2 = new Decoracion("baños insonorizados",casa);
         
-         
-        Decoracion decoration = (Decoracion) decorable;
+        Decor casaCambios =  (Decor) casa;
+        casaCambios =  new Led(casaCambios);
+        casaCambios = new TechoAislanteTermico(casaCambios);
         
-        decorable = decoration.obtenerElemento();//new TechoAislanteTermico(decorable);
-        decorable = new Led(decorable);
-
         
+        
+       
         /*
         decoration = (Decoracion) decorable2;
         
         decorable = decoration.obtenerElemento();
         */
         
-        System.out.println("decorable 1 "+decorable.obtenerPresupuesto());
+        System.out.println("casa Cambios 1 "+casaCambios.obtenerPresupuesto());
         //System.out.println("decorable 2 "+decorable2.obtenerPresupuesto());
         System.out.println("Casa"+casa.getCasa().getPrecioBase());
 

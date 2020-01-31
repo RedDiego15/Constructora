@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import Model.Casa;
 import Model.Builder.CasaCieloBuilder;
 import Model.Builder.CasaDirector;
 import Model.Builder.CasaOasisBuilder;
@@ -43,6 +42,7 @@ public class FXMLMainController extends Ventana implements Initializable {
     private VBox holderScroll;
     private Stage root;
     private CasaDirector casa;
+    public static Decor casaCambios;
     /**
      * Initializes the controller class.
      */
@@ -72,14 +72,15 @@ public class FXMLMainController extends Ventana implements Initializable {
     
    
     private void crearCeldas(){
+        casaCambios =  (Decor) casa;
         ResultSet res = DataBase.getDataB().executeQuery("SELECT * FROM Elementos;");
         holderScroll = new VBox(15); 
         try {
             while(res.next()){
                 HBox celda = this.obtenerCelda(res);
-                this.holderScroll.getChildren().add(celda);
-                this.scrollPane.setDisable(false);
+                this.holderScroll.getChildren().add(celda);   
             }
+            this.scrollPane.setDisable(false);
             this.scrollPane.setContent(holderScroll);
         } catch (SQLException ex) {
             Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
@@ -90,9 +91,10 @@ public class FXMLMainController extends Ventana implements Initializable {
         try {
         double precio = Double.parseDouble(res.getString("Precio"));
         String nombre = res.getString("Tipo_de_elemento");
-        FXMLCeldaElementoController celda = new  FXMLCeldaElementoController(nombre,res.getString("Precio"),precio,casa);
-        Decor decorable = new Decoracion(nombre,casa);
-        celda.setDecorator(decorable);
+        FXMLCeldaElementoController celda = new  FXMLCeldaElementoController(nombre,res.getString("Precio"),precio);
+        
+        //Decor decorable = new Decoracion(nombre,casa);
+       // celda.setDecorator(decorable);
         
         return celda.getRoot();
         

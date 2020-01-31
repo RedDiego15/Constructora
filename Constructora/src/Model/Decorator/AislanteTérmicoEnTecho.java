@@ -11,6 +11,7 @@ import Model.Casa;
  *
  * @author GaryBarzola
  */
+/*
 public class AislanteTérmicoEnTecho extends CasaDecorator{
     
     public AislanteTérmicoEnTecho(Casa casa){
@@ -33,3 +34,4 @@ public class AislanteTérmicoEnTecho extends CasaDecorator{
         return getCasa().obtenerPresupuesto()+500;
     }
 }
+*/

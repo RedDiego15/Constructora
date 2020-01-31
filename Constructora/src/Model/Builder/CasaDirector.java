@@ -6,12 +6,13 @@
 package Model.Builder;
 
 import Model.Casa;
+import Model.Decorator.ImplementacionDiego.Decor;
 
 /**
  *
  * @author GaryBarzola
  */
-public class CasaDirector {
+public class CasaDirector implements Decor{
     
     private CasaBuilder builder;
 
@@ -27,4 +28,20 @@ public class CasaDirector {
     public Casa getCasa(){
         return builder.getCasa();
     }
+    
+         //@Override
+    public String getDescripcion() {
+        return this.toString();
+    }
+
+    @Override
+    public String getTipo() {
+        return builder.getCasa().getName();
+    }
+
+    @Override
+    public double obtenerPresupuesto() {
+        return builder.getCasa().getPrecioBase();
+    }
+    
 }

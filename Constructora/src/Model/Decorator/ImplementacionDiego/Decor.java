@@ -10,7 +10,8 @@ package Model.Decorator.ImplementacionDiego;
  * @author Lenovo comp
  */
 public interface Decor {
-      public String getTipo();
+    
+    public String getTipo();
     
     public double obtenerPresupuesto();
     

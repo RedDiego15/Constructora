@@ -36,7 +36,7 @@ public class Decoracion implements Decor{
         //return this.casa.getCasa().getPrecioBase();
         return this.precio;
     }
-    
+    /*
     public Decor obtenerElemento(){
         if(nombre.equals("Techo con aislante térmico ")){
             return new TechoAislanteTermico(this);
@@ -59,11 +59,9 @@ public class Decoracion implements Decor{
         
         }
             
-        /*
-        faltaria para los demas elementos para cada caso
-        */
+        
         return null;
-    }
+    }*/
     
     
 }

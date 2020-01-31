@@ -5,10 +5,16 @@
  */
 package Controller;
 
-import Model.Builder.CasaDirector;
+import static Controller.FXMLMainController.casaCambios;
 import Model.Decorator.ImplementacionDiego.Decor;
-import Model.Decorator.Decorable;
-import Model.Decorator.ImplementacionDiego.Decoracion;
+import Model.Decorator.ImplementacionDiego.BañosInsonorizados;
+import Model.Decorator.ImplementacionDiego.GrafiteriaEstandar;
+import Model.Decorator.ImplementacionDiego.GrafiteriaItaliana;
+import Model.Decorator.ImplementacionDiego.IluminacionTradicional;
+import Model.Decorator.ImplementacionDiego.Led;
+import Model.Decorator.ImplementacionDiego.PisoPorcelanatoImportado;
+import Model.Decorator.ImplementacionDiego.PisoPorcelanatoNacional;
+import Model.Decorator.ImplementacionDiego.TechoAislanteTermico;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -17,7 +23,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -36,19 +41,23 @@ public class FXMLCeldaElementoController implements Initializable {
     @FXML
     private Button btnAgregar;
     
+    private String nombre;
+    
     private double precio;
     
-    private CasaDirector casa;
+   // private CasaDirector casa;
    // private Decorable decoracion;
     
-    private Decor decoracion;
+    //public  Decor decoracion;
     
     
     
     
-    public FXMLCeldaElementoController(String nombre,String precio,double valor,CasaDirector casa){
+    public FXMLCeldaElementoController(String nombre,String precio,double valor){
         root = new HBox(15);
-        this.casa = casa;
+        this.nombre = nombre;
+       // this.decoracion = decoracion;
+        //this.casa = casa;
         this.btnAgregar = new Button("AGREGAR");
         this.btnAgregar.setOnAction(e -> agregarDetalle());
         this.lblNombreE = new Label(nombre);
@@ -90,10 +99,6 @@ public class FXMLCeldaElementoController implements Initializable {
         return root;
     }
 
-    public void setDecorator(Decor decorator) {
-        this.decoracion = decorator;
-    }
-
     /**
      * Initializes the controller class.
      */
@@ -102,18 +107,35 @@ public class FXMLCeldaElementoController implements Initializable {
         // TODO
     }
     
-    private void agregarDetalle(){
-        Decoracion decoration = (Decoracion) decoracion;
+    public void agregarDetalle(){
+        casaCambios = this.obtenerElemento();
         
-        decoracion = decoration.obtenerElemento();
-        
-        System.out.println(decoracion.obtenerPresupuesto());
-        
+        System.out.println(casaCambios.obtenerPresupuesto());
         this.btnAgregar.setDisable(true);
     
     }
     
-    
-    
+    private Decor obtenerElemento(){
+        if(nombre.equals("Techo con aislante térmico ")){
+            return new TechoAislanteTermico(casaCambios);
+        }else if(nombre.equals("Piso Porcelanato Nacional")){
+            return new PisoPorcelanatoNacional(casaCambios);
+        }else if(nombre.equals("Piso Porcelanato importado")){
+            return new PisoPorcelanatoImportado(casaCambios);
+        }else if(nombre.equals("grifería estándar")){ 
+            return new GrafiteriaEstandar(casaCambios);
+        }else if(nombre.equals("grifería Italiana")){
+            return new GrafiteriaItaliana(casaCambios);
+        }else if(nombre.equals("iluminación tradicional ")){
+            return new IluminacionTradicional(casaCambios);
+        }else if(nombre.equals("iluminación led ")){
+            return new Led(casaCambios);       
+        }else if(nombre.equals("baños insonorizados")){
+            return new BañosInsonorizados(casaCambios);
+        }else if(nombre.equals("Techo con aislante térmico ")){
+            return new TechoAislanteTermico(casaCambios);
+        }
+        return null;
+    }  
     
 }

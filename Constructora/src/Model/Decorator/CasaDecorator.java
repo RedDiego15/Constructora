@@ -11,6 +11,8 @@ import Model.Casa;
  *
  * @author CltControl
  */
+
+/*
 public abstract class CasaDecorator implements Decorable {
     private Casa casa;
     
@@ -43,3 +45,4 @@ public abstract class CasaDecorator implements Decorable {
     }
     
 }
+*/

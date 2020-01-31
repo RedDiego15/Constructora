@@ -5,13 +5,14 @@
  */
 package Model;
 
-import Model.Decorator.Decorable;
+
+import Model.Decorator.ImplementacionDiego.Decor;
 
 /**
  *
  * @author GaryBarzola
  */
-public class Casa implements Decorable{
+public class Casa{
     
 
     protected double mtsCuadrados;
@@ -138,24 +139,5 @@ public class Casa implements Decorable{
 
     public void setAislanteTérmicoEnTecho(boolean aislanteTérmicoEnTecho) {
         this.aislanteTérmicoEnTecho = aislanteTérmicoEnTecho;
-    }
-    
-    
-
-    @Override
-    public String getDescripcion() {
-        return this.toString();
-    }
-
-    @Override
-    public String getTipo() {
-        return this.name;
-    }
-
-    @Override
-    public double obtenerPresupuesto() {
-        return this.PrecioBase;
-    }
-    
-    
+    } 
 }
