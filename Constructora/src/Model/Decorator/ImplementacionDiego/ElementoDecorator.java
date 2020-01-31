@@ -13,6 +13,7 @@ import Model.Casa;
  * @author Lenovo comp
  */
 public abstract class ElementoDecorator implements Decor {
+    
     private Decor decorable;
     
     public ElementoDecorator(Decor decorable){

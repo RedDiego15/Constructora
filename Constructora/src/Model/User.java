@@ -9,31 +9,54 @@ package Model;
  *
  * @author Diego Rojas
  */
-public abstract class User {
+public class User {
     
     protected String cedula;
-    protected String rol;
-    
     protected String nombre;
     protected String apellido;
     protected String celular;
     protected String correo;
     protected String direccion;
-    protected String cargo;
     protected String estadoCivil;
+    
 
-    public User(String cedula, String nombre, String apellido, String celular, String correo, String direccion, String cargo, String estadoCivil, String rol) {
+    public User(String cedula, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
         this.correo = correo;
         this.direccion = direccion;
-        this.cargo = cargo;
         this.estadoCivil = estadoCivil;
-        this.rol = rol;
+
     }
-    
-    
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
     
 }
