@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Model/Decorator/CasaDecorator.java</file>
-            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Controller/Conexion.java</file>
-            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Model/Builder/CasaBuilder.java</file>
-            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Model/Main.java</file>
-            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Model/Builder/CasaParaisoBuilder.java</file>
-            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Model/Builder/CasaCieloBuilder.java</file>
-            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Model/Casa.java</file>
-            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Model/Builder/CasaOasisBuilder.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
