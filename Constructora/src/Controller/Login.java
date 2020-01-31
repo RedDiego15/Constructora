@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -54,6 +56,17 @@ public class Login {
             util.Util.mostrarDialogAlert("La contraseña no coincide");
             return false;
         }
+    }
+    public int obtenerRol(){
+        try {
+            res = DataBase.getDataB().executeQuery("select rol from Usuarios where cedula = "+cedula+" ;");
+            if(res.next())
+                return Integer.parseInt(res.getString("rol"));
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
     }
     
     

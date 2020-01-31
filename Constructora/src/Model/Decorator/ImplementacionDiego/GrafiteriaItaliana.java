@@ -9,10 +9,15 @@ package Model.Decorator.ImplementacionDiego;
  *
  * @author Lenovo comp
  */
-public interface Decor {
+public class GrafiteriaItaliana extends ElementoDecorator{
+
+    public GrafiteriaItaliana(Decor decorable) {
+        super(decorable);
+    }
     
-    public String getTipo();
     
-    public double obtenerPresupuesto();
-    
+    @Override
+    public double obtenerPresupuesto() {
+        return getDecorable().obtenerPresupuesto()+100;
+    }
 }

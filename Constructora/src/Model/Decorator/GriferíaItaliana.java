@@ -11,6 +11,7 @@ import Model.Casa;
  *
  * @author GaryBarzola
  */
+/*
 public class GriferíaItaliana extends CasaDecorator{
     
     public GriferíaItaliana(Casa casa){
@@ -33,4 +34,4 @@ public class GriferíaItaliana extends CasaDecorator{
         return getCasa().obtenerPresupuesto()+100;
     }
     
-}
+}*/

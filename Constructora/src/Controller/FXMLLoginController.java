@@ -5,8 +5,11 @@
  */
 package Controller;
 
+import Model.Cliente;
+import Model.User;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,8 +17,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -34,6 +35,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
     
     private final FXMLMainController main = new FXMLMainController();
     private Login login;
+    private ResultSet res;
    
     /**
      * Initializes the controller class.
@@ -45,6 +47,15 @@ public class FXMLLoginController extends Ventana implements Initializable{
     }
      public void accionIngresar() {
         if(validaCampos() && login.accionIngresar()){
+            User user;
+            int n = login.obtenerRol();
+            if(n == 1){
+                
+            }else if(n ==2){
+            
+            }else{
+                Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
+            }
             this.abrir();
             
         } 
@@ -80,4 +91,5 @@ public class FXMLLoginController extends Ventana implements Initializable{
     public void setRoot(Stage root) {
         this.root = root;
     }
+
 }

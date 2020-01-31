@@ -11,6 +11,7 @@ import Model.Casa;
  *
  * @author GaryBarzola
  */
+/*
 public class IluminaciónTradicional extends CasaDecorator{
     
     public IluminaciónTradicional(Casa casa){
@@ -34,3 +35,4 @@ public class IluminaciónTradicional extends CasaDecorator{
     }
     
 }
+*/

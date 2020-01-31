@@ -11,6 +11,7 @@ import Model.Casa;
  *
  * @author GaryBarzola
  */
+/*
 public class Led extends CasaDecorator{
     
     public Led(Casa casa){
@@ -33,4 +34,4 @@ public class Led extends CasaDecorator{
         return getCasa().obtenerPresupuesto()+120;
     }
     
-}
+}*/

@@ -9,10 +9,15 @@ package Model.Decorator.ImplementacionDiego;
  *
  * @author Lenovo comp
  */
-public interface Decor {
+public class IluminacionTradicional extends ElementoDecorator{
+
+    public IluminacionTradicional(Decor decorable) {
+        super(decorable);
+    }
+
     
-    public String getTipo();
-    
-    public double obtenerPresupuesto();
-    
+    @Override
+    public double obtenerPresupuesto() {
+        return getDecorable().obtenerPresupuesto()+60;
+    }
 }

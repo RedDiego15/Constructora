@@ -11,6 +11,7 @@ import Model.Casa;
  *
  * @author GaryBarzola
  */
+/*
 public class BañosInsonorizados extends CasaDecorator{
     
     public BañosInsonorizados(Casa casa){
@@ -34,3 +35,4 @@ public class BañosInsonorizados extends CasaDecorator{
     }
     
 }
+*/

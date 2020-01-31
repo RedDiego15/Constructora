@@ -5,18 +5,15 @@
  */
 package Controller;
 
-import Model.Casa;
 import Model.Builder.CasaCieloBuilder;
 import Model.Builder.CasaDirector;
 import Model.Builder.CasaOasisBuilder;
 import Model.Builder.CasaParaisoBuilder;
+import Model.Cliente;
 import Model.Decorator.ImplementacionDiego.Decor;
-import Model.Decorator.Decorable;
-import Model.Decorator.ImplementacionDiego.Decoracion;
+import View.FXMLCeldaElemento;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,9 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import javafx.stage.Stage;
@@ -43,6 +38,7 @@ public class FXMLMainController extends Ventana implements Initializable {
     private VBox holderScroll;
     private Stage root;
     private CasaDirector casa;
+    public static Decor casaCambios;
     /**
      * Initializes the controller class.
      */
@@ -69,59 +65,31 @@ public class FXMLMainController extends Ventana implements Initializable {
         }
         
     }
-    
-    public void accionSeleccionCielo(){
+    private void llenarElementos(){
+        casaCambios =  (Decor) casa;
+        FXMLCeldaElemento celdas = new FXMLCeldaElemento();
+        celdas.crearCeldas(holderScroll, scrollPane);
+        
+    }
+     public void accionSeleccionCielo(){
         casa = new CasaDirector(new CasaCieloBuilder());
         casa.construirCasa();
         System.out.println("en la accion"+casa.getCasa().getPrecioBase());
        
-        this.crearCeldas();
+        this.llenarElementos();
         
     }
-    private void crearCeldas(){
-        ResultSet res = DataBase.getDataB().executeQuery("SELECT * FROM Elementos;");
-        holderScroll = new VBox(15); 
-        try {
-            while(res.next()){
-                HBox celda = this.obtenerCelda(res);
-                this.holderScroll.getChildren().add(celda);
-                this.scrollPane.setDisable(false);
-            }
-            this.scrollPane.setContent(holderScroll);
-        } catch (SQLException ex) {
-            Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    } 
-    
-    private HBox obtenerCelda(ResultSet res){
-        try {
-        /*String nombre,String precio*/
-        //Decorable decorator = new 
-        double precio = Double.parseDouble(res.getString("Precio"));
-        String nombre = res.getString("Tipo_de_elemento");
-        FXMLCeldaElementoController celda = new  FXMLCeldaElementoController(nombre,res.getString("Precio"),precio,casa);
-        Decor decorable = new Decoracion(nombre,casa);
-        celda.setDecorator(decorable);
-        
-        return celda.getRoot();
-        
-        } catch (SQLException ex) {
-            Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
-    
     public void accionSeleccionParaiso(){
         casa = new CasaDirector(new CasaParaisoBuilder());
         casa.construirCasa();
         System.out.println("en la accion"+casa.getCasa().getPrecioBase());
-        this.crearCeldas();
+        this.llenarElementos();
     }
     public void accionSeleccionOasis(){
         casa = new CasaDirector(new CasaOasisBuilder());
         casa.construirCasa();
         System.out.println("en la accion"+casa.getCasa().getPrecioBase());
-        this.crearCeldas();
+        this.llenarElementos();
     
     }
     public void accionIniciaSesion(){
@@ -133,10 +101,14 @@ public class FXMLMainController extends Ventana implements Initializable {
          register.abrirVentana();
     }
     
-    
     public void accionGuardarDiseno(){
         if(casa == null){
             util.Util.mostrarDialogAlert("Debe Seleccionar una Casa Basica");
+        }else if (Cliente.getInstance() == null){
+            util.Util.mostrarDialogAlert("Debe iniciar sesion antes de guardar su Diseno");
+        }else{
+            
+        
         }
     }
 }

@@ -11,6 +11,7 @@ import Model.Casa;
  *
  * @author GaryBarzola
  */
+/*
 public class GriferíaEstándar extends CasaDecorator{
     
     public GriferíaEstándar(Casa casa){
@@ -35,3 +36,4 @@ public class GriferíaEstándar extends CasaDecorator{
     
     
 }
+*/

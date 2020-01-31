@@ -13,6 +13,7 @@ import Model.Casa;
  * @author Lenovo comp
  */
 public abstract class ElementoDecorator implements Decor {
+    
     private Decor decorable;
     
     public ElementoDecorator(Decor decorable){
@@ -34,6 +35,8 @@ public abstract class ElementoDecorator implements Decor {
     public double obtenerPresupuesto() {
         return getDecorable().obtenerPresupuesto();
     }
+    
+    
     
     
 }

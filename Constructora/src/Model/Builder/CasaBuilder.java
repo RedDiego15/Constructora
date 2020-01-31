@@ -7,6 +7,7 @@ package Model.Builder;
 
 import Controller.DataBase;
 import Model.Casa;
+import Model.Decorator.ImplementacionDiego.Decor;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ import java.sql.SQLException;
  *
  * @author GaryBarzola
  */
-public abstract class CasaBuilder {
+public abstract class CasaBuilder{
     
     protected ResultSet res;
     

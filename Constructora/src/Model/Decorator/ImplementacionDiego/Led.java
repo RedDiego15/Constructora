@@ -9,10 +9,13 @@ package Model.Decorator.ImplementacionDiego;
  *
  * @author Lenovo comp
  */
-public interface Decor {
-    
-    public String getTipo();
-    
-    public double obtenerPresupuesto();
-    
+public class Led  extends ElementoDecorator{
+
+    public Led(Decor decorable) {
+        super(decorable);
+    }
+     @Override
+    public double obtenerPresupuesto() {
+        return getDecorable().obtenerPresupuesto()+120;
+    }
 }

@@ -11,6 +11,7 @@ import Model.Casa;
  *
  * @author CltControl
  */
+/*
 public class PisoPorcelanatoNacional extends CasaDecorator{
     
     public PisoPorcelanatoNacional(Casa casa){
@@ -35,3 +36,4 @@ public class PisoPorcelanatoNacional extends CasaDecorator{
     
     
 }
+*/

@@ -11,6 +11,7 @@ import Model.Casa;
  *
  * @author GaryBarzola
  */
+/*
 public class PisosPorcelanatoImportado extends CasaDecorator{
     
     public PisosPorcelanatoImportado(Casa casa){
@@ -33,4 +34,4 @@ public class PisosPorcelanatoImportado extends CasaDecorator{
         return getCasa().obtenerPresupuesto()+150;
     }
     
-}
+}*/
