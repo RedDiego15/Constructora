@@ -24,7 +24,7 @@ public class Cliente extends User{
     private String NumHijos;
     
     
-    private Cliente(String cedula, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
+    public Cliente(String cedula, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
                     String idEmpresa,String cargo, String NumHijos){
         super(cedula, nombre, apellido, celular, correo, direccion, estadoCivil);
         this.idEmpresa = idEmpresa;

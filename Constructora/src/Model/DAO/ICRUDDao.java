@@ -12,11 +12,11 @@ import java.util.List;
  *
  * @author GaryBarzola
  */
-public interface IClienteDao {	
+public interface ICRUDDao {	
     
-    public boolean registrarCliente(Cliente cliente);
+    public boolean registrar(Cliente cliente);
     public List<Cliente> obtenerClientes();
-    public boolean actualizarCliente(Cliente cliente);
-    public boolean eliminarCliente(Cliente cliente);
+    public boolean actualizar(Cliente cliente);
+    public boolean eliminar(Cliente cliente);
 
 }

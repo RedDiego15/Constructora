@@ -19,25 +19,23 @@ import java.util.List;
  *
  * @author GaryBarzola
  */
-public class ClienteDaoImpl implements IClienteDao{
-    
+public class ClienteDaoImpl implements ICRUDDao{
+    private Connection connect= null;
+    private Statement stm= null;
     
     @Override
-    public boolean registrarCliente(Cliente cliente) {
+    public boolean registrar(Cliente cliente) {
         boolean registrar = false;
 
-        Statement stm= null;
-        Connection con=null;
-
-        String sql="INSERT INTO cliente values ("+cliente.getCedula()+"',Null,Null,'"+cliente.getNombre()+"','"+cliente.getApellido()+"','"+cliente.getCelular()+"','"+cliente.getCorreo()+"','"+cliente.getDireccion()+"','"+cliente.getEstadoCivil()+"','"+cliente.getCargo()+"','"+cliente.getNumHijos()+"')";
+        String sql="INSERT INTO Clientes values ("+cliente.getCedula()+",Null,Null,"+cliente.getNombre()+","+cliente.getApellido()+","+cliente.getCelular()+","+cliente.getCorreo()+","+cliente.getDireccion()+","+cliente.getEstadoCivil()+","+cliente.getCargo()+","+cliente.getNumHijos()+")";
 
         try {			
-                con=Conexion.getConex().conectarMySQL();
-                stm= con.createStatement();
+                connect=Conexion.getConex().conectarMySQL();
+                stm= connect.createStatement();
                 stm.execute(sql);
                 registrar=true;
                 stm.close();
-                con.close();
+                connect.close();
         } catch (SQLException e) {
                 System.out.println("Error: Clase ClienteDaoImple, método registrar");
                 e.printStackTrace();
@@ -47,8 +45,7 @@ public class ClienteDaoImpl implements IClienteDao{
 
     @Override
     public List<Cliente> obtenerClientes() {
-        Connection co =null;
-        Statement stm= null;
+
         ResultSet rs=null;
 
         String sql="SELECT * FROM CLIENTE ORDER BY Nombre";
@@ -56,8 +53,8 @@ public class ClienteDaoImpl implements IClienteDao{
         List<Cliente> listaCliente= new LinkedList<>();
 
         try {			
-            co= Conexion.getConex().conectarMySQL();
-            stm=co.createStatement();
+            connect= Conexion.getConex().conectarMySQL();
+            stm=connect.createStatement();
             rs=stm.executeQuery(sql);
             while (rs.next()) {
                 Cliente c=Cliente.getInstance();                       
@@ -74,7 +71,7 @@ public class ClienteDaoImpl implements IClienteDao{
             }
             stm.close();
             rs.close();
-            co.close();
+            connect.close();
         } catch (SQLException e) {
                 System.out.println("Error: Clase ClienteDaoImple, método obtener");
                 e.printStackTrace();
@@ -84,13 +81,10 @@ public class ClienteDaoImpl implements IClienteDao{
     }
 
     @Override
-    public boolean actualizarCliente(Cliente cliente) { //Falta actualizar los otros campos
-        Connection connect= null;
-        Statement stm= null;
-
+    public boolean actualizar(Cliente cliente) { //Falta actualizar los otros campos
         boolean actualizar=false;
 
-        String sql="UPDATE CLIENTE SET Nombre='"+cliente.getNombre()+"', Apellido='"+cliente.getApellido()+"'" +" WHERE Cedula="+cliente.getCedula();
+        String sql="UPDATE Clientes SET Nombre='"+cliente.getNombre()+"', Apellido='"+cliente.getApellido()+"'" +" WHERE Cedula="+cliente.getCedula();
         try {
                 connect=Conexion.getConex().conectarMySQL();
                 stm=connect.createStatement();
@@ -104,13 +98,10 @@ public class ClienteDaoImpl implements IClienteDao{
     }
 
     @Override
-    public boolean eliminarCliente(Cliente cliente) {
-        Connection connect= null;
-        Statement stm= null;
-
+    public boolean eliminar(Cliente cliente) {
         boolean eliminar=false;
 
-        String sql="DELETE FROM CLIENTE WHERE Cedula="+cliente.getCedula();
+        String sql="DELETE FROM Clientes WHERE Cedula="+cliente.getCedula();
         try {
                 connect=Conexion.getConex().conectarMySQL();
                 stm=connect.createStatement();
