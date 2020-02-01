@@ -5,35 +5,17 @@
  */
 package Model.Decorator;
 
-import Model.Casa;
-
 /**
  *
- * @author CltControl
+ * @author Lenovo comp
  */
-/*
-public class PisoPorcelanatoNacional extends CasaDecorator{
-    
-    public PisoPorcelanatoNacional(Casa casa){
-        super(casa);
-    }
+public class PisoPorcelanatoNacional extends ElementoDecorator{
 
-    @Override
-    public String getTipo(){
-        return getCasa().getTipo();
+    public PisoPorcelanatoNacional(Decor decorable) {
+        super(decorable);
     }
-    
-    @Override
-    public String getDescripcion(){
-        getCasa().setPisosPorcelanatoNacional(true);
-        return getCasa().getDescripcion();
+     @Override
+    public double obtenerPresupuesto() {
+        return getDecorable().obtenerPresupuesto()+100;
     }
-
-    @Override
-    public double obtenerPresupuesto(){
-        return getCasa().obtenerPresupuesto()+100;
-    }
-    
-    
 }
-*/

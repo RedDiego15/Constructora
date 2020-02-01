@@ -47,14 +47,15 @@ public class FXMLLoginController extends Ventana implements Initializable{
     }
      public void accionIngresar() {
         if(validaCampos() && login.accionIngresar()){
-            User user;
             int n = login.obtenerRol();
-            if(n == 1){
-                
-            }else if(n ==2){
-            
-            }else{
-                Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
+            switch (n) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    //Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
+                    break;
             }
             this.abrir();
             

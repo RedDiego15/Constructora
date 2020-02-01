@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.DAO;
+package Model.DAO.Cliente;
 
 import Controller.Conexion;
+import Controller.DataBase;
 import Model.Cliente;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -30,7 +31,7 @@ public class ClienteDaoImpl implements ICRUDDao{
         boolean registrar = false;
         try {
             connect = Conexion.getConex().conectarMySQL();
-            CallableStatement sp = connect.prepareCall(" CALL registrarCliente(?,?,?,?,?,?,?,?,?,?,?)");
+            CallableStatement sp = connect.prepareCall(" CALL registrarCliente(?,?,?,?,?,?,?,?,?,?)");
             sp.setString(1, cliente.getCedula());
             sp.setString(2, cliente.getIdEmpresa());
             sp.setString(3, cliente.getNombre());
@@ -53,17 +54,11 @@ public class ClienteDaoImpl implements ICRUDDao{
 
     @Override
     public List<Cliente> obtenerClientes() {
-
-        ResultSet rs=null;
-
-        String sql="SELECT * FROM CLIENTE ORDER BY Nombre";
-
         List<Cliente> listaCliente= new LinkedList<>();
-
+        ResultSet rs=null;
+        String sql="SELECT * FROM Clientes ORDER BY Nombre";
         try {			
-            connect= Conexion.getConex().conectarMySQL();
-            stm=connect.createStatement();
-            rs=stm.executeQuery(sql);
+            rs=DataBase.getDataB().executeQuery(sql);
             while (rs.next()) {
                 Cliente c=Cliente.getInstance();                       
                 c.setCedula(rs.getString(1));
@@ -77,7 +72,6 @@ public class ClienteDaoImpl implements ICRUDDao{
                 c.setNumHijos(rs.getString(11));
                 listaCliente.add(c);
             }
-            stm.close();
             rs.close();
             connect.close();
         } catch (SQLException e) {
@@ -88,10 +82,11 @@ public class ClienteDaoImpl implements ICRUDDao{
         return listaCliente;
     }
 
+    
     @Override
     public boolean actualizar(Cliente cliente) { //Falta actualizar los otros campos
         boolean actualizar=false;
-
+        /*
         String sql="UPDATE Clientes SET Nombre='"+cliente.getNombre()+"', Apellido='"+cliente.getApellido()+"'" +" WHERE Cedula="+cliente.getCedula();
         try {
                 connect=Conexion.getConex().conectarMySQL();
@@ -101,14 +96,14 @@ public class ClienteDaoImpl implements ICRUDDao{
         } catch (SQLException e) {
                 System.out.println("Error: Clase ClienteDaoImple, método actualizar");
                 e.printStackTrace();
-        }		
+        }*/	
         return actualizar;
     }
 
     @Override
     public boolean eliminar(Cliente cliente) {
         boolean eliminar=false;
-
+        /*
         String sql="DELETE FROM Clientes WHERE Cedula="+cliente.getCedula();
         try {
                 connect=Conexion.getConex().conectarMySQL();
@@ -118,9 +113,28 @@ public class ClienteDaoImpl implements ICRUDDao{
         } catch (SQLException e) {
                 System.out.println("Error: Clase ClienteDaoImple, método eliminar");
                 e.printStackTrace();
-        }		
+        }*/	
         return eliminar;
     }
 
+    
+    @Override
+    public boolean crearUsuario(String cedula, String passport, String pass, String roll){
+        boolean registrar = false;
+        try {
+            connect = Conexion.getConex().conectarMySQL();
+            CallableStatement sp = connect.prepareCall(" CALL crearUsuario(?,?,?,?)");
+            sp.setString(1, cedula);
+            sp.setString(2, passport);
+            sp.setString(3, pass);
+            sp.setString(4, roll);
+            sp.execute();
+            sp.close();
+            connect.close();
+        } catch (SQLException e) {
+                System.out.println("Error: Clase ClienteDaoImple, método crearUsuario, " + e.getMessage());
+        }
+        return registrar;
+    }
 
 }

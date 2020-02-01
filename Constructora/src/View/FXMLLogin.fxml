@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="526.0" styleClass="fondo-login" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLLoginController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="526.0" style="-fx-background-color: #00918e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLLoginController">
    <children>
-      <Label layoutX="186.0" layoutY="205.0" />
-      <AnchorPane layoutX="60.0" layoutY="45.0" prefHeight="347.0" prefWidth="406.0" styleClass="login-marco" stylesheets="@../styles/styles.css">
+      <AnchorPane layoutX="91.0" layoutY="17.0" prefHeight="457.0" prefWidth="344.0" style="-fx-border-color: #ffffff; -fx-border-radius: 30;">
          <children>
-            <Label layoutX="41.0" layoutY="28.0" styleClass="label-login" stylesheets="@../styles/styles.css" text="Inicia Sesión" textFill="#fffbfb">
+            <Label layoutX="135.0" layoutY="40.0" text="Sign In" textFill="WHITE" AnchorPane.leftAnchor="135.0">
                <font>
-                  <Font size="30.0" />
+                  <Font name="Helvetica" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="76.0" layoutY="101.0" stylesheets="@../styles/styles.css" text="Cedula" />
-            <PasswordField id="passField" fx:id="txtPass" layoutX="166.0" layoutY="163.0" promptText="contraseña" />
-            <TextField id="txtCedula" fx:id="txtCedula" layoutX="166.0" layoutY="101.0" promptText="Cedula" />
-            <Label layoutX="76.0" layoutY="162.0" prefHeight="26.0" prefWidth="90.0" stylesheets="@../styles/styles.css" text="Contraseña" />
-            <Button id="btnIngresar" fx:id="btnIngresar" layoutX="166.0" layoutY="218.0" mnemonicParsing="false" onAction="#accionIngresar" prefHeight="30.0" prefWidth="149.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Ingresar">
+            <JFXTextField id="txtCedula" fx:id="txtCedula" focusColor="WHITE" labelFloat="true" layoutX="60.0" layoutY="133.0" prefHeight="27.0" prefWidth="250.0" promptText="Cedula" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="50.0">
                <font>
-                  <Font size="14.0" />
+                  <Font size="17.0" />
                </font>
-            </Button>
-            <Button id="btnIngresar" fx:id="btnIngresar1" layoutX="76.0" layoutY="295.0" mnemonicParsing="false" onAction="#accionAbrirVentana" prefHeight="30.0" prefWidth="239.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Continuar Sin Iniciar Sesion">
+            </JFXTextField>
+            <JFXButton id="btnIngresar" fx:id="btnIngresar" layoutX="189.0" layoutY="249.0" onAction="#accionIngresar" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #004445; -fx-background-radius: 30;" text="Ingresar" textFill="WHITE" AnchorPane.leftAnchor="109.0" AnchorPane.topAnchor="285.0">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Helvetica" size="20.0" />
                </font>
-            </Button>
+            </JFXButton>
+            <JFXPasswordField id="passField" fx:id="txtPass" focusColor="WHITE" labelFloat="true" layoutX="38.0" layoutY="93.0" prefWidth="250.0" promptText="Contraseña" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="200.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXPasswordField>
+            <ImageView id="btnIngresar" fx:id="btnIngresar1" fitHeight="80.0" fitWidth="100.0" layoutX="-9.0" layoutY="306.0" onMouseClicked="#accionAbrirVentana" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="368.0">
+               <image>
+                  <Image url="@../resources/imgCasa.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

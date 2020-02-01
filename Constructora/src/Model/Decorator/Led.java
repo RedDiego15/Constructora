@@ -5,33 +5,17 @@
  */
 package Model.Decorator;
 
-import Model.Casa;
-
 /**
  *
- * @author GaryBarzola
+ * @author Lenovo comp
  */
-/*
-public class Led extends CasaDecorator{
-    
-    public Led(Casa casa){
-        super(casa);
-    }
+public class Led  extends ElementoDecorator{
 
-    @Override
-    public String getTipo(){
-        return getCasa().getTipo();
+    public Led(Decor decorable) {
+        super(decorable);
     }
-    
-    @Override
-    public String getDescripcion(){
-        getCasa().setLed(true);
-        return getCasa().getDescripcion();
+     @Override
+    public double obtenerPresupuesto() {
+        return getDecorable().obtenerPresupuesto()+120;
     }
-
-    @Override
-    public double obtenerPresupuesto(){
-        return getCasa().obtenerPresupuesto()+120;
-    }
-    
-}*/
+}

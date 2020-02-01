@@ -43,8 +43,8 @@ public class Cliente extends User{
             try {
                 res = DataBase.getDataB().executeQuery("select * from Clientes where Cedula ="+cedula+" ;");
                 if(res.next()){
-                    instance = new Cliente(res.getString("cedula"),res.getString("nombre"),res.getString("apellido"),res.getString("NumCelular"),
-                                           res.getString("correo"),res.getString("direccion"),res.getString("estadoCivil"),
+                    instance = new Cliente(res.getString("Cedula"),res.getString("Nombre"),res.getString("Apellido"),res.getString("NumCelular"),
+                                           res.getString("Correo"),res.getString("Direccion_Domicilio"),res.getString("Estado_Civil"),
                                            res.getString("idEmpresa"),res.getString("cargoEmpresa"), res.getString("NumHijos"));
 
                 }

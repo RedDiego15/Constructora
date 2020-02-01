@@ -24,7 +24,7 @@ public class DataBase {
     
     private DataBase(){}
     
-    public ResultSet executeQuery(String query){
+    public ResultSet executeQuery(String query) throws SQLException{
         try{
             connection = Conexion.getConex().conectarMySQL();
             preparedStatement = connection.prepareStatement(query);

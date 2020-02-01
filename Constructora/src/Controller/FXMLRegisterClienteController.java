@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.Cliente;
-import Model.DAO.ClienteDaoImpl;
+import Model.DAO.Cliente.ClienteDaoImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -20,8 +20,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
-import Model.DAO.ICRUDDao;
+import Model.DAO.Cliente.ICRUDDao;
 import Model.Empresa;
+import util.Util;
 
 /**
  * FXML Controller class
@@ -29,8 +30,7 @@ import Model.Empresa;
  * @author 
  */
 public class FXMLRegisterClienteController extends Ventana  implements Initializable {
-    
-    private Stage root;
+    private FXMLRegisterClienteController main;
     private Cliente cliente;
     @FXML
     private JFXTextField fLastName;
@@ -82,7 +82,7 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLRegisterCliente.fxml"));
             Parent root = loader.load();
-            FXMLRegisterClienteController main = loader.getController();
+            main = loader.getController();
             main.setRoot(nuevaVentana(root,"Registro"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -91,8 +91,12 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
     
     public void registrarCliente(){
         ICRUDDao dao = new ClienteDaoImpl();
-        if(validarCampos())
+        if(validarCampos()){
             dao.registrar(cliente);
+            String pass = Util.codificarPass(fPass.getText().trim());
+            dao.crearUsuario(fCedula.getText().trim(),fPasaporte.getText().trim(),pass,"0");
+            this.cerrarVentana();
+        }
             
     }
     

@@ -139,11 +139,11 @@ values(2,1);
 -- DELETE FROM  Elementos_casa WHERE idEC = 4;
 
 
-SELECT * FROM elementos_casa;
+SELECT * FROM Elementos_casa;
 
 -- DELETE FROM  Elementos WHERE idElemento = 4;
 
-SELECT * FROM elementos;
+SELECT * FROM Elementos;
 
 
 SELECT * from Empresas em
@@ -166,7 +166,7 @@ select* from Casas;
 delimiter $
 create procedure iniciaSesion(in ced varchar(10))
 Begin
-	select * from usuarios where cedula=ced;
+	select * from Usuarios where cedula=ced;
 end $
 delimiter ;
 
@@ -178,6 +178,7 @@ begin
 end $$
 delimiter ;
 
+delimiter $$
 create procedure obtenerEmpresa(in nombre varchar(10), out id INTEGER)
 begin 
     select e.idEmpresa into id from Empresas e where e.Nombre=nombre;
@@ -200,29 +201,24 @@ begin
 end $$
 delimiter ;
 
+delimiter $$
+create procedure crearUsuario(in cedula varchar(10), in pasaporte varchar(20), in pw varchar(50), in rol char)
+begin
+	Insert into Usuarios values(cedula, pasaporte, pw, rol);
+end $$
+delimiter ;
 
-create user 'Constructor1' IDENTIFIED BY 'constructor2020';
+CREATE USER 'Constructor'@'localhost' IDENTIFIED BY 'constructor';
 
+GRANT ALL PRIVILEGES ON * . * TO 'Constructor'@'localhost';
 
-
-create user 'Constructor1' IDENTIFIED BY 'constructor2020';
-
-
-grant select,update,insert on Constructora.Empresas to 'Constructor1';
-
-grant select,update,insert on Constructora.Usuarios to 'Constructor1';
-
-grant select,update,insert on Constructora.Elementos to 'Constructor1';
-
-
-
-grant all privileges on Constructora to 'Constructor1';
 FLUSH PRIVILEGES;
-SHOW GRANTS FOR 'Constructor1';
+
+SHOW GRANTS FOR 'Constructor'@'localhost';
 
 -- grant select,update,insert on Constructora.Usuarios to 'Constructor2';
 
-SELECT * FROM elementos_casa;
+SELECT * FROM Elementos_casa;
 
 SELECT * FROM Elementos;
 

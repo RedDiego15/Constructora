@@ -10,7 +10,7 @@ import Model.Builder.CasaDirector;
 import Model.Builder.CasaOasisBuilder;
 import Model.Builder.CasaParaisoBuilder;
 import Model.Cliente;
-import Model.Decorator.ImplementacionDiego.Decor;
+import Model.Decorator.Decor;
 import View.FXMLCeldaElemento;
 import java.io.IOException;
 import java.net.URL;

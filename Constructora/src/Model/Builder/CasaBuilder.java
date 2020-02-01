@@ -7,7 +7,7 @@ package Model.Builder;
 
 import Controller.DataBase;
 import Model.Casa;
-import Model.Decorator.ImplementacionDiego.Decor;
+import Model.Decorator.Decor;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

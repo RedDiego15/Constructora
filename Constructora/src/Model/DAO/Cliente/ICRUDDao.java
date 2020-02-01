@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.DAO;
+package Model.DAO.Cliente;
 
 import Model.Cliente;
 import java.util.List;
@@ -18,5 +18,6 @@ public interface ICRUDDao {
     public List<Cliente> obtenerClientes();
     public boolean actualizar(Cliente cliente);
     public boolean eliminar(Cliente cliente);
+    public boolean crearUsuario(String cedula, String passport, String pass, String roll);
 
 }
