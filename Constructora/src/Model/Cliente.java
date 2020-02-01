@@ -24,6 +24,7 @@ public class Cliente extends User{
     private String NumHijos;
     
     
+    
     public Cliente(String cedula, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
                     String idEmpresa,String cargo, String NumHijos){
         super(cedula, nombre, apellido, celular, correo, direccion, estadoCivil);
@@ -52,6 +53,7 @@ public class Cliente extends User{
             }
         }
     }
+    
 
     public String getIdEmpresa() {
         return idEmpresa;
@@ -76,6 +78,7 @@ public class Cliente extends User{
     public void setNumHijos(String NumHijos) {
         this.NumHijos = NumHijos;
     }
+
     
     
 }

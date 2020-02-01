@@ -169,7 +169,37 @@ Begin
 	select * from usuarios where cedula=ced;
 end $
 delimiter ;
-show tables;
+
+delimiter $$
+create procedure registrarEmpresa(in nombre varchar(10), in direccion  varchar(100),in telefono varchar(10), in cedulaCliente varchar(10))
+begin 
+    insert into Empresas(Nombre,Direccion,Telefono_Trabajo,cedula_cliente) 
+                values(nombre,direccion, telefono, cedulaCliente);
+end $$
+delimiter ;
+
+create procedure obtenerEmpresa(in nombre varchar(10), out id INTEGER)
+begin 
+    select e.idEmpresa into id from Empresas e where e.Nombre=nombre;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure obtenerNombreEmpresas()
+begin
+select e.Nombre from Empresas e;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure registrarCliente(in id varchar(10), in idEmp integer, in nombre varchar(10),in apellido varchar(10), in numCelular varchar(10), 
+										in correo varchar(30), in direccion_Domicilio varchar(100), in estado_Civil varchar(10), in cargo varchar(30), in numHijos int)
+begin
+	Insert into Clientes(Cedula,idEmpresa,Nombre,Apellido,NumCelular,Correo, Direccion_Domicilio,Estado_Civil,cargoEmpresa,NumHijos)
+    values(id,idEmp,nombre,apellido,numCelular,correo,direccion_Domicilio,estado_Civil,cargo,numHijos);
+end $$
+delimiter ;
+
 
 create user 'Constructor1' IDENTIFIED BY 'constructor2020';
 

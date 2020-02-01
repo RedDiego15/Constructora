@@ -7,7 +7,9 @@ package Model.DAO;
 
 import Controller.Conexion;
 import Model.Cliente;
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -26,16 +28,22 @@ public class ClienteDaoImpl implements ICRUDDao{
     @Override
     public boolean registrar(Cliente cliente) {
         boolean registrar = false;
-
-        String sql="INSERT INTO Clientes values ("+cliente.getCedula()+",Null,Null,"+cliente.getNombre()+","+cliente.getApellido()+","+cliente.getCelular()+","+cliente.getCorreo()+","+cliente.getDireccion()+","+cliente.getEstadoCivil()+","+cliente.getCargo()+","+cliente.getNumHijos()+")";
-
-        try {			
-                connect=Conexion.getConex().conectarMySQL();
-                stm= connect.createStatement();
-                stm.execute(sql);
-                registrar=true;
-                stm.close();
-                connect.close();
+        try {
+            connect = Conexion.getConex().conectarMySQL();
+            CallableStatement sp = connect.prepareCall(" CALL registrarCliente(?,?,?,?,?,?,?,?,?,?,?)");
+            sp.setString(1, cliente.getCedula());
+            sp.setString(2, cliente.getIdEmpresa());
+            sp.setString(3, cliente.getNombre());
+            sp.setString(4, cliente.getApellido());
+            sp.setString(5, cliente.getCelular());
+            sp.setString(6, cliente.getCorreo());
+            sp.setString(7, cliente.getDireccion());
+            sp.setString(8, cliente.getEstadoCivil());
+            sp.setString(9, cliente.getCargo());
+            sp.setString(10, cliente.getNumHijos());
+            sp.execute();
+            sp.close();
+            connect.close();
         } catch (SQLException e) {
                 System.out.println("Error: Clase ClienteDaoImple, método registrar");
                 e.printStackTrace();

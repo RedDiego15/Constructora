@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import Model.DAO.ICRUDDao;
+import Model.Empresa;
 
 /**
  * FXML Controller class
@@ -60,6 +61,8 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
     @FXML
     private JFXComboBox<String> fEstadoCivil;
     
+    private String idEmpresa="";
+    
     /**
      * Initializes the controller class.
      */
@@ -94,11 +97,14 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
     }
     
     private boolean validarCampos(){
-        if(!fCedula.getText().equals("") && !fLastName.getText().equals("") && !fName.getText().equals("") && !fNumCelular.getText().equals("")&& !fCorreo.getText().equals("")
-                && !fDireccionCasa.getText().equals("") && !fEstadoCivil.getValue().equals("") && !fCargoEmpresa.getText().equals("") && !fNumHijos.getText().equals("") ){ 
+        if(idEmpresa.equals(""))
+            obtenerEmpresa();
+        if(!fCedula.getText().trim().equals("") && !fLastName.getText().trim().equals("") && !fName.getText().trim().equals("") && !fNumCelular.getText().trim().equals("")&& !fCorreo.getText().trim().equals("")
+                && !fDireccionCasa.getText().trim().equals("") && !fEstadoCivil.getValue().trim().equals("") && !fCargoEmpresa.getText().trim().equals("") && !fNumHijos.getText().trim().equals("") ){ 
             
             this.cliente = new Cliente(fCedula.getText(),fName.getText(),fLastName.getText(),fNumCelular.getText(),fCorreo.getText(),fDireccionCasa.getText(),
-                                fEstadoCivil.getValue(),null,fCargoEmpresa.getText(),fNumHijos.getText());
+                                fEstadoCivil.getValue(),idEmpresa,fCargoEmpresa.getText(),fNumHijos.getText());
+            
             return true;
         }else{
              util.Util.mostrarDialogAlert("Debe llenar todos los campos");
@@ -106,10 +112,15 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
         return false;
     }
 
-    private int obtenerIDEmpresa(){
-        //Me busca la empresa en la daba si existe returna su id, caso contrario la crea y me retorna el nuevo id
-        //Pasarla como parametro en la creacion de un cliente.
-        return -1;
+    private void obtenerEmpresa(){
+        if(Empresa.obtenerNombreEmpresas().contains(fNameEmpresa.getText().trim().toLowerCase()))
+            idEmpresa = Empresa.obtenerIdEmpresa(fNameEmpresa.getText().trim().toLowerCase());
+        else{
+            Empresa emp = new Empresa(fNameEmpresa.getText().trim(),fDireccionEmpresa.getText().trim(),fNumEmpresa.getText().trim());
+            emp.setCedulaCliente(fCedula.getText().trim());
+            emp.registrar();
+            idEmpresa = Empresa.obtenerIdEmpresa(fNameEmpresa.getText().trim().toLowerCase());
+        }
     }
     
 }
