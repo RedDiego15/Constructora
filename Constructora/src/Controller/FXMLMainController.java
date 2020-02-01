@@ -23,8 +23,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import AppPackage.AnimationClass;
+import javafx.scene.control.Label;
 
 import javafx.stage.Stage;
+import javax.swing.JLabel;
 
 /**
  * FXML Controller class
@@ -39,6 +42,13 @@ public class FXMLMainController extends Ventana implements Initializable {
     private Stage root;
     private CasaDirector casa;
     public static Decor casaCambios;
+    
+    @FXML
+    private Label Jempleado;
+    
+    @FXML
+    private Label Jcliente;
+    
     /**
      * Initializes the controller class.
      */
@@ -63,7 +73,6 @@ public class FXMLMainController extends Ventana implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
     private void llenarElementos(){
         casaCambios =  (Decor) casa;
@@ -96,9 +105,28 @@ public class FXMLMainController extends Ventana implements Initializable {
         FXMLLoginController login = new FXMLLoginController();
         login.abrirVentana();
     }
-    public void accionRegistrarse(){
-         FXMLRegisterController register = new FXMLRegisterController();
-         register.abrirVentana();
+    public void accionRegistrarse() throws IOException{
+         if(Jempleado.isDisable() || Jcliente.isDisable()){
+             Jempleado.setDisable(false);
+             Jcliente.setDisable(false);
+             Jempleado.setOpacity(1);
+             Jcliente.setOpacity(1);
+         }else{
+             Jempleado.setDisable(true);
+             Jcliente.setDisable(true);
+             Jempleado.setOpacity(0);
+             Jcliente.setOpacity(0);
+         }
+    }
+    
+    public void accionRegistrarCliente(){
+        FXMLRegisterController register = new FXMLRegisterController();
+        register.abrirVentana();
+    }
+    
+    public void accionRegistrarEmpleado(){
+        FXMLRegisterEmpleadoController register = new FXMLRegisterEmpleadoController();
+        register.abrirVentana();
     }
     
     public void accionGuardarDiseno(){
