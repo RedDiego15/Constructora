@@ -21,12 +21,15 @@ public class Cliente extends User{
     private ResultSet res;
     private String idEmpresa;
     private String cargo;
+    private String NumHijos;
+    
     
     private Cliente(String cedula, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
-                    String idEmpresa,String cargo){
+                    String idEmpresa,String cargo, String NumHijos){
         super(cedula, nombre, apellido, celular, correo, direccion, estadoCivil);
         this.idEmpresa = idEmpresa;
         this.cargo = cargo;
+        this.NumHijos =NumHijos;
     }
     
 
@@ -41,7 +44,7 @@ public class Cliente extends User{
                 if(res.next()){
                     instance = new Cliente(res.getString("cedula"),res.getString("nombre"),res.getString("apellido"),res.getString("NumCelular"),
                                            res.getString("correo"),res.getString("direccion"),res.getString("estadoCivil"),
-                                           res.getString("idEmpresa"),res.getString("cargoEmpresa"));
+                                           res.getString("idEmpresa"),res.getString("cargoEmpresa"), res.getString("NumHijos"));
 
                 }
             } catch (SQLException ex) {
@@ -56,6 +59,22 @@ public class Cliente extends User{
 
     public String getCargo() {
         return cargo;
+    }
+
+    public String getNumHijos() {
+        return NumHijos;
+    }
+
+    public void setIdEmpresa(String idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public void setNumHijos(String NumHijos) {
+        this.NumHijos = NumHijos;
     }
     
     

@@ -5,6 +5,9 @@
  */
 package Controller;
 
+import Model.Cliente;
+import Model.DAO.ClienteDaoImpl;
+import Model.DAO.IClienteDao;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,9 +23,11 @@ import javafx.stage.Stage;
  *
  * @author 
  */
-public class FXMLRegisterController extends Ventana  implements Initializable {
+public class FXMLRegisterClienteController extends Ventana  implements Initializable {
     
     private Stage root;
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -38,13 +43,18 @@ public class FXMLRegisterController extends Ventana  implements Initializable {
     @Override
     public void abrirVentana() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLRegister.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLRegisterCliente.fxml"));
             Parent root = loader.load();
-            FXMLRegisterController main = loader.getController();
+            FXMLRegisterClienteController main = loader.getController();
             main.setRoot(nuevaVentana(root,"Registro"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void registrarCliente(Cliente cliente){
+        IClienteDao dao = new ClienteDaoImpl();
+        dao.registrarCliente(cliente);
     }
     
 }

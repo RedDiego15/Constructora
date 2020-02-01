@@ -120,7 +120,7 @@ public class FXMLMainController extends Ventana implements Initializable {
     }
     
     public void accionRegistrarCliente(){
-        FXMLRegisterController register = new FXMLRegisterController();
+        FXMLRegisterClienteController register = new FXMLRegisterClienteController();
         register.abrirVentana();
     }
     
