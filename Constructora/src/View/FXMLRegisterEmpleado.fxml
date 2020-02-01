@@ -14,9 +14,22 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #00918e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLRegisterController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #00918e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLRegisterEmpleadoController">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #110133; -fx-background-radius: 40;" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="383.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #110133; -fx-background-radius: 40;" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="383.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
+         <children>
+            <JFXButton layoutX="205.0" layoutY="490.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="247.0" style="-fx-background-color: #00BFBB; -fx-background-radius: 25;" text="Registrarse" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Helvetica" size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXComboBox focusColor="#00bfbb" layoutX="329.0" layoutY="302.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="111.0" promptText="Cargo" unFocusColor="WHITE" />
+            <Label layoutX="524.0" layoutY="564.0" text="Empleados" textFill="#5e5e5e" />
+         </children>
+      </Pane>
       <Pane prefHeight="601.0" prefWidth="376.0" style="-fx-background-color: #00918e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="274.0" fitWidth="304.0" layoutX="50.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
@@ -63,15 +76,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXButton layoutX="722.0" layoutY="540.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="247.0" style="-fx-background-color: #00BFBB; -fx-background-radius: 25;" text="Registrarse" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="32.0">
-         <font>
-            <Font name="Helvetica" size="21.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <JFXCheckBox checkedColor="#110133" layoutX="409.0" layoutY="517.0" text="Accept terms and conditions" textFill="WHITE" unCheckedColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="514.0" />
+      <JFXCheckBox checkedColor="#110133" layoutX="409.0" layoutY="517.0" text="Accept terms and conditions" textFill="WHITE" unCheckedColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="429.0" />
       <JFXTextField focusColor="#00918e" labelFloat="true" layoutX="433.0" layoutY="308.0" prefHeight="27.0" prefWidth="320.0" promptText="Número de celular" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="358.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
@@ -92,31 +97,6 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <JFXComboBox focusColor="#00bfbb" layoutX="404.0" layoutY="463.0" promptText="Estado Civil" unFocusColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="458.0" />
-      <JFXTextField focusColor="#00918e" labelFloat="true" layoutX="433.0" layoutY="308.0" prefHeight="27.0" prefWidth="271.0" promptText="Ingrese dirección de la Empresa" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="710.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="308.0">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </JFXTextField>
-      <JFXTextField focusColor="#00918e" labelFloat="true" layoutX="443.0" layoutY="318.0" prefHeight="27.0" prefWidth="271.0" promptText="Teléfono de la Empresa" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="710.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="358.0">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </JFXTextField>
-      <JFXTextField focusColor="#00918e" labelFloat="true" layoutX="423.0" layoutY="298.0" prefHeight="27.0" prefWidth="271.0" promptText="Nombre de la Empresa" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="710.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="258.0">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </JFXTextField>
-      <JFXTextField focusColor="#00918e" labelFloat="true" layoutX="453.0" layoutY="328.0" prefHeight="27.0" prefWidth="271.0" promptText="Cargo en la Empresa" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="710.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="408.0">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </JFXTextField>
-      <JFXTextField focusColor="#00918e" labelFloat="true" layoutX="404.0" layoutY="426.0" prefHeight="27.0" prefWidth="271.0" promptText="Número de Hijos" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="408.0">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </JFXTextField>
+      <JFXComboBox focusColor="#00bfbb" layoutX="404.0" layoutY="463.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="111.0" promptText="Estado Civil" unFocusColor="WHITE" AnchorPane.leftAnchor="710.0" AnchorPane.topAnchor="358.0" />
    </children>
 </AnchorPane>

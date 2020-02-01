@@ -13,7 +13,7 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 /**
- *
+ * #00918e verde ,  #110133 lila
  * @author Diego Rojas
  */
 public class Main extends Application{
