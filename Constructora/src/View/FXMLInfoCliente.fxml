@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="494.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLInfoClienteController">
+   <center>
+      <AnchorPane prefHeight="248.0" prefWidth="596.0" style="-fx-background-color: #E0E1E1; -fx-background-radius: 12;">
+         <children>
+            <JFXTextField fx:id="txtNombre" focusColor="#474c5f" labelFloat="true" layoutX="100.0" layoutY="14.0" unFocusColor="#474c5f" />
+            <Label layoutX="35.0" layoutY="19.0" text="Nombre" />
+            <JFXTextField fx:id="txtPasaporte" focusColor="#474c5f" labelFloat="true" layoutX="100.0" layoutY="57.0" unFocusColor="#474c5f" />
+            <Label layoutX="35.0" layoutY="62.0" text="Pasaporte" />
+            <JFXTextField fx:id="txtCorreo" focusColor="#474c5f" labelFloat="true" layoutX="100.0" layoutY="103.0" unFocusColor="#474c5f" />
+            <Label layoutX="35.0" layoutY="108.0" text="Correo" />
+            <JFXTextField fx:id="txtNameEmpresa" focusColor="#474c5f" labelFloat="true" layoutX="100.0" layoutY="153.0" unFocusColor="#474c5f" />
+            <Label layoutX="35.0" layoutY="158.0" text="Empresa" />
+            <JFXTextField fx:id="txtApellido" focusColor="#474c5f" labelFloat="true" layoutX="386.0" layoutY="14.0" unFocusColor="#474c5f" />
+            <Label layoutX="321.0" layoutY="19.0" text="Apellido" />
+            <JFXTextField fx:id="txtCelular" focusColor="#474c5f" labelFloat="true" layoutX="386.0" layoutY="57.0" unFocusColor="#474c5f" />
+            <Label layoutX="321.0" layoutY="62.0" text="Celular" />
+            <JFXTextField fx:id="txtDireccion" focusColor="#474c5f" labelFloat="true" layoutX="386.0" layoutY="103.0" unFocusColor="#474c5f" />
+            <Label layoutX="321.0" layoutY="108.0" text="Direccion" />
+            <JFXTextField fx:id="txtNumHijos" focusColor="#474c5f" labelFloat="true" layoutX="386.0" layoutY="153.0" unFocusColor="#474c5f" />
+            <Label layoutX="321.0" layoutY="158.0" text="NumHijos" />
+            <JFXButton layoutX="270.0" layoutY="211.0" style="-fx-background-color: #474c5f;" text="Guardar" textFill="WHITE" />
+         </children>
+         <BorderPane.margin>
+            <Insets left="3.0" right="3.0" />
+         </BorderPane.margin>
+      </AnchorPane>
+   </center>
+   <top>
+      <Pane prefHeight="71.0" prefWidth="602.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="259.0" layoutY="26.0" text="Datos Cliente">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="301.0" layoutY="57.0" startX="-100.0" stroke="#8a8a8a" />
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <ScrollPane prefHeight="185.0" prefWidth="602.0" BorderPane.alignment="CENTER">
+         <content>
+            <AnchorPane prefHeight="172.0" prefWidth="599.0">
+               <children>
+                  <HBox fx:id="HboxCasasCliente" layoutY="41.0" prefHeight="127.0" prefWidth="596.0" />
+                  <Label layoutX="245.0" layoutY="14.0" text="Casas Disponibles">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Line endX="100.0" layoutX="303.0" layoutY="41.0" startX="-100.0" stroke="#8a8a8a" />
+               </children>
+            </AnchorPane>
+         </content>
+         <padding>
+            <Insets left="-1.0" />
+         </padding>
+      </ScrollPane>
+   </bottom>
+</BorderPane>
