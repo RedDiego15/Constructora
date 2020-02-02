@@ -25,7 +25,7 @@
                   <Font name="Helvetica" size="20.0" />
                </font>
             </JFXButton>
-            <ImageView id="btnIngresar" fx:id="btnIngresar1" fitHeight="80.0" fitWidth="100.0" layoutX="316.0" layoutY="477.0" onMouseClicked="#accionAbrirVentana" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-7.0" AnchorPane.rightAnchor="12.787979125976562" AnchorPane.topAnchor="477.0">
+            <ImageView id="btnIngresar" fx:id="btnIngresar1" fitHeight="80.0" fitWidth="100.0" layoutX="316.0" layoutY="477.0" onMouseClicked="#accionAbrirVentanaSinLogin" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-7.0" AnchorPane.rightAnchor="12.787979125976562" AnchorPane.topAnchor="477.0">
                <image>
                   <Image url="@../resources/imgCasa.png" />
                </image>

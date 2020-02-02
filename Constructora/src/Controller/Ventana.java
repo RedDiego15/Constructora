@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  */
 public abstract class Ventana{
     protected Stage root;
-    
+    private final Stage stage = new Stage();
     
     public void cerrarVentana(){
         this.root.close();
@@ -28,7 +28,7 @@ public abstract class Ventana{
     
     
     protected Stage nuevaVentana(Parent root,String nombre) {
-        Stage stage = new Stage();
+        //Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle(nombre);

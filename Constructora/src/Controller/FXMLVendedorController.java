@@ -51,12 +51,11 @@ public class FXMLVendedorController extends Ventana implements Initializable{
     }
     
     @Override
-    public void abrirVentana() {
+     public void abrirVentana(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLVendedor.fxml"));
-            Parent root = loader.load();
-            FXMLVendedorController main = loader.getController();
-            main.setRoot(nuevaVentana(root,"menuVendedor"));
+            FXMLLoader load = new FXMLLoader(getClass().getResource("/view/FXMLVendedor.fxml"));
+            FXMLVendedorController main = load.getController();
+            main.setRoot(nuevaVentana(load.load(),"ViewVendedor"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
