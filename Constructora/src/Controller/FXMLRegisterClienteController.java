@@ -97,7 +97,6 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
             dao.crearUsuario(fCedula.getText().trim(),fPasaporte.getText().trim(),pass,"0");
             this.cerrarVentana();
         }
-            
     }
     
     private boolean validarCampos(){
