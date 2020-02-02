@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
@@ -38,7 +39,10 @@ public class FXMLMainController extends Ventana implements Initializable {
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    //private Button
+    private Button btnIniciaSesion;
+    @FXML
+    private Button btnRegistro;
+    
     private VBox holderScroll;
     private Stage root;
     private CasaDirector casa;
