@@ -33,6 +33,7 @@ public class FXMLVendedorController extends Ventana implements Initializable{
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         Node[] nodo = new Node[10];
         
         for(int i=0; i<nodo.length; i++){
@@ -53,9 +54,10 @@ public class FXMLVendedorController extends Ventana implements Initializable{
     @Override
      public void abrirVentana(){
         try {
-            FXMLLoader load = new FXMLLoader(getClass().getResource("/view/FXMLVendedor.fxml"));
-            FXMLVendedorController main = load.getController();
-            main.setRoot(nuevaVentana(load.load(),"ViewVendedor"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLVendedor.fxml"));
+            Parent root = loader.load();
+            FXMLVendedorController main = loader.getController();
+            main.setRoot(nuevaVentana(loader.load(),"ViewVendedor"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
