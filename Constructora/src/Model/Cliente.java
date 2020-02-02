@@ -18,14 +18,13 @@ import java.util.logging.Logger;
 public class Cliente extends User{
     
     private static Cliente instance;
-    private ResultSet res;
     private String idEmpresa;
     private String cargo;
     private String NumHijos;
     
     
     
-    public Cliente(String cedula, String pasaporte, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
+    private Cliente(String cedula, String pasaporte, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
                     String idEmpresa,String cargo, String NumHijos){
         super(cedula, pasaporte, nombre, apellido, celular, correo, direccion, estadoCivil);
         this.idEmpresa = idEmpresa;
@@ -38,7 +37,8 @@ public class Cliente extends User{
         return instance;
     }
     
-    public void cargarDatosCliente(String cedula){
+    public static void cargarDatosCliente(String cedula){
+        ResultSet res;
         if(instance == null){
             try {
                 res = DataBase.getDataB().executeQuery("select * from Clientes where Cedula ="+cedula+" ;");

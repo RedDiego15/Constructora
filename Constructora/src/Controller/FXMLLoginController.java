@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.Cliente;
+import Model.Empleado;
 import Model.User;
 import java.io.IOException;
 import java.net.URL;
@@ -57,6 +58,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
                     //this.cerrarVentana();
                     break;
                 case 1: //Vendedor
+                    Empleado.getInstance().cargarDatosEmpleado(txtCedula.getText());
                     mainVendedor.abrirVentana();
                     this.cerrarVentana();
                     break;

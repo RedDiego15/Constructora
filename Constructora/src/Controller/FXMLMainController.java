@@ -37,6 +37,8 @@ public class FXMLMainController extends Ventana implements Initializable {
 
     @FXML
     private ScrollPane scrollPane;
+    @FXML
+    //private Button
     private VBox holderScroll;
     private Stage root;
     private CasaDirector casa;
@@ -54,6 +56,10 @@ public class FXMLMainController extends Ventana implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        if(Cliente.getInstance()==null){
+            
+        }
     }
     public Stage getRoot() {
         return root;
@@ -101,8 +107,11 @@ public class FXMLMainController extends Ventana implements Initializable {
     
     }
     public void accionIniciaSesion(){
+
         FXMLLoginController login = new FXMLLoginController();
         login.abrirVentana();
+        
+       
     }
     public void accionRegistrarse() throws IOException{
          if(Jempleado.isDisable() || Jcliente.isDisable()){
@@ -134,6 +143,7 @@ public class FXMLMainController extends Ventana implements Initializable {
         }else if (Cliente.getInstance() == null){
             util.Util.mostrarDialogAlert("Debe iniciar sesion antes de guardar su Diseno");
         }else{
+            
             
         
         }
