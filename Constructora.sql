@@ -217,6 +217,13 @@ begin
 end $$
 delimiter ;
 
+delimiter $$
+create procedure obtenerClientes(out nombre varchar(10), out lastName varchar(10), out id varchar(10))
+begin 
+	select Nombre, Apellido, Cedula into nombre,lastName,id from Clientes;
+end $$
+delimiter ;
+
 CREATE USER 'Constructor'@'localhost' IDENTIFIED BY 'constructor';
 
 GRANT ALL PRIVILEGES ON * . * TO 'Constructor'@'localhost';
