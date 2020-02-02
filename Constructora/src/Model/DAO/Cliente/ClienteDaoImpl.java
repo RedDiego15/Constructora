@@ -25,7 +25,7 @@ import java.util.List;
  * @author GaryBarzola
  */
 public class ClienteDaoImpl{
-    private Connection connect= null;
+    private static Connection connect= null;
     
     
     public boolean registrar(FXMLRegisterClienteController cliente) {
@@ -54,6 +54,7 @@ public class ClienteDaoImpl{
         return registrar;
     }
     
+    /*
     public List<Cliente> obtenerClientes() {
         List<Cliente> listaCliente= new LinkedList<>();
         Connection conn;
@@ -80,7 +81,7 @@ public class ClienteDaoImpl{
         return listaCliente;
     }
     
-    /*
+    
     public boolean actualizar(FXMLRegisterClienteController cliente) { //Falta actualizar los otros campos
         boolean actualizar=false;
         
@@ -171,11 +172,26 @@ public class ClienteDaoImpl{
         return listaCliente;
     }
     
-    public void executeHouseInsert(String query){
-        
-    
+    public static boolean actualizarCliente(String ced,String nam,String lnam,String pas,String corr,String cel,String dir,String nHij){
+        try {
+            connect = Conexion.getConex().conectarMySQL();
+            CallableStatement sp = connect.prepareCall(" CALL actualizarCliente(?,?,?,?,?,?,?,?)");
+            sp.setString(1, ced);
+            sp.setString(2, nam);
+            sp.setString(3, lnam);
+            sp.setString(4, cel);
+            sp.setString(5, pas);
+            sp.setString(6, corr);
+            sp.setString(7, dir);
+            sp.setString(8, nHij);
+            sp.execute();
+            sp.close();
+            connect.close();
+            return true;
+        } catch (SQLException e) {
+            util.Util.mostrarDialogAlert(e.getMessage());
+        }
+        return false;
     }
-    
-    
 
 }

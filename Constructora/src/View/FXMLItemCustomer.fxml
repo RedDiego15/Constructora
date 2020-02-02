@@ -14,7 +14,7 @@
          </BorderPane.margin></Label>
    </center>
    <right>
-      <JFXButton fx:id="btnVerCliente" prefWidth="80.0" style="-fx-background-color: #474c5f; -fx-background-radius: 15;" text="Ver " textFill="WHITE" BorderPane.alignment="CENTER">
+      <JFXButton fx:id="btnVerCliente" onMouseClicked="#verInfoCliente" prefWidth="80.0" style="-fx-background-color: #474c5f; -fx-background-radius: 15;" text="Ver " textFill="WHITE" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets right="15.0" />
          </BorderPane.margin>

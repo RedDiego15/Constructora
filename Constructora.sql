@@ -218,9 +218,17 @@ end $$
 delimiter ;
 
 delimiter $$
-create procedure obtenerClientes(out nombre varchar(10), out lastName varchar(10), out id varchar(10))
+create procedure obtenerClientes()
 begin 
-	select Nombre, Apellido, Cedula into nombre,lastName,id from Clientes;
+	select * from Clientes;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure actualizarCliente(in id varchar(10),in nombre varchar(10),in apellido varchar(10), in numCelular varchar(10), in pasaporte varchar(20),
+										in correo varchar(30), in direccion varchar(100),  in numHijos int)
+begin
+	Update Clientes Set Nombre=nombre, Apellido=apellido, NumCelular=numCelular, Pasaporte=pasaporte, Correo=correo, Direccion_Domicilio=direccion, NumHijos=numHijos Where Cedula=id;
 end $$
 delimiter ;
 

@@ -59,7 +59,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
                     //this.cerrarVentana();
                     break;
                 case 1: //Vendedor
-                    Empleado.getInstance().cargarDatosEmpleado(txtCedula.getText());
+                    //Empleado.getInstance().cargarDatosEmpleado(txtCedula.getText());
                     mainVendedor.abrirVentana();
                     this.cerrarVentana();
                     break;
