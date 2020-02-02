@@ -8,6 +8,7 @@ package Model.DAO.Cliente;
 import Controller.Conexion;
 import Controller.DataBase;
 import Model.Cliente;
+import Model.User;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,7 +28,8 @@ public class ClienteDaoImpl implements ICRUDDao{
     private Statement stm= null;
     
     @Override
-    public boolean registrar(Cliente cliente) {
+    public boolean registrar(User c) {
+        Cliente cliente = (Cliente)c;
         boolean registrar = false;
         try {
             connect = Conexion.getConex().conectarMySQL();
@@ -84,7 +86,7 @@ public class ClienteDaoImpl implements ICRUDDao{
 
     
     @Override
-    public boolean actualizar(Cliente cliente) { //Falta actualizar los otros campos
+    public boolean actualizar(User cliente) { //Falta actualizar los otros campos
         boolean actualizar=false;
         /*
         String sql="UPDATE Clientes SET Nombre='"+cliente.getNombre()+"', Apellido='"+cliente.getApellido()+"'" +" WHERE Cedula="+cliente.getCedula();
@@ -101,7 +103,7 @@ public class ClienteDaoImpl implements ICRUDDao{
     }
 
     @Override
-    public boolean eliminar(Cliente cliente) {
+    public boolean eliminar(User cliente) {
         boolean eliminar=false;
         /*
         String sql="DELETE FROM Clientes WHERE Cedula="+cliente.getCedula();

@@ -69,6 +69,20 @@ public class Login {
         return -1;
     }
     
+    //Movel al main de clientes
+    public String obtenerNombreCliente(){
+        try {
+            res = DataBase.getDataB().executeQuery("select Nombre from Clientes where Nombre = "+cedula+" ;");
+            if(res.next())
+                return res.getString("Nombre");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    
     
     
 }

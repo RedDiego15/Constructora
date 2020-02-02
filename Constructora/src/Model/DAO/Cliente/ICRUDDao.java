@@ -6,6 +6,7 @@
 package Model.DAO.Cliente;
 
 import Model.Cliente;
+import Model.User;
 import java.util.List;
 
 /**
@@ -14,10 +15,10 @@ import java.util.List;
  */
 public interface ICRUDDao {	
     
-    public boolean registrar(Cliente cliente);
+    public boolean registrar(User cliente);
     public List<Cliente> obtenerClientes();
-    public boolean actualizar(Cliente cliente);
-    public boolean eliminar(Cliente cliente);
+    public boolean actualizar(User cliente);
+    public boolean eliminar(User cliente);
     public boolean crearUsuario(String cedula, String passport, String pass, String roll);
 
 }

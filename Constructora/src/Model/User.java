@@ -18,17 +18,19 @@ public class User {
     protected String correo;
     protected String direccion;
     protected String estadoCivil;
+    protected String pasaporte;
     
 
-    public User(String cedula, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil) {
+    public User(String cedula, String pasaporte, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil) {
         this.cedula = cedula;
+        this.pasaporte = pasaporte;
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
         this.correo = correo;
         this.direccion = direccion;
         this.estadoCivil = estadoCivil;
-
+        
     }
 
     public String getCedula() {
@@ -86,6 +88,16 @@ public class User {
     public void setEstadoCivil(String estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
+
+    public String getPasaporte() {
+        return pasaporte;
+    }
+
+    public void setPasaporte(String pasaporte) {
+        this.pasaporte = pasaporte;
+    }
+    
+    
     
     
     

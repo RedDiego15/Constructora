@@ -202,6 +202,15 @@ end $$
 delimiter ;
 
 delimiter $$
+create procedure registrarEmpleado(in cedula varchar(10), in pasaporte varchar(2), in nombre varchar(10),in apellido varchar(10), in correo varchar(30), 
+										in numCelular varchar(10), in tlf_trabajo varchar(20), in estado_Civil varchar(10), in cargo varchar(20))
+begin
+         insert into Empleados 
+         values(cedula,pasaporte,nombre,apellido,correo,numCelular,tlf_trabajo,estado_civil,cargo,true);
+end $$
+delimiter ;
+
+delimiter $$
 create procedure crearUsuario(in cedula varchar(10), in pasaporte varchar(20), in pw varchar(50), in rol char)
 begin
 	Insert into Usuarios values(cedula, pasaporte, pw, rol);

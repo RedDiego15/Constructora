@@ -106,7 +106,7 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
         if(!fCedula.getText().trim().equals("") && !fLastName.getText().trim().equals("") && !fName.getText().trim().equals("") && !fNumCelular.getText().trim().equals("")&& !fCorreo.getText().trim().equals("")
                 && !fDireccionCasa.getText().trim().equals("") && !fEstadoCivil.getValue().trim().equals("") && !fCargoEmpresa.getText().trim().equals("") && !fNumHijos.getText().trim().equals("") ){ 
             
-            this.cliente = new Cliente(fCedula.getText(),fName.getText(),fLastName.getText(),fNumCelular.getText(),fCorreo.getText(),fDireccionCasa.getText(),
+            this.cliente = new Cliente(fCedula.getText(),fPasaporte.getText(),fName.getText(),fLastName.getText(),fNumCelular.getText(),fCorreo.getText(),fDireccionCasa.getText(),
                                 fEstadoCivil.getValue(),idEmpresa,fCargoEmpresa.getText(),fNumHijos.getText());
             
             return true;

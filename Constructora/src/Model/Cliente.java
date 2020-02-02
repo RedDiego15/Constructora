@@ -25,9 +25,9 @@ public class Cliente extends User{
     
     
     
-    public Cliente(String cedula, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
+    public Cliente(String cedula, String pasaporte, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
                     String idEmpresa,String cargo, String NumHijos){
-        super(cedula, nombre, apellido, celular, correo, direccion, estadoCivil);
+        super(cedula, pasaporte, nombre, apellido, celular, correo, direccion, estadoCivil);
         this.idEmpresa = idEmpresa;
         this.cargo = cargo;
         this.NumHijos =NumHijos;
@@ -43,7 +43,7 @@ public class Cliente extends User{
             try {
                 res = DataBase.getDataB().executeQuery("select * from Clientes where Cedula ="+cedula+" ;");
                 if(res.next()){
-                    instance = new Cliente(res.getString("Cedula"),res.getString("Nombre"),res.getString("Apellido"),res.getString("NumCelular"),
+                    instance = new Cliente(res.getString("Cedula"),res.getString("Pasaporte"),res.getString("Nombre"),res.getString("Apellido"),res.getString("NumCelular"),
                                            res.getString("Correo"),res.getString("Direccion_Domicilio"),res.getString("Estado_Civil"),
                                            res.getString("idEmpresa"),res.getString("cargoEmpresa"), res.getString("NumHijos"));
 
