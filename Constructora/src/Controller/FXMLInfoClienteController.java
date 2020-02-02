@@ -9,6 +9,7 @@ import Model.DAO.Cliente.ClienteDaoImpl;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -17,6 +18,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -46,7 +49,7 @@ public class FXMLInfoClienteController implements Initializable {
     private JFXTextField txtNumHijos;
     @FXML
     private HBox HboxCasasCliente;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -77,15 +80,26 @@ public class FXMLInfoClienteController implements Initializable {
                                         txtCorreo.getText().trim(),txtCelular.getText().trim(),txtDireccion.getText().trim(),txtNumHijos.getText().trim());
     }
     
-    public void mostrarCasas(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLmoldeCasa.fxml"));
-        try {
-            Node node = loader.load();
-            FXMLmoldeCasaController mCasa = loader.getController();
-            HboxCasasCliente.getChildren().addAll(node);
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void mostrarCasas(BorderPane bPCliente,Label titlePaneVendedor){
+        //List<String> casas = new LinkedList<>(); //llamar al metodo que me retorna las casas(nombre,id)
+        int cont=1;
+        //for(String c:casas){
+           // String[] data= c.split(","); //esta la casa por id, nombre
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLmoldeCasa.fxml"));
+            try {
+                Node node = loader.load();
+                FXMLmoldeCasaController mCasa = loader.getController();
+                //mCasa.setCasa("Casa "+cont,data[0]);
+                
+                mCasa.setCliente(txtNombre.getText().trim().toUpperCase()+" "+txtApellido.getText().trim().toUpperCase());
+                mCasa.setbPCliente(bPCliente,titlePaneVendedor);
+                HboxCasasCliente.getChildren().addAll(node);
+                cont++;
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        //}
+        
     }
     
 }

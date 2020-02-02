@@ -34,6 +34,8 @@ public class FXMLVendedorController extends Ventana implements Initializable{
     private VBox vBoxClientes;
     @FXML
     private BorderPane borderPaneVendedor;
+    @FXML
+    private Label titlePaneVendedor;
 
     
    // private final FXMLVendedorController main = ;
@@ -50,7 +52,7 @@ public class FXMLVendedorController extends Ventana implements Initializable{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLItemCustomer.fxml"));
                 Node node = loader.load();
                 FXMLItemCustomerController customer = loader.getController();
-                customer.setbPCliente(borderPaneVendedor);
+                customer.setbPCliente(borderPaneVendedor,titlePaneVendedor);
                 customer.setearLabel(data[0]);
                 customer.cedulaCliente(data[1]);
                 vBoxClientes.getChildren().add(node);
@@ -61,7 +63,9 @@ public class FXMLVendedorController extends Ventana implements Initializable{
     }    
     
     
+    @FXML
     public void mostrarClientes(){
+        titlePaneVendedor.setText("Clientes");
         borderPaneVendedor.setCenter(vBoxClientes);
     }
     

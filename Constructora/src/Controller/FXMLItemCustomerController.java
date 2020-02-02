@@ -30,6 +30,7 @@ public class FXMLItemCustomerController implements Initializable {
     @FXML
     private Label Lname;
     private BorderPane bPCliente;
+    private Label title;
     /**
      * Initializes the controller class.
      */
@@ -49,22 +50,23 @@ public class FXMLItemCustomerController implements Initializable {
     
     public void verInfoCliente(){
         List<String> dataCliente = ClienteDaoImpl.obtenerDatosCliente(cedula);
-        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLInfoCliente.fxml"));
         try {
             Node node = loader.load();
             FXMLInfoClienteController ctr = loader.getController();
             ctr.setearCamposCliente(dataCliente);
-            ctr.mostrarCasas();
+            ctr.mostrarCasas(bPCliente, title);
             bPCliente.setCenter(node);
+            title.setText("Detalles");
         } catch (IOException ex) {
             Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
 
-    public void setbPCliente(BorderPane bPCliente) {
+    public void setbPCliente(BorderPane bPCliente,Label titlePaneVendedor) {
         this.bPCliente = bPCliente;
+        this.title=titlePaneVendedor;
     }
     
     
