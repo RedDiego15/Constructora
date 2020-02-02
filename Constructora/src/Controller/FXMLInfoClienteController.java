@@ -50,7 +50,17 @@ public class FXMLInfoClienteController implements Initializable {
     
     
     public void setearCamposCliente(List<String> dataCliente){
-        
+        for(String dC: dataCliente){
+            String[] data= dC.split(",");
+            txtNombre.setText(data[3]);
+            txtPasaporte.setText(data[2]);
+            txtCorreo.setText(data[6]);
+            txtNameEmpresa.setText(data[1]); //Llamar al procedure que me retorne el nombre de la empresa por id
+            txtApellido.setText(data[4]);
+            txtCelular.setText(data[5]);
+            txtDireccion.setText(data[7]);
+            txtNumHijos.setText(data[10]);
+        }
     }
     
 }

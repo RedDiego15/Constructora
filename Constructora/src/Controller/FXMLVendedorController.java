@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.DAO.Cliente.ClienteDaoImpl;
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -33,6 +34,7 @@ public class FXMLVendedorController extends Ventana implements Initializable{
     private VBox vBoxClientes;
     @FXML
     private BorderPane borderPaneVendedor;
+
     
    // private final FXMLVendedorController main = ;
 
@@ -48,8 +50,9 @@ public class FXMLVendedorController extends Ventana implements Initializable{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLItemCustomer.fxml"));
                 Node node = loader.load();
                 FXMLItemCustomerController customer = loader.getController();
+                customer.setbPCliente(borderPaneVendedor);
                 customer.setearLabel(data[0]);
-                customer.verInfoCliente(data[1]);
+                customer.cedulaCliente(data[1]);
                 vBoxClientes.getChildren().add(node);
             } catch (IOException ex) {
                 Logger.getLogger(FXMLVendedorController.class.getName()).log(Level.SEVERE, null, ex);
@@ -57,6 +60,10 @@ public class FXMLVendedorController extends Ventana implements Initializable{
         });
 
     }    
+    
+    public void mostrarClientes(){
+        borderPaneVendedor.setCenter(vBoxClientes);
+    }
     
     public void setRoot(Stage root){
         this.root = root;

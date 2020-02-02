@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -19,6 +20,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <JFXButton fx:id="btnmostrarClientes" layoutX="2.0" layoutY="50.0" onMouseClicked="#mostrarClientes" prefHeight="27.0" prefWidth="174.0" style="-fx-background-color: #ffffff;" text="Ver Clientes" textFill="#474c5f" />
          </children>
       </Pane>
       <BorderPane fx:id="borderPaneVendedor" layoutX="174.0" prefHeight="592.0" prefWidth="622.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">

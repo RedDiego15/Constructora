@@ -7,11 +7,18 @@ package Controller;
 
 import Model.DAO.Cliente.ClienteDaoImpl;
 import com.jfoenix.controls.JFXButton;
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
@@ -19,12 +26,10 @@ import javafx.scene.control.Label;
  * @author GaryBarzola
  */
 public class FXMLItemCustomerController implements Initializable {
-
+    private String cedula;
     @FXML
     private Label Lname;
-    @FXML
-    private JFXButton btnVerCliente;
-
+    private BorderPane bPCliente;
     /**
      * Initializes the controller class.
      */
@@ -37,10 +42,30 @@ public class FXMLItemCustomerController implements Initializable {
         Lname.setText(data);
     }
     
-    public void verInfoCliente(String cedula){
-        ClienteDaoImpl.obtenerDatosCliente(cedula);
-        //llamar a otro pane que me añado los metodos a los label 
-        // y me retorne ese pane para luego setear el paneCentral de vendedorController
+    public void cedulaCliente(String cedula){
+        this.cedula = cedula;
         
     }
+    
+    public void verInfoCliente(){
+        List<String> dataCliente = ClienteDaoImpl.obtenerDatosCliente(cedula);
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLInfoCliente.fxml"));
+        try {
+            Node node = loader.load();
+            FXMLInfoClienteController ctr = loader.getController();
+            ctr.setearCamposCliente(dataCliente);
+            bPCliente.setCenter(node);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    public void setbPCliente(BorderPane bPCliente) {
+        this.bPCliente = bPCliente;
+    }
+    
+    
+    
 }
