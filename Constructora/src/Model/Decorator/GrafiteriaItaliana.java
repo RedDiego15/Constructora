@@ -5,6 +5,8 @@
  */
 package Model.Decorator;
 
+import Model.Casa;
+
 /**
  *
  * @author Lenovo comp
@@ -20,4 +22,10 @@ public class GrafiteriaItaliana extends ElementoDecorator{
     public double obtenerPresupuesto() {
         return getDecorable().obtenerPresupuesto()+100;
     }
+
+    @Override
+    public Casa getCasa() {
+        return this.getDecorable().getCasa();
+    }
+
 }

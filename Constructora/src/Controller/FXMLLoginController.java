@@ -34,7 +34,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
     @FXML
     private PasswordField txtPass;
     
-    private final FXMLMainController mainSinLogin = new FXMLMainController();
+    private final FXMLMainController mainCliente = new FXMLMainController();
     private final FXMLVendedorController mainVendedor = new FXMLVendedorController();
     private Login login;
     private ResultSet res;
@@ -53,7 +53,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
             switch (n) {
                 case 0: //Cliente
                     Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
-                    accionAbrirVentanaSinLogin();
+                    this.abrirMainCliente();
                     
                     //abrir mainCliente.abrirVentana();
                     //this.cerrarVentana();
@@ -76,7 +76,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
     }
      
     public void accionAbrirVentanaSinLogin(){
-             this.abrirSinLogin();
+             this.abrirMainCliente();
     }
    
     @Override
@@ -100,8 +100,8 @@ public class FXMLLoginController extends Ventana implements Initializable{
         }
         return false;
     }
-    private void abrirSinLogin(){
-        mainSinLogin.abrirVentana();
+    private void abrirMainCliente(){
+        mainCliente.abrirVentana();
         this.cerrarVentana();
     }
     public void setRoot(Stage root) {

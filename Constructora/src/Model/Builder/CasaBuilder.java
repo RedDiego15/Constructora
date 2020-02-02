@@ -41,7 +41,17 @@ public abstract class CasaBuilder{
             casa.setNumHabitaciones(Integer.parseInt(res.getString("NumHabitaciones")));
             casa.setNumBanios(Integer.parseInt(res.getString("numBanios")));
             casa.setPrecioBase(Double.parseDouble(res.getString("Precio")));
+            casa.setOrientacion(res.getString("Orientacion"));
+            casa.setTmnPatio(res.getString("TmnPatio"));
             //falta poner todas las cosas extra en false
+            
+            casa.setAislanteTérmicoEnTecho(false);
+            casa.setGriferíaEstándar(false);
+            casa.setGriferíaitaliana(false);
+            casa.setIluminaciónTradicional(false);
+            casa.setLed(false);
+            casa.setPisosPorcelanatoNacional(false);
+            casa.setPisosPorcelanatoimportado(false);
             casa.setAislanteTérmicoEnTecho(false);
             } else {
                 util.Util.mostrarDialogAlert("Fallo en la conexion para casaCielo");

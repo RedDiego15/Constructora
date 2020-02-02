@@ -5,6 +5,8 @@
  */
 package Model.Decorator;
 
+import Model.Casa;
+
 /**
  *
  * @author Lenovo comp
@@ -18,4 +20,10 @@ public class Led  extends ElementoDecorator{
     public double obtenerPresupuesto() {
         return getDecorable().obtenerPresupuesto()+120;
     }
+
+    @Override
+    public Casa getCasa() {
+        return getDecorable().getCasa();
+    }
+
 }

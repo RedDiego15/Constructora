@@ -171,6 +171,11 @@ public class ClienteDaoImpl{
         return listaCliente;
     }
     
+    public void executeHouseInsert(String query){
+        
+    
+    }
+    
     
 
 }
