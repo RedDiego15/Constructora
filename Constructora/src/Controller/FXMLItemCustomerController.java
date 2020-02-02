@@ -55,6 +55,7 @@ public class FXMLItemCustomerController implements Initializable {
             Node node = loader.load();
             FXMLInfoClienteController ctr = loader.getController();
             ctr.setearCamposCliente(dataCliente);
+            ctr.mostrarCasas();
             bPCliente.setCenter(node);
         } catch (IOException ex) {
             Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);

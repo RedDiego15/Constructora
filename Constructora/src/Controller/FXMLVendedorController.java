@@ -58,8 +58,8 @@ public class FXMLVendedorController extends Ventana implements Initializable{
                 Logger.getLogger(FXMLVendedorController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-
     }    
+    
     
     public void mostrarClientes(){
         borderPaneVendedor.setCenter(vBoxClientes);

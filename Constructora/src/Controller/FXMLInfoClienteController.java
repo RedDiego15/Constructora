@@ -7,11 +7,16 @@ package Controller;
 
 import Model.DAO.Cliente.ClienteDaoImpl;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -23,8 +28,6 @@ import javafx.scene.layout.VBox;
 public class FXMLInfoClienteController implements Initializable {
 
     private String cedula;
-    @FXML
-    private HBox HboxCasasCliente;
     @FXML
     private JFXTextField txtNombre;
     @FXML
@@ -41,6 +44,8 @@ public class FXMLInfoClienteController implements Initializable {
     private JFXTextField txtDireccion;
     @FXML
     private JFXTextField txtNumHijos;
+    @FXML
+    private HBox HboxCasasCliente;
 
     /**
      * Initializes the controller class.
@@ -66,9 +71,21 @@ public class FXMLInfoClienteController implements Initializable {
         }
     }
     
+    @FXML
     public void actualizarCliente(){
         ClienteDaoImpl.actualizarCliente(cedula,txtNombre.getText().trim(),txtApellido.getText().trim(),txtPasaporte.getText().trim(),
                                         txtCorreo.getText().trim(),txtCelular.getText().trim(),txtDireccion.getText().trim(),txtNumHijos.getText().trim());
+    }
+    
+    public void mostrarCasas(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLmoldeCasa.fxml"));
+        try {
+            Node node = loader.load();
+            FXMLmoldeCasaController mCasa = loader.getController();
+            HboxCasasCliente.getChildren().addAll(node);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
