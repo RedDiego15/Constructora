@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #00918e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLRegisterEmpleadoController">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #110133; -fx-background-radius: 40;" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="383.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
+         <children>
+            <JFXButton layoutX="205.0" layoutY="490.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#registrarEmpleado" prefHeight="40.0" prefWidth="247.0" style="-fx-background-color: #00BFBB; -fx-background-radius: 25;" text="Registrarse" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Helvetica" size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXComboBox fx:id="eCargo" focusColor="#00bfbb" layoutX="327.0" layoutY="350.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="158.0" promptText="Cargo" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE" />
+            <Label layoutX="524.0" layoutY="564.0" text="Empleados" textFill="#5e5e5e" />
+         </children>
+      </Pane>
+      <Pane prefHeight="601.0" prefWidth="376.0" style="-fx-background-color: #00918e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="274.0" fitWidth="304.0" layoutX="50.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/imgCasa.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="89.0" layoutY="80.0" text="Construye tu Casa&#10;" textFill="WHITE">
+               <font>
+                  <Font name="Helvetica" size="24.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="187.0" layoutY="416.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="57.0" layoutX="208.0" layoutY="438.0" startX="-100.0" stroke="WHITE" />
+            <Line endX="8.88458251953125" layoutX="232.0" layoutY="460.0" startX="-100.0" stroke="WHITE" />
+         </children>
+      </Pane>
+      <Label layoutX="673.0" layoutY="45.0" text="Sign Up" textFill="WHITE" AnchorPane.leftAnchor="673.0" AnchorPane.topAnchor="45.0">
+         <font>
+            <Font name="Helvetica" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="394.0" layoutY="358.0" textFill="WHITE">
+         <font>
+            <Font name="Helvetica" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="eName" focusColor="#00918e" labelFloat="true" layoutX="404.0" layoutY="112.0" prefHeight="27.0" prefWidth="271.0" promptText="Ingrese su nombre" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="108.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></JFXTextField>
+      <JFXPasswordField fx:id="ePassword" focusColor="#00918e" labelFloat="true" layoutX="403.0" layoutY="171.0" prefHeight="27.0" prefWidth="320.0" promptText="Escriba una contraseña" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="158.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXPasswordField>
+      <JFXTextField fx:id="eCedula" focusColor="#00918e" labelFloat="true" layoutX="401.0" layoutY="218.0" prefHeight="27.0" prefWidth="320.0" promptText="Numero de Identificacion" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="208.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="eCorreo" focusColor="#00918e" labelFloat="true" layoutX="413.0" layoutY="288.0" prefHeight="27.0" prefWidth="320.0" promptText="Ingrese un correo" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="258.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXCheckBox checkedColor="#110133" layoutX="409.0" layoutY="517.0" text="Accept terms and conditions" textFill="WHITE" unCheckedColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="429.0" />
+      <JFXTextField fx:id="eCelular" focusColor="#00918e" labelFloat="true" layoutX="433.0" layoutY="308.0" prefHeight="27.0" prefWidth="320.0" promptText="Número de celular" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="358.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="eDireccion" focusColor="#00918e" labelFloat="true" layoutX="423.0" layoutY="298.0" prefHeight="27.0" prefWidth="320.0" promptText="Ingrese dirección domiciliaria" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="308.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="eLastName" focusColor="#00918e" labelFloat="true" layoutX="414.0" layoutY="122.0" prefHeight="27.0" prefWidth="271.0" promptText="Ingrese su apellido" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="710.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="108.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXTextField fx:id="ePasaporte" focusColor="#00918e" labelFloat="true" layoutX="424.0" layoutY="132.0" prefHeight="27.0" prefWidth="271.0" promptText="Pasaporte" style="-fx-text-inner-color: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="710.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="208.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXComboBox fx:id="eEstadoCivil" focusColor="#00bfbb" layoutX="404.0" layoutY="463.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="111.0" promptText="Estado Civil" unFocusColor="WHITE" AnchorPane.leftAnchor="710.0" AnchorPane.topAnchor="308.0" />
+   </children>
+</AnchorPane>

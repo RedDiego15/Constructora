@@ -7,13 +7,12 @@ package Model.Decorator;
 
 /**
  *
- * @author CltControl
+ * @author Lenovo comp
  */
-public interface Decorable {
+public interface Decor {
     
-    public String getDescripcion();
-
     public String getTipo();
     
     public double obtenerPresupuesto();
+    
 }

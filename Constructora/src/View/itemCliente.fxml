@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <ImageView fitHeight="24.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </BorderPane.margin>
+         <image>
+            <Image url="1" />
+         </image>
+      </ImageView>
+   </left>
+   <center>
+      <Label text="GARY NICK BARZOLA PESANTES" textFill="#474c5f" BorderPane.alignment="CENTER_LEFT" />
+   </center>
+   <right>
+      <JFXButton prefHeight="27.0" prefWidth="97.0" style="-fx-background-color: #474c5f; -fx-background-radius: 13;" text="Ver" textFill="WHITE" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </BorderPane.margin>
+      </JFXButton>
+   </right>
+</BorderPane>

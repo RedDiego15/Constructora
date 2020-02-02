@@ -6,7 +6,7 @@
 package Model.Builder;
 
 import Model.Casa;
-import Model.Decorator.ImplementacionDiego.Decor;
+import Model.Decorator.Decor;
 
 /**
  *

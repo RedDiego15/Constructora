@@ -1,36 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="526.0" styleClass="fondo-login" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLLoginController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="442.0" style="-fx-background-color: #00918e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLLoginController">
    <children>
-      <Label layoutX="186.0" layoutY="205.0" />
-      <AnchorPane layoutX="60.0" layoutY="45.0" prefHeight="347.0" prefWidth="406.0" styleClass="login-marco" stylesheets="@../styles/styles.css">
+      <AnchorPane layoutX="26.0" layoutY="18.0" prefHeight="550.0" prefWidth="416.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label layoutX="41.0" layoutY="28.0" styleClass="label-login" stylesheets="@../styles/styles.css" text="Inicia Sesión" textFill="#fffbfb">
+            <Label layoutX="168.0" layoutY="26.0" text="Sign In" textFill="WHITE" AnchorPane.leftAnchor="168.0" AnchorPane.rightAnchor="167.0">
                <font>
-                  <Font size="30.0" />
+                  <Font name="Helvetica" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="76.0" layoutY="101.0" stylesheets="@../styles/styles.css" text="Cedula" />
-            <PasswordField id="passField" fx:id="txtPass" layoutX="166.0" layoutY="163.0" promptText="contraseña" />
-            <TextField id="txtCedula" fx:id="txtCedula" layoutX="166.0" layoutY="101.0" promptText="Cedula" />
-            <Label layoutX="76.0" layoutY="162.0" prefHeight="26.0" prefWidth="90.0" stylesheets="@../styles/styles.css" text="Contraseña" />
-            <Button id="btnIngresar" fx:id="btnIngresar" layoutX="166.0" layoutY="218.0" mnemonicParsing="false" onAction="#accionIngresar" prefHeight="30.0" prefWidth="149.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Ingresar">
+            <JFXButton id="btnIngresar" fx:id="btnIngresar" layoutX="100.0" layoutY="411.0" onAction="#accionIngresar" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #004445; -fx-background-radius: 30;" text="Ingresar" textFill="WHITE" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="409.0">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Helvetica" size="20.0" />
                </font>
-            </Button>
-            <Button id="btnIngresar" fx:id="btnIngresar1" layoutX="76.0" layoutY="295.0" mnemonicParsing="false" onAction="#accionAbrirVentana" prefHeight="30.0" prefWidth="239.0" styleClass="login-boton" stylesheets="@../styles/styles.css" text="Continuar Sin Iniciar Sesion">
+            </JFXButton>
+            <ImageView id="btnIngresar" fx:id="btnIngresar1" fitHeight="80.0" fitWidth="100.0" layoutX="316.0" layoutY="477.0" onMouseClicked="#accionAbrirVentana" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-7.0" AnchorPane.rightAnchor="12.787979125976562" AnchorPane.topAnchor="477.0">
+               <image>
+                  <Image url="@../resources/imgCasa.png" />
+               </image>
+            </ImageView>
+            <PasswordField id="passField" fx:id="txtPass" layoutX="125.0" layoutY="213.0" prefWidth="260.0" promptText="contraseña" style="-fx-background-color: #00918e; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-background-insets: 0000; -fx-text-inner-color: #ffffff; -fx-focus-traversable: #ffffff;" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="237.0">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font>
-            </Button>
+            </PasswordField>
+            <Line endX="196.5" layoutX="204.0" layoutY="92.0" startX="-162.0" stroke="#46bfbf" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+            <Label layoutX="10.0" layoutY="162.0" text="Cédula" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="157.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="245.0" text="Constraseña" textFill="WHITE" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="245.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="txtCedula" fx:id="txtCedula" layoutX="132.0" layoutY="150.0" prefWidth="260.0" promptText="cédula" style="-fx-background-color: #00918e; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-background-insets: 0000; -fx-text-inner-color: #ffffff;" AnchorPane.leftAnchor="132.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <JFXCheckBox checkedColor="#00918e" layoutX="40.0" layoutY="335.0" text="Remind me" textFill="WHITE" unCheckedColor="WHITE" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="353.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXCheckBox>
+            <Line endX="196.5" layoutX="205.0" layoutY="335.0" startX="-162.0" stroke="#46bfbf" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="328.5" />
          </children>
       </AnchorPane>
    </children>

@@ -5,34 +5,18 @@
  */
 package Model.Decorator;
 
-import Model.Casa;
-
 /**
  *
- * @author GaryBarzola
+ * @author  Diego Rojas
  */
-/*
-public class BañosInsonorizados extends CasaDecorator{
-    
-    public BañosInsonorizados(Casa casa){
-        super(casa);
-    }
+public class BañosInsonorizados extends ElementoDecorator{
 
-    @Override
-    public String getTipo(){
-        return getCasa().getTipo();
+    public BañosInsonorizados(Decor decorable) {
+        super(decorable);
     }
     
     @Override
-    public String getDescripcion(){
-        getCasa().setBañosInsonorizados(true);
-        return getCasa().getDescripcion();
+    public double obtenerPresupuesto() {
+        return getDecorable().obtenerPresupuesto()+200;
     }
-
-    @Override
-    public double obtenerPresupuesto(){
-        return getCasa().obtenerPresupuesto()+200;
-    }
-    
 }
-*/

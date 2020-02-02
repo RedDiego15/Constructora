@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -14,8 +15,6 @@
             <AnchorPane prefHeight="760.0" prefWidth="916.0" styleClass="fondo-Main" stylesheets="@../styles/styles.css">
                <children>
                   <Label layoutX="91.0" layoutY="13.0" prefHeight="35.0" prefWidth="159.0" text="Realiza tu Diseño" />
-                  <Button layoutX="660.0" layoutY="18.0" mnemonicParsing="false" onAction="#accionIniciaSesion" prefHeight="25.0" prefWidth="92.0" text="Inicia Sesion" />
-                  <Button layoutX="767.0" layoutY="18.0" mnemonicParsing="false" onAction="#accionRegistrarse" prefHeight="25.0" prefWidth="92.0" text="Registrate" />
                   <ScrollPane fx:id="scrollPane" disable="true" layoutX="154.0" layoutY="466.0" prefHeight="249.0" prefWidth="524.0" />
                   <Label layoutX="366.0" layoutY="79.0" prefHeight="30.0" prefWidth="107.0" text="Casas Basicas" />
                   <AnchorPane layoutX="312.0" layoutY="136.0" prefHeight="271.0" prefWidth="277.0" styleClass="login-marco" stylesheets="@../styles/styles.css">
@@ -68,6 +67,10 @@
                      </children>
                   </AnchorPane>
                   <Button layoutX="627.0" layoutY="724.0" mnemonicParsing="false" onAction="#accionGuardarDiseno" text="Guardar Diseño" />
+                  <Label fx:id="Jempleado" disable="true" layoutX="731.0" layoutY="68.0" onMouseClicked="#accionRegistrarEmpleado" opacity="0.0" text="Empleado" />
+                  <Label fx:id="Jcliente" disable="true" layoutX="819.0" layoutY="68.0" onMouseClicked="#accionRegistrarCliente" opacity="0.0" text="Cliente" />
+                  <JFXButton layoutX="645.0" layoutY="17.0" onAction="#accionIniciaSesion" prefHeight="27.0" prefWidth="107.0" style="-fx-background-color: #ffffff;" text="Inicia Sesión" />
+                  <JFXButton layoutX="765.0" layoutY="17.0" onAction="#accionRegistrarse" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Registrate" textAlignment="CENTER" />
                </children>
             </AnchorPane>
          </content>

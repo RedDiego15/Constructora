@@ -3,21 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.Decorator.ImplementacionDiego;
+package Model.Decorator;
+
+import Model.Decorator.ElementoDecorator;
+import Model.Decorator.Decor;
+import Model.Casa;
 
 /**
  *
  * @author Lenovo comp
  */
-public class GrafiteriaItaliana extends ElementoDecorator{
+public class TechoAislanteTermico extends ElementoDecorator{
 
-    public GrafiteriaItaliana(Decor decorable) {
+    public TechoAislanteTermico(Decor decorable) {
         super(decorable);
     }
     
     
+    
     @Override
     public double obtenerPresupuesto() {
-        return getDecorable().obtenerPresupuesto()+100;
+        return getDecorable().obtenerPresupuesto()+500;
     }
+    
 }

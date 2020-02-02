@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
         <file>
             <url>src/Controller/FXMLMainController.java</url>
@@ -18,6 +19,15 @@
             <file>file:/D:/caperta%20de%20trabajos/Proyecto%20Diseno%20Software/Constructora/Constructora/src/Model/User.java</file>
             <file>file:/D:/caperta%20de%20trabajos/Proyecto%20Diseno%20Software/Constructora/Constructora/src/Model/Main.java</file>
             <file>file:/D:/caperta%20de%20trabajos/Proyecto%20Diseno%20Software/Constructora/Constructora/src/Controller/FXMLMainController.java</file>
+=======
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Controller/Ventana.java</file>
+            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Model/DAO/Cliente/ClienteDaoImpl.java</file>
+            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Controller/FXMLRegisterEmpleadoController.java</file>
+            <file>file:/Users/GaryBarzola/Desktop/Constructora/Constructora/src/Model/Empleado.java</file>
+>>>>>>> 602404cbc32b1046c852770054f7094d85ab924c
         </group>
     </open-files>
 </project-private>

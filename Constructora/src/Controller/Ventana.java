@@ -25,6 +25,8 @@ public abstract class Ventana{
         this.root.close();
     }
     
+    
+    
     protected Stage nuevaVentana(Parent root,String nombre) {
         Stage stage = new Stage();
         Scene scene = new Scene(root);

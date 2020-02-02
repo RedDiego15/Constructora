@@ -56,9 +56,10 @@ public class FXMLCeldaElemento {
     }
     
     public void crearCeldas(VBox holderScroll,ScrollPane scrollPane){
-        ResultSet res = DataBase.getDataB().executeQuery("SELECT * FROM Elementos limit 8;");
+        ResultSet res=null;
         holderScroll = new VBox(15); 
         try {
+            res = DataBase.getDataB().executeQuery("SELECT * FROM Elementos limit 8;");
             while(res.next()){
                 HBox celda = this.obtenerCelda(res);
                 holderScroll.getChildren().add(celda);   

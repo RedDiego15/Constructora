@@ -6,15 +6,15 @@
 package Controller;
 
 import static Controller.FXMLMainController.casaCambios;
-import Model.Decorator.ImplementacionDiego.Decor;
-import Model.Decorator.ImplementacionDiego.BañosInsonorizados;
-import Model.Decorator.ImplementacionDiego.GrafiteriaEstandar;
-import Model.Decorator.ImplementacionDiego.GrafiteriaItaliana;
-import Model.Decorator.ImplementacionDiego.IluminacionTradicional;
-import Model.Decorator.ImplementacionDiego.Led;
-import Model.Decorator.ImplementacionDiego.PisoPorcelanatoImportado;
-import Model.Decorator.ImplementacionDiego.PisoPorcelanatoNacional;
-import Model.Decorator.ImplementacionDiego.TechoAislanteTermico;
+import Model.Decorator.Decor;
+import Model.Decorator.BañosInsonorizados;
+import Model.Decorator.GrafiteriaEstandar;
+import Model.Decorator.GrafiteriaItaliana;
+import Model.Decorator.IluminacionTradicional;
+import Model.Decorator.Led;
+import Model.Decorator.PisoPorcelanatoImportado;
+import Model.Decorator.PisoPorcelanatoNacional;
+import Model.Decorator.TechoAislanteTermico;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;

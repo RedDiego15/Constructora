@@ -25,17 +25,15 @@ public class Conexion {
     private final String hostname = "127.0.0.1"; 
 
     // Puerto
-    private final String port = "3306";
+    private final String port = "3308";
 
     // Ruta de nuestra base de datos (desactivamos el uso de SSL con "?useSSL=false")
     private final String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database + "?useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false" ;
 
     // Nombre de usuario
-
     private final String username = "root"; 
 
     // Clave de usuario
- 
     private final String password = "root"; 
     
     private Conexion(){}
