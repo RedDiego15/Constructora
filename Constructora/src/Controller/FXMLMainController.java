@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
@@ -38,7 +39,10 @@ public class FXMLMainController extends Ventana implements Initializable {
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    //private Button
+    private Button btnIniciaSesion;
+    @FXML
+    private Button btnDiseno;
+    
     private VBox holderScroll;
     private Stage root;
     private CasaDirector casa;
@@ -50,6 +54,9 @@ public class FXMLMainController extends Ventana implements Initializable {
     @FXML
     private Label Jcliente;
     
+    public FXMLMainController(){
+        
+    }
     /**
      * Initializes the controller class.
      */
@@ -57,9 +64,7 @@ public class FXMLMainController extends Ventana implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-        if(Cliente.getInstance()==null){
-            
-        }
+        
     }
     public Stage getRoot() {
         return root;
@@ -86,6 +91,7 @@ public class FXMLMainController extends Ventana implements Initializable {
         
     }
      public void accionSeleccionCielo(){
+         this.btnDiseno.setDisable(false);
         casa = new CasaDirector(new CasaCieloBuilder());
         casa.construirCasa();
         System.out.println("en la accion"+casa.getCasa().getPrecioBase());
@@ -94,12 +100,14 @@ public class FXMLMainController extends Ventana implements Initializable {
         
     }
     public void accionSeleccionParaiso(){
+        this.btnDiseno.setDisable(false);
         casa = new CasaDirector(new CasaParaisoBuilder());
         casa.construirCasa();
         System.out.println("en la accion"+casa.getCasa().getPrecioBase());
         this.llenarElementos();
     }
     public void accionSeleccionOasis(){
+        this.btnDiseno.setDisable(false);
         casa = new CasaDirector(new CasaOasisBuilder());
         casa.construirCasa();
         System.out.println("en la accion"+casa.getCasa().getPrecioBase());
@@ -107,11 +115,12 @@ public class FXMLMainController extends Ventana implements Initializable {
     
     }
     public void accionIniciaSesion(){
-
-        FXMLLoginController login = new FXMLLoginController();
-        login.abrirVentana();
-        
-       
+        if(Cliente.estaInstanciado()){
+            btnIniciaSesion.setDisable(true);
+        }else{
+            FXMLLoginController login = new FXMLLoginController();
+            login.abrirVentana();
+        }
     }
     public void accionRegistrarse() throws IOException{
          if(Jempleado.isDisable() || Jcliente.isDisable()){
@@ -140,12 +149,21 @@ public class FXMLMainController extends Ventana implements Initializable {
     public void accionGuardarDiseno(){
         if(casa == null){
             util.Util.mostrarDialogAlert("Debe Seleccionar una Casa Basica");
-        }else if (Cliente.getInstance() == null){
+        }else if (!Cliente.estaInstanciado()){
             util.Util.mostrarDialogAlert("Debe iniciar sesion antes de guardar su Diseno");
         }else{
             
+            DataBase.getDataB().executeHouseInsert("insert into Casas "+
+                            "(Metros_cuadrados,cliente,NumPlantas,Esquinera,Orientacion,TmnPatio,NumHabitaciones,NumBanios,Precio)"+
+                            "values(?,?,?,?,?,?,?,?,?);");
+            this.btnDiseno.setDisable(true);
             
-        
+            
         }
     }
+
+    public Button getBtnIniciaSesion() {
+        return btnIniciaSesion;
+    }
+    
 }

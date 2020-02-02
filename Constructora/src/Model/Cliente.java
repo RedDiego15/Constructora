@@ -41,17 +41,23 @@ public class Cliente extends User{
         ResultSet res;
         if(instance == null){
             try {
-                res = DataBase.getDataB().executeQuery("select * from Clientes where Cedula ="+cedula+" ;");
+                res = DataBase.getDataB().executeQuery("select * from Clientes where Cedula = '"+cedula+"' ;");
                 if(res.next()){
+                    System.out.println("encontre coincidencias");
                     instance = new Cliente(res.getString("Cedula"),res.getString("Pasaporte"),res.getString("Nombre"),res.getString("Apellido"),res.getString("NumCelular"),
                                            res.getString("Correo"),res.getString("Direccion_Domicilio"),res.getString("Estado_Civil"),
                                            res.getString("idEmpresa"),res.getString("cargoEmpresa"), res.getString("NumHijos"));
+                    System.out.println("se cargaron los datos ");
 
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+    }
+    public static boolean estaInstanciado(){
+        return (instance != null)?true:false;
     }
     
 

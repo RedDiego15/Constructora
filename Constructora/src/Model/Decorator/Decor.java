@@ -5,6 +5,8 @@
  */
 package Model.Decorator;
 
+import Model.Casa;
+
 /**
  *
  * @author Lenovo comp
@@ -15,4 +17,6 @@ public interface Decor {
     
     public double obtenerPresupuesto();
     
+    public Casa getCasa();
+       
 }

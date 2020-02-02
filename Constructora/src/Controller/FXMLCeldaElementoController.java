@@ -5,6 +5,7 @@
  */
 package Controller;
 
+//import static Controller.FXMLMainController.casa;
 import static Controller.FXMLMainController.casaCambios;
 import Model.Decorator.Decor;
 import Model.Decorator.BañosInsonorizados;
@@ -61,22 +62,39 @@ public class FXMLCeldaElementoController implements Initializable {
     
     public Decor obtenerElemento(String nombre){
         if(nombre.equals("Techo con aislante térmico ")){
+            casaCambios.getCasa().setAislanteTérmicoEnTecho(true);
             return new TechoAislanteTermico(casaCambios);
+            
         }else if(nombre.equals("Piso Porcelanato Nacional")){
+            casaCambios.getCasa().setPisosPorcelanatoNacional(true);
             return new PisoPorcelanatoNacional(casaCambios);
+            
         }else if(nombre.equals("Piso Porcelanato importado")){
+            casaCambios.getCasa().setPisosPorcelanatoimportado(true);
             return new PisoPorcelanatoImportado(casaCambios);
+            
         }else if(nombre.equals("grifería estándar")){ 
+            casaCambios.getCasa().setGriferíaEstándar(true);
             return new GrafiteriaEstandar(casaCambios);
+            
         }else if(nombre.equals("grifería Italiana")){
+            casaCambios.getCasa().setGriferíaitaliana(true);
             return new GrafiteriaItaliana(casaCambios);
+            
         }else if(nombre.equals("iluminación tradicional ")){
+            casaCambios.getCasa().setIluminaciónTradicional(true);
             return new IluminacionTradicional(casaCambios);
+            
         }else if(nombre.equals("iluminación led ")){
-            return new Led(casaCambios);       
+            casaCambios.getCasa().setLed(true);
+            return new Led(casaCambios); 
+            
         }else if(nombre.equals("baños insonorizados")){
+            casaCambios.getCasa().setBañosInsonorizados(true);
             return new BañosInsonorizados(casaCambios);
+            
         }else if(nombre.equals("Techo con aislante térmico ")){
+            casaCambios.getCasa().setAislanteTérmicoEnTecho(true);
             return new TechoAislanteTermico(casaCambios);
         }
         return null;

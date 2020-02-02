@@ -20,7 +20,6 @@ public class Empleado extends User{
     private String cargo;
     private String tlf_trabajo;
     private static Empleado instance;
-    private ResultSet res;
 
     private Empleado(String cedula, String pasaporte, String nombre, String apellido, String correo, String numCelular,
                     String tlf, String estadoCivil, String cargo){        
@@ -32,7 +31,8 @@ public class Empleado extends User{
         return instance;
     }
     
-    public void cargarDatosEmpleado(String cedula){
+    public static  void cargarDatosEmpleado(String cedula){
+        ResultSet res;
         if(instance == null){
             try {
                 res = DataBase.getDataB().executeQuery("select * from Clientes where Cedula ="+cedula+" ;");
