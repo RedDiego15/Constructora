@@ -53,8 +53,7 @@ public class ClienteDaoImpl{
         }
         return registrar;
     }
-/*
-    @Override
+    
     public List<Cliente> obtenerClientes() {
         List<Cliente> listaCliente= new LinkedList<>();
         Connection conn;
@@ -80,16 +79,11 @@ public class ClienteDaoImpl{
 
         return listaCliente;
     }
-
-    public static void main(String Args[]){
-        ClienteDaoImpl d = new ClienteDaoImpl();
-        System.out.println(d.obtenerDatosCliente("0987654344"));
-    }
     
-    @Override
-    public boolean actualizar(User cliente) { //Falta actualizar los otros campos
+    /*
+    public boolean actualizar(FXMLRegisterClienteController cliente) { //Falta actualizar los otros campos
         boolean actualizar=false;
-        /*
+        
         String sql="UPDATE Clientes SET Nombre='"+cliente.getNombre()+"', Apellido='"+cliente.getApellido()+"'" +" WHERE Cedula="+cliente.getCedula();
         try {
                 connect=Conexion.getConex().conectarMySQL();
@@ -103,10 +97,10 @@ public class ClienteDaoImpl{
         return actualizar;
     }
 
-    @Override
+    /*
     public boolean eliminar(User cliente) {
         boolean eliminar=false;
-        /*
+        
         String sql="DELETE FROM Clientes WHERE Cedula="+cliente.getCedula();
         try {
                 connect=Conexion.getConex().conectarMySQL();
@@ -116,7 +110,7 @@ public class ClienteDaoImpl{
         } catch (SQLException e) {
                 System.out.println("Error: Clase ClienteDaoImple, método eliminar");
                 e.printStackTrace();
-        }*
+        }
         return eliminar;
     }
 

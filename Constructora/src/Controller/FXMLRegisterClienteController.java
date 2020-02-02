@@ -31,7 +31,6 @@ import util.Util;
  */
 public class FXMLRegisterClienteController extends Ventana  implements Initializable {
     private FXMLRegisterClienteController main;
-    private Cliente cliente;
     @FXML
     private JFXTextField fLastName;
     @FXML
@@ -95,6 +94,7 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
             dao.registrar(this);
             String pass = Util.codificarPass(fPass.getText().trim());
             dao.crearUsuario(fCedula.getText().trim(),fPasaporte.getText().trim(),pass,"0");
+            Cliente.getInstance().cargarDatosCliente(fCedula.getText());
             this.cerrarVentana();
         }
     }
@@ -103,10 +103,7 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
         if(idEmpresa.equals(""))
             obtenerEmpresa();
         if(!fCedula.getText().trim().equals("") && !fLastName.getText().trim().equals("") && !fName.getText().trim().equals("") && !fNumCelular.getText().trim().equals("")&& !fCorreo.getText().trim().equals("")
-                && !fDireccionCasa.getText().trim().equals("") && !fEstadoCivil.getValue().trim().equals("") && !fCargoEmpresa.getText().trim().equals("") && !fNumHijos.getText().trim().equals("") ){ 
-            
-            this.cliente = new Cliente(fCedula.getText(),fPasaporte.getText(),fName.getText(),fLastName.getText(),fNumCelular.getText(),fCorreo.getText(),fDireccionCasa.getText(),
-                                fEstadoCivil.getValue(),idEmpresa,fCargoEmpresa.getText(),fNumHijos.getText());
+                && !fDireccionCasa.getText().trim().equals("") && !fEstadoCivil.getValue().trim().equals("") && !fCargoEmpresa.getText().trim().equals("") && !fNumHijos.getText().trim().equals("") ){
             
             return true;
         }else{

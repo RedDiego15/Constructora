@@ -80,7 +80,7 @@ public class FXMLRegisterEmpleadoController extends Ventana  implements Initiali
     public void registrarEmpleado(){
         EmpleadoDaoImpl dao = new EmpleadoDaoImpl();
         if(validarCampos()){
-            dao.registrar(empleado);
+            dao.registrar(this);
             String pass = Util.codificarPass(ePassword.getText().trim());
             dao.crearUsuario(eCedula.getText().trim(),ePasaporte.getText().trim(),pass,empleado.getRol());
             this.cerrarVentana();
@@ -90,16 +90,48 @@ public class FXMLRegisterEmpleadoController extends Ventana  implements Initiali
     
     private boolean validarCampos(){
         if(!eCedula.getText().trim().equals("") && !eName.getText().trim().equals("") && !eLastName.getText().trim().equals("")&& !eCorreo.getText().trim().equals("")
-                && !eCelular.getText().trim().equals("") && !eEstadoCivil.getValue().trim().equals("") && !eCargo.getValue().trim().equals("")){ 
-            
-            this.empleado = new Empleado(eCedula.getText(),ePasaporte.getText(),eName.getText(),eLastName.getText(),eCorreo.getText(),eCelular.getText(),null,
-                                eEstadoCivil.getValue(),eCargo.getValue());
-            
+                && !eCelular.getText().trim().equals("") && !eEstadoCivil.getValue().trim().equals("") && !eCargo.getValue().trim().equals("")){
             return true;
         }else{
              util.Util.mostrarDialogAlert("Debe llenar todos los campos");
         }
         return false;
+    }
+
+    public JFXComboBox<String> geteCargo() {
+        return eCargo;
+    }
+
+    public JFXTextField geteName() {
+        return eName;
+    }
+
+    public JFXPasswordField getePassword() {
+        return ePassword;
+    }
+
+    public JFXTextField geteCedula() {
+        return eCedula;
+    }
+
+    public JFXTextField geteCorreo() {
+        return eCorreo;
+    }
+
+    public JFXTextField geteCelular() {
+        return eCelular;
+    }
+
+    public JFXTextField geteLastName() {
+        return eLastName;
+    }
+
+    public JFXTextField getePasaporte() {
+        return ePasaporte;
+    }
+
+    public JFXComboBox<String> geteEstadoCivil() {
+        return eEstadoCivil;
     }
     
     
