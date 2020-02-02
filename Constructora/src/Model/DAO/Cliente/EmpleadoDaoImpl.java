@@ -19,11 +19,11 @@ import java.util.List;
  *
  * @author GaryBarzola
  */
-public class EmpleadoDaoImpl implements ICRUDDao{
+public class EmpleadoDaoImpl{
     private Connection connect= null;
     private Statement stm= null;
     
-    @Override
+    
     public boolean registrar(User emp) {
         Empleado empleado = (Empleado)emp;
         
@@ -49,7 +49,7 @@ public class EmpleadoDaoImpl implements ICRUDDao{
         }
         return registrar;
     }
-
+/*
     @Override
     public List<Cliente> obtenerClientes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -64,8 +64,8 @@ public class EmpleadoDaoImpl implements ICRUDDao{
     public boolean eliminar(User cliente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
+*/
+    
     public boolean crearUsuario(String cedula, String passport, String pass, String roll) {
         boolean registrar = false;
         try {

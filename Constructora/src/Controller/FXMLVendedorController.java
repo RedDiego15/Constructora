@@ -30,12 +30,15 @@ public class FXMLVendedorController extends Ventana implements Initializable{
 
     @FXML
     private VBox vBoxClientes;
+    
+   // private final FXMLVendedorController main = ;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+<<<<<<< HEAD
         List<String> datoCliente = ClienteDaoImpl.obtenerDatosClientes();
         datoCliente.forEach((dC) -> {
             try {
@@ -51,7 +54,34 @@ public class FXMLVendedorController extends Ventana implements Initializable{
                 Logger.getLogger(FXMLVendedorController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+=======
 
+       /* 
+        Node[] nodo = new Node[10];
+        
+        for(int i=0; i<nodo.length; i++){
+            try {
+                nodo[i] = FXMLLoader.load(getClass().getResource("/view/itemCliente.fxml"));
+                vBoxClientes.getChildren().add(nodo[i]);
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLVendedorController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+
+        for(int i=20; i>0; i--){
+            vBoxClientes.getChildren().add(new Label("hola "+i));
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/itemCliente.fxml"));
+            Parent nodo = loader.load();
+            vBoxClientes.getChildren().add(nodo);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+>>>>>>> 282b0dbeffd7006fbf72f8d93b1ec340d0b5c02a
+
+        */
     }    
     
     public void setRoot(Stage root){

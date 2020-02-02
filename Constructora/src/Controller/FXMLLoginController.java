@@ -51,7 +51,11 @@ public class FXMLLoginController extends Ventana implements Initializable{
             int n = login.obtenerRol();
             switch (n) {
                 case 0: //Cliente
+<<<<<<< HEAD
                     accionAbrirVentanaSinLogin();
+=======
+                    Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
+>>>>>>> 282b0dbeffd7006fbf72f8d93b1ec340d0b5c02a
                     //abrir mainCliente.abrirVentana();
                     //this.cerrarVentana();
                     break;
@@ -103,5 +107,6 @@ public class FXMLLoginController extends Ventana implements Initializable{
     public void setRoot(Stage root) {
         this.root = root;
     }
+
 
 }

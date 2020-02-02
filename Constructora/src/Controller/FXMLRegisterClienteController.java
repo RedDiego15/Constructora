@@ -90,9 +90,9 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
     }
     
     public void registrarCliente(){
-        ICRUDDao dao = new ClienteDaoImpl();
+        ClienteDaoImpl dao = new ClienteDaoImpl();
         if(validarCampos()){
-            dao.registrar(cliente);
+            dao.registrar(this);
             String pass = Util.codificarPass(fPass.getText().trim());
             dao.crearUsuario(fCedula.getText().trim(),fPasaporte.getText().trim(),pass,"0");
             this.cerrarVentana();
@@ -125,5 +125,118 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
             idEmpresa = Empresa.obtenerIdEmpresa(fNameEmpresa.getText().trim().toLowerCase());
         }
     }
+
+    public JFXTextField getfLastName() {
+        return fLastName;
+    }
+
+    public void setfLastName(JFXTextField fLastName) {
+        this.fLastName = fLastName;
+    }
+
+    public JFXTextField getfCorreo() {
+        return fCorreo;
+    }
+
+    public void setfCorreo(JFXTextField fCorreo) {
+        this.fCorreo = fCorreo;
+    }
+
+    public JFXTextField getfDireccionCasa() {
+        return fDireccionCasa;
+    }
+
+    public void setfDireccionCasa(JFXTextField fDireccionCasa) {
+        this.fDireccionCasa = fDireccionCasa;
+    }
+
+    public JFXTextField getfCedula() {
+        return fCedula;
+    }
+
+    public void setfCedula(JFXTextField fCedula) {
+        this.fCedula = fCedula;
+    }
+
+    public JFXTextField getfNumCelular() {
+        return fNumCelular;
+    }
+
+    public void setfNumCelular(JFXTextField fNumCelular) {
+        this.fNumCelular = fNumCelular;
+    }
+
+    public JFXTextField getfNumHijos() {
+        return fNumHijos;
+    }
+
+    public void setfNumHijos(JFXTextField fNumHijos) {
+        this.fNumHijos = fNumHijos;
+    }
+
+    public JFXTextField getfPasaporte() {
+        return fPasaporte;
+    }
+
+    public void setfPasaporte(JFXTextField fPasaporte) {
+        this.fPasaporte = fPasaporte;
+    }
+
+    public JFXTextField getfNameEmpresa() {
+        return fNameEmpresa;
+    }
+
+    public void setfNameEmpresa(JFXTextField fNameEmpresa) {
+        this.fNameEmpresa = fNameEmpresa;
+    }
+
+    public JFXTextField getfDireccionEmpresa() {
+        return fDireccionEmpresa;
+    }
+
+    public void setfDireccionEmpresa(JFXTextField fDireccionEmpresa) {
+        this.fDireccionEmpresa = fDireccionEmpresa;
+    }
+
+    public JFXTextField getfNumEmpresa() {
+        return fNumEmpresa;
+    }
+
+    public void setfNumEmpresa(JFXTextField fNumEmpresa) {
+        this.fNumEmpresa = fNumEmpresa;
+    }
+
+    public JFXTextField getfCargoEmpresa() {
+        return fCargoEmpresa;
+    }
+
+    public void setfCargoEmpresa(JFXTextField fCargoEmpresa) {
+        this.fCargoEmpresa = fCargoEmpresa;
+    }
+
+    public JFXTextField getfName() {
+        return fName;
+    }
+
+    public void setfName(JFXTextField fName) {
+        this.fName = fName;
+    }
+
+    public JFXPasswordField getfPass() {
+        return fPass;
+    }
+
+    public void setfPass(JFXPasswordField fPass) {
+        this.fPass = fPass;
+    }
+
+    public JFXComboBox<String> getfEstadoCivil() {
+        return fEstadoCivil;
+    }
+
+    public void setfEstadoCivil(JFXComboBox<String> fEstadoCivil) {
+        this.fEstadoCivil = fEstadoCivil;
+    }
+    
     
 }
