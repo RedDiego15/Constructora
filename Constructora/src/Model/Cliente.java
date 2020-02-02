@@ -53,6 +53,9 @@ public class Cliente extends User{
             }
         }
     }
+    public static boolean estaInstanciado(){
+        return (instance != null)?true:false;
+    }
     
 
     public String getIdEmpresa() {

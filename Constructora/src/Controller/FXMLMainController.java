@@ -54,6 +54,13 @@ public class FXMLMainController extends Ventana implements Initializable {
     @FXML
     private Label Jcliente;
     
+    public FXMLMainController(){
+        if(Cliente.estaInstanciado()){
+            System.out.println("entra");
+            this.btnIniciaSesion.setDisable(true);
+        }
+        System.out.println("en el metodo ");
+    }
     /**
      * Initializes the controller class.
      */
@@ -61,9 +68,7 @@ public class FXMLMainController extends Ventana implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-        if(Cliente.getInstance()==null){
-            
-        }
+        
     }
     public Stage getRoot() {
         return root;

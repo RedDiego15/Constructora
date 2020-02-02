@@ -52,8 +52,9 @@ public class FXMLLoginController extends Ventana implements Initializable{
             int n = login.obtenerRol();
             switch (n) {
                 case 0: //Cliente
-                    accionAbrirVentanaSinLogin();
                     Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
+                    accionAbrirVentanaSinLogin();
+                    
                     //abrir mainCliente.abrirVentana();
                     //this.cerrarVentana();
                     break;
