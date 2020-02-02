@@ -21,10 +21,11 @@ public class Main extends Application{
     
     @Override
     public void start(Stage stage) throws Exception {
-
+        /*
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLLogin.fxml"));
         Parent root = loader.load();
-        FXMLLoginController login = loader.getController();
+        FXMLLoginController login = loader.getController();*/
+        FXMLLoginController login = new FXMLLoginController();
         login.abrirVentana();
  
     }

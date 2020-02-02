@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface ICRUDDao {	
     
-    public boolean registrar(User cliente);
+    public boolean registrar(Object cliente);
     public List<Cliente> obtenerClientes();
     public boolean actualizar(User cliente);
     public boolean eliminar(User cliente);

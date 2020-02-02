@@ -27,13 +27,15 @@ public class FXMLVendedorController extends Ventana implements Initializable{
 
     @FXML
     private VBox vBoxClientes;
+    
+   // private final FXMLVendedorController main = ;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+       /* 
         Node[] nodo = new Node[10];
         
         for(int i=0; i<nodo.length; i++){
@@ -44,7 +46,7 @@ public class FXMLVendedorController extends Ventana implements Initializable{
                 Logger.getLogger(FXMLVendedorController.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-        }
+        }*/
     }    
     
     public void setRoot(Stage root){

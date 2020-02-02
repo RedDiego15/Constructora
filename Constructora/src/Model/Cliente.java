@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class Cliente extends User{
     
-    public static Cliente instance;
+    private static Cliente instance;
     private ResultSet res;
     private String idEmpresa;
     private String cargo;
@@ -77,6 +77,38 @@ public class Cliente extends User{
 
     public void setNumHijos(String NumHijos) {
         this.NumHijos = NumHijos;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public String getPasaporte() {
+        return pasaporte;
     }
 
     

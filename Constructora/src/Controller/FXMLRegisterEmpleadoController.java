@@ -70,16 +70,15 @@ public class FXMLRegisterEmpleadoController extends Ventana  implements Initiali
     public void abrirVentana() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLRegisterEmpleado.fxml"));
-            Parent root = loader.load();
             FXMLRegisterEmpleadoController main = loader.getController();
-            main.setRoot(nuevaVentana(root,"RegistroEmpleado"));
+            main.setRoot(nuevaVentana((Parent)loader.load(),"RegistroEmpleado"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     public void registrarEmpleado(){
-        ICRUDDao dao = new EmpleadoDaoImpl();
+        EmpleadoDaoImpl dao = new EmpleadoDaoImpl();
         if(validarCampos()){
             dao.registrar(empleado);
             String pass = Util.codificarPass(ePassword.getText().trim());
