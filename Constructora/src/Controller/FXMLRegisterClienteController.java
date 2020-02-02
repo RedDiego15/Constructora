@@ -237,6 +237,10 @@ public class FXMLRegisterClienteController extends Ventana  implements Initializ
     public void setfEstadoCivil(JFXComboBox<String> fEstadoCivil) {
         this.fEstadoCivil = fEstadoCivil;
     }
+
+    public String getIdEmpresa() {
+        return idEmpresa;
+    }
     
     
 }
