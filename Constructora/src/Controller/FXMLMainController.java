@@ -23,7 +23,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
-import AppPackage.AnimationClass;
 import javafx.scene.control.Label;
 
 import javafx.stage.Stage;
