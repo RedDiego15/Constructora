@@ -57,33 +57,34 @@ public class ClienteDaoImpl implements ICRUDDao{
     @Override
     public List<Cliente> obtenerClientes() {
         List<Cliente> listaCliente= new LinkedList<>();
-        ResultSet rs=null;
-        String sql="SELECT * FROM Clientes ORDER BY Nombre";
-        try {			
-            rs=DataBase.getDataB().executeQuery(sql);
-            while (rs.next()) {
-                Cliente c=Cliente.getInstance();                       
-                c.setCedula(rs.getString(1));
-                c.setNombre(rs.getString(4));
-                c.setApellido(rs.getString(5));
-                c.setCelular(rs.getString(6));
-                c.setCorreo(rs.getString(7));
-                c.setDireccion(rs.getString(8));
-                c.setEstadoCivil(rs.getString(9));
-                c.setCargo(rs.getString(10));
-                c.setNumHijos(rs.getString(11));
-                listaCliente.add(c);
+        Connection conn;
+        PreparedStatement pS;
+        ResultSet res;
+        try {
+            conn = Conexion.getConex().conectarMySQL();
+            pS = conn.prepareStatement("call obtenerClientes(?,?,?)");
+            res = pS.executeQuery();
+            while(res.next()){
+                String nombre = res.getString(1);
+                String apellido = res.getString(2);
+                String cedula = res.getString(3);
+                //Cliente cliente = new Cliente();
+                
+                //listaCliente.add(cliente);
             }
-            rs.close();
-            connect.close();
+            pS.close();
+            conn.close();
         } catch (SQLException e) {
-                System.out.println("Error: Clase ClienteDaoImple, método obtener");
-                e.printStackTrace();
+            util.Util.mostrarDialogAlert(e.getMessage());
         }
 
         return listaCliente;
     }
 
+    public static void main(String Args[]){
+        ClienteDaoImpl d = new ClienteDaoImpl();
+        System.out.println(d.obtenerDatosCliente("0987654344"));
+    }
     
     @Override
     public boolean actualizar(User cliente) { //Falta actualizar los otros campos
@@ -138,5 +139,45 @@ public class ClienteDaoImpl implements ICRUDDao{
         }
         return registrar;
     }
+    
+    public static List<String> obtenerDatosClientes() {
+        List<String> listaCliente= new LinkedList<>();
+        Connection conn;
+        PreparedStatement pS;
+        ResultSet res;
+        try {
+            conn = Conexion.getConex().conectarMySQL();
+            pS = conn.prepareStatement("call obtenerClientes()");
+            res = pS.executeQuery();
+            while(res.next()){
+                String nombre = res.getString(4);
+                String apellido = res.getString(5);
+                String cedula = res.getString(1);
+                listaCliente.add(nombre.toUpperCase()+" "+apellido.toUpperCase()+","+cedula);
+            }
+            pS.close();
+            conn.close();
+        } catch (SQLException e) {
+            util.Util.mostrarDialogAlert(e.getMessage());
+        }
+        return listaCliente;
+    }
+    
+    public static List<String> obtenerDatosCliente(String cedula) {
+        List<String> listaCliente= new LinkedList<>();
+        ResultSet res;
+        try {
+            res = DataBase.getDataB().executeQuery("Select * From Clientes c Where c.Cedula="+cedula+" ;");
+            while(res.next()){
+                listaCliente.add(res.getString(1)+","+res.getString(2)+","+res.getString(3)+","+res.getString(4)+","+res.getString(5)+","+
+                                res.getString(6)+","+res.getString(7)+","+res.getString(8)+","+res.getString(9)+","+res.getString(10)+","+res.getString(11));
+            }
+        } catch (SQLException e) {
+            util.Util.mostrarDialogAlert(e.getMessage());
+        }
+        return listaCliente;
+    }
+    
+    
 
 }

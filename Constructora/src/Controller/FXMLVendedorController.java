@@ -5,8 +5,10 @@
  */
 package Controller;
 
+import Model.DAO.Cliente.ClienteDaoImpl;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,16 +36,21 @@ public class FXMLVendedorController extends Ventana implements Initializable{
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        for(int i=20; i>0; i--){
-            vBoxClientes.getChildren().add(new Label("hola "+i));
-        }
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/itemCliente.fxml"));
-            Parent nodo = loader.load();
-            vBoxClientes.getChildren().add(nodo);
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        List<String> datoCliente = ClienteDaoImpl.obtenerDatosClientes();
+        datoCliente.forEach((dC) -> {
+            try {
+                String[] data = dC.split(",");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLItemCustomer.fxml"));
+                Node node = loader.load();
+                //Node node = FXMLLoader.load(getClass().getResource("/View/FXMLItemCustomer.fxml"));
+                FXMLItemCustomerController customer = loader.getController();
+                customer.setearLabel(data[0]);
+                customer.verInfoCliente(data[1]);
+                vBoxClientes.getChildren().add(node);
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLVendedorController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
 
     }    
     
@@ -51,10 +58,12 @@ public class FXMLVendedorController extends Ventana implements Initializable{
         this.root = root;
     }
     
+    
+    
     @Override
      public void abrirVentana(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLVendedor.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLVendedor.fxml"));
             Parent root = loader.load();
             FXMLVendedorController main = loader.getController();
             main.setRoot(nuevaVentana(root,"ViewVendedor"));

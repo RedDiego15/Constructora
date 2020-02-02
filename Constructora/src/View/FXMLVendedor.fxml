@@ -21,19 +21,7 @@
             </Label>
          </children>
       </Pane>
-      <BorderPane layoutX="174.0" prefHeight="400.0" prefWidth="424.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
-         <bottom>
-            <Pane prefHeight="205.0" prefWidth="622.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutX="64.0" layoutY="-1.0" text="Casas Predeterminadas" textFill="#474c5f">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Line endX="394.0" layoutX="164.0" layoutY="29.0" startX="-100.0" stroke="#474c5f" />
-               </children>
-            </Pane>
-         </bottom>
+      <BorderPane layoutX="174.0" prefHeight="592.0" prefWidth="622.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
          <top>
             <Pane prefHeight="99.0" prefWidth="622.0" BorderPane.alignment="CENTER">
                <children>
@@ -49,7 +37,7 @@
          <center>
             <ScrollPane style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                <content>
-                  <VBox fx:id="vBoxClientes" prefHeight="287.0" prefWidth="603.0" style="-fx-background-color: #ffffff;">
+                  <VBox fx:id="vBoxClientes" prefHeight="494.0" prefWidth="602.0" style="-fx-background-color: #ffffff;">
                      <padding>
                         <Insets left="20.0" />
                      </padding></VBox>
