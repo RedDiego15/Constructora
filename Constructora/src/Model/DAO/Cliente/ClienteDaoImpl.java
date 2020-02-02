@@ -35,7 +35,7 @@ public class ClienteDaoImpl{
             connect = Conexion.getConex().conectarMySQL();
             CallableStatement sp = connect.prepareCall(" CALL registrarCliente(?,?,?,?,?,?,?,?,?,?)");
             sp.setString(1, cliente.getfCedula().getText());
-            sp.setString(2,cliente.getfNumEmpresa().getText());
+            sp.setString(2,cliente.getIdEmpresa());
             sp.setString(3, cliente.getfName().getText());
             sp.setString(4, cliente.getfLastName().getText());
             sp.setString(5, cliente.getfNumCelular().getText());

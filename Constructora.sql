@@ -180,7 +180,6 @@ create user 'Constructor1' IDENTIFIED BY 'constructor2020';
 
 grant select,update,insert on Constructora.Empresas to 'Constructor1';
 
-<<<<<<< HEAD
 grant select,update,insert on Constructora.Usuarios to 'Constructor1';
 =======
 delimiter $$
@@ -190,8 +189,6 @@ begin
 end $$
 delimiter ;
 
-CREATE USER 'Constructor'@'localhost' IDENTIFIED BY 'constructor';
->>>>>>> 62b7f0f1323e98d5df2e63ca990c74e5fd3bdecf
 
 grant select,update,insert on Constructora.Elementos to 'Constructor1';
 
