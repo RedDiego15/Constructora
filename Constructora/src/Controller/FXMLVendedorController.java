@@ -38,7 +38,7 @@ public class FXMLVendedorController extends Ventana implements Initializable{
         
         for(int i=0; i<nodo.length; i++){
             try {
-                nodo[i] = FXMLLoader.load(getClass().getResource("itemCliente.fxml"));
+                nodo[i] = FXMLLoader.load(getClass().getResource("/view/itemCliente.fxml"));
                 vBoxClientes.getChildren().add(nodo[i]);
             } catch (IOException ex) {
                 Logger.getLogger(FXMLVendedorController.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,7 +47,7 @@ public class FXMLVendedorController extends Ventana implements Initializable{
         }
     }    
     
-    public void setRoot(Stage root) {
+    public void setRoot(Stage root){
         this.root = root;
     }
     
@@ -55,9 +55,8 @@ public class FXMLVendedorController extends Ventana implements Initializable{
      public void abrirVentana(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLVendedor.fxml"));
-            Parent root = loader.load();
             FXMLVendedorController main = loader.getController();
-            main.setRoot(nuevaVentana(loader.load(),"ViewVendedor"));
+            main.setRoot(nuevaVentana((Parent)loader.load(),"ViewVendedor"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -65,7 +65,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
                     //Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
                     break;
             }
-            //this.abrir(); 
+            //this.abrirSinLogin(); 
         } 
     }
      
