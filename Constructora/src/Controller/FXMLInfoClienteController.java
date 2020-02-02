@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.DAO.Cliente.ClienteDaoImpl;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.List;
@@ -21,6 +22,7 @@ import javafx.scene.layout.VBox;
  */
 public class FXMLInfoClienteController implements Initializable {
 
+    private String cedula;
     @FXML
     private HBox HboxCasasCliente;
     @FXML
@@ -60,7 +62,13 @@ public class FXMLInfoClienteController implements Initializable {
             txtCelular.setText(data[5]);
             txtDireccion.setText(data[7]);
             txtNumHijos.setText(data[10]);
+            cedula=data[0];
         }
+    }
+    
+    public void actualizarCliente(){
+        ClienteDaoImpl.actualizarCliente(cedula,txtNombre.getText().trim(),txtApellido.getText().trim(),txtPasaporte.getText().trim(),
+                                        txtCorreo.getText().trim(),txtCelular.getText().trim(),txtDireccion.getText().trim(),txtNumHijos.getText().trim());
     }
     
 }
