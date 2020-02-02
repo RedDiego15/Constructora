@@ -47,7 +47,6 @@ public class FXMLVendedorController extends Ventana implements Initializable{
                 String[] data = dC.split(",");
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLItemCustomer.fxml"));
                 Node node = loader.load();
-                //Node node = FXMLLoader.load(getClass().getResource("/View/FXMLItemCustomer.fxml"));
                 FXMLItemCustomerController customer = loader.getController();
                 customer.setearLabel(data[0]);
                 customer.verInfoCliente(data[1]);
