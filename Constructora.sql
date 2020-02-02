@@ -139,11 +139,11 @@ values(2,1);
 -- DELETE FROM  Elementos_casa WHERE idEC = 4;
 
 
-SELECT * FROM elementos_casa;
+SELECT * FROM Elementos_casa;
 
 -- DELETE FROM  Elementos WHERE idElemento = 4;
 
-SELECT * FROM elementos;
+SELECT * FROM Elementos;
 
 
 SELECT * from Empresas em
@@ -166,41 +166,75 @@ select* from Casas;
 delimiter $
 create procedure iniciaSesion(in ced varchar(10))
 Begin
-	select * from usuarios where cedula=ced;
+	select * from Usuarios where cedula=ced;
 end $
 delimiter ;
-show tables;
 
-create user 'Constructor1' IDENTIFIED BY 'constructor2020';
-
-
-
-create user 'Constructor1' IDENTIFIED BY 'constructor2020';
-
-
-grant select,update,insert on Constructora.Empresas to 'Constructor1';
-
-grant select,update,insert on Constructora.Usuarios to 'Constructor1';
-=======
 delimiter $$
-create procedure obtenerClientes()
+create procedure registrarEmpresa(in nombre varchar(10), in direccion  varchar(100),in telefono varchar(10), in cedulaCliente varchar(10))
 begin 
-	select * from Clientes;
+    insert into Empresas(Nombre,Direccion,Telefono_Trabajo,cedula_cliente) 
+                values(nombre,direccion, telefono, cedulaCliente);
 end $$
 delimiter ;
 
+delimiter $$
+create procedure obtenerEmpresa(in nombre varchar(10), out id INTEGER)
+begin 
+    select e.idEmpresa into id from Empresas e where e.Nombre=nombre;
+end $$
+delimiter ;
 
-grant select,update,insert on Constructora.Elementos to 'Constructor1';
+delimiter $$
+create procedure obtenerNombreEmpresas()
+begin
+select e.Nombre from Empresas e;
+end $$
+delimiter ;
 
+delimiter $$
+create procedure registrarCliente(in id varchar(10), in idEmp integer, in nombre varchar(10),in apellido varchar(10), in numCelular varchar(10), 
+										in correo varchar(30), in direccion_Domicilio varchar(100), in estado_Civil varchar(10), in cargo varchar(30), in numHijos int)
+begin
+	Insert into Clientes(Cedula,idEmpresa,Nombre,Apellido,NumCelular,Correo, Direccion_Domicilio,Estado_Civil,cargoEmpresa,NumHijos)
+    values(id,idEmp,nombre,apellido,numCelular,correo,direccion_Domicilio,estado_Civil,cargo,numHijos);
+end $$
+delimiter ;
 
+delimiter $$
+create procedure registrarEmpleado(in cedula varchar(10), in pasaporte varchar(2), in nombre varchar(10),in apellido varchar(10), in correo varchar(30), 
+										in numCelular varchar(10), in tlf_trabajo varchar(20), in estado_Civil varchar(10), in cargo varchar(20))
+begin
+         insert into Empleados 
+         values(cedula,pasaporte,nombre,apellido,correo,numCelular,tlf_trabajo,estado_civil,cargo,true);
+end $$
+delimiter ;
 
-grant all privileges on Constructora to 'Constructor1';
+delimiter $$
+create procedure crearUsuario(in cedula varchar(10), in pasaporte varchar(20), in pw varchar(50), in rol char)
+begin
+	Insert into Usuarios values(cedula, pasaporte, pw, rol);
+end $$
+delimiter ;
+
+delimiter $$
+create procedure obtenerClientes(out nombre varchar(10), out lastName varchar(10), out id varchar(10))
+begin 
+	select Nombre, Apellido, Cedula into nombre,lastName,id from Clientes;
+end $$
+delimiter ;
+
+CREATE USER 'Constructor'@'localhost' IDENTIFIED BY 'constructor';
+
+GRANT ALL PRIVILEGES ON * . * TO 'Constructor'@'localhost';
+
 FLUSH PRIVILEGES;
-SHOW GRANTS FOR 'Constructor1';
+
+SHOW GRANTS FOR 'Constructor'@'localhost';
 
 -- grant select,update,insert on Constructora.Usuarios to 'Constructor2';
 
-SELECT * FROM elementos_casa;
+SELECT * FROM Elementos_casa;
 
-SELECT * FROM Elementos limit 7;
-SELECT * FROM Casas;
+SELECT * FROM Elementos;
+
