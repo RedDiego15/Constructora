@@ -183,9 +183,9 @@ grant select,update,insert on Constructora.Empresas to 'Constructor1';
 grant select,update,insert on Constructora.Usuarios to 'Constructor1';
 =======
 delimiter $$
-create procedure obtenerClientes(out nombre varchar(10), out lastName varchar(10), out id varchar(10))
+create procedure obtenerClientes()
 begin 
-	select Nombre, Apellido, Cedula into nombre,lastName,id from Clientes;
+	select * from Clientes;
 end $$
 delimiter ;
 
