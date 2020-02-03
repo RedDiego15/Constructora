@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.DAO.Cliente.ClienteDaoImpl;
+import Model.Empleado;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -46,7 +47,20 @@ public class FXMLVendedorController extends Ventana implements Initializable{
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        List<String> datoCliente = ClienteDaoImpl.obtenerDatosClientes();
+        cargarListadoClientes();
+    }    
+    
+    
+    @FXML
+    public void mostrarClientes(){
+        titlePaneVendedor.setText("Clientes");
+        cargarListadoClientes();
+        borderPaneVendedor.setCenter(vBoxClientes);
+    }
+    
+    private void cargarListadoClientes(){
+        vBoxClientes.getChildren().clear();
+        List<String> datoCliente = Empleado.obtenerDatosClientes();
         datoCliente.forEach((dC) -> {
             try {
                 String[] data = dC.split(",");
@@ -61,13 +75,6 @@ public class FXMLVendedorController extends Ventana implements Initializable{
                 Logger.getLogger(FXMLVendedorController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-    }    
-    
-    
-    @FXML
-    public void mostrarClientes(){
-        titlePaneVendedor.setText("Clientes");
-        borderPaneVendedor.setCenter(vBoxClientes);
     }
     
     public void setRoot(Stage root){

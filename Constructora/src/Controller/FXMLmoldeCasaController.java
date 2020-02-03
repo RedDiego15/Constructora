@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.DAO.Cliente.ClienteDaoImpl;
+import Model.Empleado;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -48,7 +49,7 @@ public class FXMLmoldeCasaController implements Initializable {
 
     @FXML
     private void verInfoCasa() { //crear procedure que me retorne todos los datos de una casa por idCasa
-        List<String> datosCasa= ClienteDaoImpl.obtenerDataCasa(idCasa);
+        List<String> datosCasa= Empleado.obtenerDataCasa(idCasa);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLinfoCasa.fxml"));
             try {
                 Node node = loader.load();

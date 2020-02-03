@@ -12,6 +12,7 @@ import Model.Builder.CasaParaisoBuilder;
 import Model.Cliente;
 import Model.Decorator.Decor;
 import View.FXMLCeldaElemento;
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
 import javax.swing.JLabel;
@@ -44,15 +46,19 @@ public class FXMLMainController extends Ventana implements Initializable {
     private Button btnDiseno;
     
     private VBox holderScroll;
-    private Stage root;
     private CasaDirector casa;
     public static Decor casaCambios;
     
     @FXML
     private Label Jempleado;
-    
     @FXML
     private Label Jcliente;
+    @FXML
+    private AnchorPane raiz;
+    @FXML
+    private JFXButton btnRegistro;
+    @FXML
+    private JFXButton btnCerrarSesion;
     
     public FXMLMainController(){
         
@@ -62,8 +68,14 @@ public class FXMLMainController extends Ventana implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
+        if(Cliente.estaInstanciado()){
+            btnIniciaSesion.setDisable(true);
+            btnRegistro.setDisable(true);
+            btnIniciaSesion.setOpacity(0);
+            btnRegistro.setOpacity(0);
+            btnCerrarSesion.setDisable(false);
+            btnCerrarSesion.setOpacity(1);
+        }
         
     }
     public Stage getRoot() {
@@ -81,7 +93,7 @@ public class FXMLMainController extends Ventana implements Initializable {
             FXMLMainController main = loader.getController();
             main.setRoot(nuevaVentana(root,"Main"));
         } catch (IOException ex) {
-            Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     private void llenarElementos(){
@@ -90,6 +102,7 @@ public class FXMLMainController extends Ventana implements Initializable {
         celdas.crearCeldas(holderScroll, scrollPane);
         
     }
+    @FXML
      public void accionSeleccionCielo(){
          this.btnDiseno.setDisable(false);
         casa = new CasaDirector(new CasaCieloBuilder());
@@ -99,6 +112,7 @@ public class FXMLMainController extends Ventana implements Initializable {
         this.llenarElementos();
         
     }
+    @FXML
     public void accionSeleccionParaiso(){
         this.btnDiseno.setDisable(false);
         casa = new CasaDirector(new CasaParaisoBuilder());
@@ -106,6 +120,7 @@ public class FXMLMainController extends Ventana implements Initializable {
         System.out.println("en la accion"+casa.getCasa().getPrecioBase());
         this.llenarElementos();
     }
+    @FXML
     public void accionSeleccionOasis(){
         this.btnDiseno.setDisable(false);
         casa = new CasaDirector(new CasaOasisBuilder());
@@ -114,14 +129,19 @@ public class FXMLMainController extends Ventana implements Initializable {
         this.llenarElementos();
     
     }
+    @FXML
     public void accionIniciaSesion(){
-        if(Cliente.estaInstanciado()){
-            btnIniciaSesion.setDisable(true);
-        }else{
-            FXMLLoginController login = new FXMLLoginController();
-            login.abrirVentana();
-        }
+        FXMLLoginController login = new FXMLLoginController();
+        login.abrirVentana();
     }
+    
+    @FXML
+    public void accionCerrarSesion(){
+        accionIniciaSesion();
+        this.cerrarVentana();
+        Cliente.sacarInstanciaCliente();
+    }
+    
     public void accionRegistrarse() throws IOException{
          if(Jempleado.isDisable() || Jcliente.isDisable()){
              Jempleado.setDisable(false);
@@ -136,16 +156,19 @@ public class FXMLMainController extends Ventana implements Initializable {
          }
     }
     
+    @FXML
     public void accionRegistrarCliente(){
         FXMLRegisterClienteController register = new FXMLRegisterClienteController();
         register.abrirVentana();
     }
     
+    @FXML
     public void accionRegistrarEmpleado(){
         FXMLRegisterEmpleadoController register = new FXMLRegisterEmpleadoController();
         register.abrirVentana();
     }
     
+    @FXML
     public void accionGuardarDiseno(){
         if(casa == null){
             util.Util.mostrarDialogAlert("Debe Seleccionar una Casa Basica");

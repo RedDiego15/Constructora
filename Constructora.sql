@@ -246,6 +246,14 @@ begin
 end $$
 delimiter ;
 
+delimiter $$
+create procedure obtenerVendedores()
+begin
+	select * from Empleados where cargo='Vendedor';
+end $$
+delimiter ;
+
+
 
 CREATE USER 'Constructor'@'localhost' IDENTIFIED BY 'constructor';
 
