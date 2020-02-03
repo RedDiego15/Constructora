@@ -193,5 +193,52 @@ public class ClienteDaoImpl{
         }
         return false;
     }
+    
+    public static List<String> obtenerCasas(String cedula){
+        List<String> idCasas = new LinkedList<>();
+        Connection conn;
+        PreparedStatement pS;
+        ResultSet res;
+        try {
+            conn = Conexion.getConex().conectarMySQL();
+            pS = conn.prepareStatement("call obtenerIdCasa(?)");
+            pS.setString(1, cedula);
+            res = pS.executeQuery();
+            while(res.next()){
+                String idCasa = res.getString(1);
+                idCasas.add(idCasa);
+            }
+            pS.close();
+            conn.close();
+        } catch (SQLException e) {
+            util.Util.mostrarDialogAlert(e.getMessage());
+        }
+        return idCasas;
+    }
+    
+    public static List<String> obtenerDataCasa(String id){
+        List<String> dataCasa = new LinkedList<>();
+        ResultSet res;
+        try {
+            res = DataBase.getDataB().executeQuery("Select * From Casas c Where c.idCasa="+id+";");
+            if(res.next()){
+                dataCasa.add(res.getString(3));
+                dataCasa.add(res.getString(4));
+                dataCasa.add(res.getString(5));
+                dataCasa.add(res.getString(6));
+                dataCasa.add(res.getString(7));
+                dataCasa.add(res.getString(8));
+                dataCasa.add(res.getString(9));
+                dataCasa.add(res.getString(10));
+            }
+        } catch (SQLException e) {
+            util.Util.mostrarDialogAlert(e.getMessage());
+        }
+        return dataCasa;
+    }
+    
+    public static void main(String arg[]){
+        System.out.println(ClienteDaoImpl.obtenerDataCasa("6"));
+    }
 
 }

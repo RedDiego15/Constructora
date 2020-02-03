@@ -81,15 +81,14 @@ public class FXMLInfoClienteController implements Initializable {
     }
     
     public void mostrarCasas(BorderPane bPCliente,Label titlePaneVendedor){
-        //List<String> casas = new LinkedList<>(); //llamar al metodo que me retorna las casas(nombre,id)
+        List<String> casas = ClienteDaoImpl.obtenerCasas(cedula);
         int cont=1;
-        //for(String c:casas){
-           // String[] data= c.split(","); //esta la casa por id, nombre
+        for(String c:casas){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLmoldeCasa.fxml"));
             try {
                 Node node = loader.load();
                 FXMLmoldeCasaController mCasa = loader.getController();
-                //mCasa.setCasa("Casa "+cont,data[0]);
+                mCasa.setCasa("Casa "+cont,c);
                 
                 mCasa.setCliente(txtNombre.getText().trim().toUpperCase()+" "+txtApellido.getText().trim().toUpperCase());
                 mCasa.setbPCliente(bPCliente,titlePaneVendedor);
@@ -98,7 +97,7 @@ public class FXMLInfoClienteController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        //}
+        }
         
     }
     

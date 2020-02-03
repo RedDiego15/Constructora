@@ -70,7 +70,7 @@ public class DataBase {
             int r = preparedSt.executeUpdate();
             if(r>0){
                 
-               this.executeElementsInsertInHouse(this.obtenerIdsCasa("select max(idCasa) from casas where cliente = '"+Cliente.getInstance().getCedula()+"';"));
+               this.executeElementsInsertInHouse(this.obtenerIdsCasa("select max(idCasa) from Casas where cliente = '"+Cliente.getInstance().getCedula()+"';"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(DataBase.class.getName()).log(Level.SEVERE, null, ex);

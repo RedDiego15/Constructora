@@ -11,54 +11,54 @@
 
 <AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="602.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controller.FXMLinfoCasaController">
    <children>
-      <Label layoutX="220.0" layoutY="35.0" text="DETALLES DE LA CASA">
+      <Label fx:id="txtNomCasa" layoutX="220.0" layoutY="35.0" text="DETALLES DE LA CASA">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <JFXTextField editable="false" focusColor="#474c5f" labelFloat="true" layoutX="117.0" layoutY="117.0" prefWidth="165.0" unFocusColor="#474c5f">
+      <JFXTextField fx:id="txtM2" editable="false" focusColor="#474c5f" labelFloat="true" layoutX="117.0" layoutY="117.0" prefWidth="165.0" unFocusColor="#474c5f">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </JFXTextField>
       <Label layoutX="42.0" layoutY="122.0" text="M2" />
-      <JFXTextField editable="false" focusColor="#474c5f" labelFloat="true" layoutX="117.0" layoutY="178.0" prefWidth="165.0" unFocusColor="#474c5f">
+      <JFXTextField fx:id="txtPisos" editable="false" focusColor="#474c5f" labelFloat="true" layoutX="117.0" layoutY="178.0" prefWidth="165.0" unFocusColor="#474c5f">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </JFXTextField>
       <Label layoutX="42.0" layoutY="183.0" text="NumPlantas" />
-      <JFXTextField editable="false" focusColor="#474c5f" labelFloat="true" layoutX="117.0" layoutY="293.0" prefWidth="165.0" unFocusColor="#474c5f">
+      <JFXTextField fx:id="txtOrient" editable="false" focusColor="#474c5f" labelFloat="true" layoutX="117.0" layoutY="293.0" prefWidth="165.0" unFocusColor="#474c5f">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </JFXTextField>
       <Label layoutX="42.0" layoutY="298.0" text="Orientacion" />
-      <JFXTextField editable="false" focusColor="#474c5f" labelFloat="true" layoutX="117.0" layoutY="234.0" prefWidth="165.0" unFocusColor="#474c5f">
+      <JFXTextField fx:id="txtEsquinera" editable="false" focusColor="#474c5f" labelFloat="true" layoutX="117.0" layoutY="234.0" prefWidth="165.0" unFocusColor="#474c5f">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </JFXTextField>
       <Label layoutX="42.0" layoutY="239.0" text="Esquinera" />
-      <JFXTextField editable="false" focusColor="#474c5f" labelFloat="true" layoutX="408.0" layoutY="117.0" prefWidth="165.0" unFocusColor="#474c5f">
+      <JFXTextField fx:id="txtPatio" editable="false" focusColor="#474c5f" labelFloat="true" layoutX="408.0" layoutY="117.0" prefWidth="165.0" unFocusColor="#474c5f">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </JFXTextField>
       <Label layoutX="327.0" layoutY="122.0" text="M2 Patio" />
-      <JFXTextField editable="false" focusColor="#474c5f" labelFloat="true" layoutX="408.0" layoutY="178.0" prefWidth="165.0" unFocusColor="#474c5f">
+      <JFXTextField fx:id="txtHabitaciones" editable="false" focusColor="#474c5f" labelFloat="true" layoutX="408.0" layoutY="178.0" prefWidth="165.0" unFocusColor="#474c5f">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </JFXTextField>
       <Label layoutX="327.0" layoutY="183.0" text="Habitaciones" />
-      <JFXTextField editable="false" focusColor="#474c5f" labelFloat="true" layoutX="408.0" layoutY="293.0" prefWidth="165.0" unFocusColor="#474c5f">
+      <JFXTextField fx:id="txtPrecio" editable="false" focusColor="#474c5f" labelFloat="true" layoutX="408.0" layoutY="293.0" prefWidth="165.0" unFocusColor="#474c5f">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </JFXTextField>
       <Label layoutX="327.0" layoutY="298.0" text="Precio" />
-      <JFXTextField editable="false" focusColor="#474c5f" labelFloat="true" layoutX="408.0" layoutY="234.0" prefWidth="165.0" unFocusColor="#474c5f">
+      <JFXTextField fx:id="txtBaños" editable="false" focusColor="#474c5f" labelFloat="true" layoutX="408.0" layoutY="234.0" prefWidth="165.0" unFocusColor="#474c5f">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>

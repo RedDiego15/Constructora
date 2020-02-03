@@ -26,7 +26,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="553.0" text="Cerrar Sesion" textFill="WHITE" underline="true">
+            <Label layoutX="14.0" layoutY="553.0" onMouseClicked="#mostrarLogin" text="Cerrar Sesion" textFill="WHITE" underline="true">
                <font>
                   <Font size="17.0" />
                </font>

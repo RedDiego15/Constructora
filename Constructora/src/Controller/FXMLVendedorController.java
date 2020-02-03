@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -85,6 +86,13 @@ public class FXMLVendedorController extends Ventana implements Initializable{
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void mostrarLogin(MouseEvent event) {
+        FXMLLoginController login = new FXMLLoginController();
+        login.abrirVentana();
+        this.cerrarVentana();
     }
     
 }

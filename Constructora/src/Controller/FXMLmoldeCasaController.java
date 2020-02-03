@@ -5,8 +5,10 @@
  */
 package Controller;
 
+import Model.DAO.Cliente.ClienteDaoImpl;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,15 +47,13 @@ public class FXMLmoldeCasaController implements Initializable {
     }
 
     @FXML
-    private void verInfoCasa() {
-        //List<String> datosCasa= obtenerLosdatosCasa(idCasa);
+    private void verInfoCasa() { //crear procedure que me retorne todos los datos de una casa por idCasa
+        List<String> datosCasa= ClienteDaoImpl.obtenerDataCasa(idCasa);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLinfoCasa.fxml"));
             try {
                 Node node = loader.load();
-                FXMLinfoCasaController mCasa = loader.getController();
-                
-                //mCasa.setearCamposCasa(datosCasa);
-                
+                FXMLinfoCasaController mCasa = loader.getController();        
+                mCasa.setearCamposCasa(datosCasa);                
                 title.setText("Cliente: "+nombreCliente);
                 bPCliente.setCenter(node);
             } catch (IOException ex) {
