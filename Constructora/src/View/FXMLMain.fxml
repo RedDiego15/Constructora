@@ -66,11 +66,11 @@
                         <Label layoutX="115.0" layoutY="1.0" text="Oasis" />
                      </children>
                   </AnchorPane>
-                  <Button layoutX="627.0" layoutY="724.0" mnemonicParsing="false" onAction="#accionGuardarDiseno" text="Guardar Diseño" />
+                  <Button fx:id="btnDiseno" layoutX="627.0" layoutY="724.0" mnemonicParsing="false" onAction="#accionGuardarDiseno" text="Guardar Diseño" />
                   <Label fx:id="Jempleado" disable="true" layoutX="731.0" layoutY="68.0" onMouseClicked="#accionRegistrarEmpleado" opacity="0.0" text="Empleado" />
                   <Label fx:id="Jcliente" disable="true" layoutX="819.0" layoutY="68.0" onMouseClicked="#accionRegistrarCliente" opacity="0.0" text="Cliente" />
-                  <JFXButton layoutX="645.0" layoutY="17.0" onAction="#accionIniciaSesion" prefHeight="27.0" prefWidth="107.0" style="-fx-background-color: #ffffff;" text="Inicia Sesión" />
-                  <JFXButton layoutX="765.0" layoutY="17.0" onAction="#accionRegistrarse" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Registrate" textAlignment="CENTER" />
+                  <JFXButton fx:id="btnIniciaSesion" layoutX="645.0" layoutY="17.0" onAction="#accionIniciaSesion" prefHeight="27.0" prefWidth="107.0" style="-fx-background-color: #ffffff;" text="Inicia Sesión" />
+                  <JFXButton fx:id="btnRegistro" layoutX="765.0" layoutY="17.0" onMouseClicked="#accionRegistrarCliente" prefHeight="27.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Registrate" textAlignment="CENTER" />
                </children>
             </AnchorPane>
          </content>

@@ -217,6 +217,36 @@ begin
 end $$
 delimiter ;
 
+delimiter $$
+create procedure obtenerClientes()
+begin 
+	select * from Clientes;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure actualizarCliente(in id varchar(10),in nombre varchar(10),in apellido varchar(10), in numCelular varchar(10), in pasaporte varchar(20),
+										in correo varchar(30), in direccion varchar(100),  in numHijos int)
+begin
+	Update Clientes Set Nombre=nombre, Apellido=apellido, NumCelular=numCelular, Pasaporte=pasaporte, Correo=correo, Direccion_Domicilio=direccion, NumHijos=numHijos Where Cedula=id;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure obtenerIdCasa(in idCliente varchar(10))
+begin
+	select c.idCasa from Casas c join Clientes cl ON cl.Cedula=c.cliente where cl.Cedula=idCliente;
+end $$
+delimiter ;
+
+delimiter $$
+create procedure obtenerDataCasa(in id char)
+begin
+	select * from Casas c where c.idCasa=id;
+end $$
+delimiter ;
+
+
 CREATE USER 'Constructor'@'localhost' IDENTIFIED BY 'constructor';
 
 GRANT ALL PRIVILEGES ON * . * TO 'Constructor'@'localhost';

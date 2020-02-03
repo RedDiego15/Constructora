@@ -25,5 +25,12 @@ public class TechoAislanteTermico extends ElementoDecorator{
     public double obtenerPresupuesto() {
         return getDecorable().obtenerPresupuesto()+500;
     }
+
+    @Override
+    public Casa getCasa() {
+        return this.getDecorable().getCasa();
+    }
+
+
     
 }

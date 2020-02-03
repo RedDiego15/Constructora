@@ -22,9 +22,11 @@ public class Casa{
     protected int numHabitaciones;
     protected int numBanios;
     protected double PrecioBase; //precio final despues de anadirle mas cosas
-    protected double precio_base;
     protected boolean esEsquinera;
     protected boolean  PatioGrande;
+    protected String orientacion;
+    protected String tmnPatio;
+    
     protected boolean pisosPorcelanatoNacional;
     protected boolean pisosPorcelanatoImportado;
     protected boolean griferíaEstándar;
@@ -95,12 +97,6 @@ public class Casa{
     public void setNumBanios(int numBanios) {
         this.numBanios = numBanios;
     }
-
-    public void setPrecio_base(double precio_base) {
-        this.precio_base = precio_base;
-    }
-
-
     public void setPrecioBase(double PrecioBase) {
         this.PrecioBase = PrecioBase;
     }
@@ -139,5 +135,53 @@ public class Casa{
 
     public void setAislanteTérmicoEnTecho(boolean aislanteTérmicoEnTecho) {
         this.aislanteTérmicoEnTecho = aislanteTérmicoEnTecho;
-    } 
+    }
+    public boolean isPisosPorcelanatoNacional() {
+        return pisosPorcelanatoNacional;
+    }
+
+    public boolean isPisosPorcelanatoImportado() {
+        return pisosPorcelanatoImportado;
+    }
+
+    public boolean isGriferíaEstándar() {
+        return griferíaEstándar;
+    }
+
+    public boolean isGriferíaItaliana() {
+        return griferíaItaliana;
+    }
+
+    public boolean isIluminaciónTradicional() {
+        return iluminaciónTradicional;
+    }
+
+    public boolean isLed() {
+        return led;
+    }
+
+    public boolean isBañosInsonorizados() {
+        return bañosInsonorizados;
+    }
+
+    public boolean isAislanteTérmicoEnTecho() {
+        return aislanteTérmicoEnTecho;
+    }
+      public String getOrientacion() {
+        return orientacion;
+    }
+
+    public void setOrientacion(String orientacion) {
+        this.orientacion = orientacion;
+    }
+
+    public String getTmnPatio() {
+        return tmnPatio;
+    }
+
+    public void setTmnPatio(String tmnPatio) {
+        this.tmnPatio = tmnPatio;
+    }
+    
+    
 }

@@ -6,6 +6,7 @@
 package Model.DAO.Cliente;
 
 import Controller.Conexion;
+import Controller.FXMLRegisterEmpleadoController;
 import Model.Cliente;
 import Model.Empleado;
 import Model.User;
@@ -19,27 +20,26 @@ import java.util.List;
  *
  * @author GaryBarzola
  */
-public class EmpleadoDaoImpl implements ICRUDDao{
+public class EmpleadoDaoImpl{
     private Connection connect= null;
     private Statement stm= null;
     
-    @Override
-    public boolean registrar(User emp) {
-        Empleado empleado = (Empleado)emp;
+    
+    public boolean registrar(FXMLRegisterEmpleadoController emp) {
         
         boolean registrar = false;
         try {
             connect = Conexion.getConex().conectarMySQL();
             CallableStatement sp = connect.prepareCall(" CALL registrarEmpleado(?,?,?,?,?,?,?,?,?)");
-            sp.setString(1, empleado.getCedula());
-            sp.setString(2, empleado.getPasaporte());
-            sp.setString(3, empleado.getNombre());
-            sp.setString(4, empleado.getApellido());
-            sp.setString(5, empleado.getCorreo());
-            sp.setString(6, empleado.getCelular());
-            sp.setString(7, empleado.getTlf_trabajo()); //Telefono trabajo
-            sp.setString(8, empleado.getEstadoCivil());
-            sp.setString(9, empleado.getCargo());
+            sp.setString(1, emp.geteCedula().getText());
+            sp.setString(2, emp.getePasaporte().getText());
+            sp.setString(3, emp.geteName().getText());
+            sp.setString(4, emp.geteLastName().getText());
+            sp.setString(5, emp.geteCorreo().getText());
+            sp.setString(6, emp.geteCelular().getText());
+            sp.setString(7, emp.geteCelular().getText()); //Telefono trabajo
+            sp.setString(8, emp.geteEstadoCivil().getValue());
+            sp.setString(9, emp.geteCargo().getValue());
             sp.execute();
             sp.close();
             connect.close();
@@ -49,7 +49,7 @@ public class EmpleadoDaoImpl implements ICRUDDao{
         }
         return registrar;
     }
-
+/*
     @Override
     public List<Cliente> obtenerClientes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -64,8 +64,8 @@ public class EmpleadoDaoImpl implements ICRUDDao{
     public boolean eliminar(User cliente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
+*/
+    
     public boolean crearUsuario(String cedula, String passport, String pass, String roll) {
         boolean registrar = false;
         try {

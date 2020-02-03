@@ -5,6 +5,8 @@
  */
 package Model.Decorator;
 
+import Model.Casa;
+
 /**
  *
  * @author  Diego Rojas
@@ -17,6 +19,13 @@ public class BañosInsonorizados extends ElementoDecorator{
     
     @Override
     public double obtenerPresupuesto() {
+       // this.getDecorable().getCasa().setBañosInsonorizados(true);
         return getDecorable().obtenerPresupuesto()+200;
     }
+
+    @Override
+    public Casa getCasa() {
+        return getDecorable().getCasa();
+    }
+
 }

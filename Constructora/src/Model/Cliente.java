@@ -17,15 +17,14 @@ import java.util.logging.Logger;
  */
 public class Cliente extends User{
     
-    public static Cliente instance;
-    private ResultSet res;
+    private static Cliente instance;
     private String idEmpresa;
     private String cargo;
     private String NumHijos;
     
     
     
-    public Cliente(String cedula, String pasaporte, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
+    private Cliente(String cedula, String pasaporte, String nombre, String apellido, String celular, String correo, String direccion, String estadoCivil,
                     String idEmpresa,String cargo, String NumHijos){
         super(cedula, pasaporte, nombre, apellido, celular, correo, direccion, estadoCivil);
         this.idEmpresa = idEmpresa;
@@ -38,20 +37,27 @@ public class Cliente extends User{
         return instance;
     }
     
-    public void cargarDatosCliente(String cedula){
+    public static void cargarDatosCliente(String cedula){
+        ResultSet res;
         if(instance == null){
             try {
-                res = DataBase.getDataB().executeQuery("select * from Clientes where Cedula ="+cedula+" ;");
+                res = DataBase.getDataB().executeQuery("select * from Clientes where Cedula = '"+cedula+"' ;");
                 if(res.next()){
+                    System.out.println("encontre coincidencias");
                     instance = new Cliente(res.getString("Cedula"),res.getString("Pasaporte"),res.getString("Nombre"),res.getString("Apellido"),res.getString("NumCelular"),
                                            res.getString("Correo"),res.getString("Direccion_Domicilio"),res.getString("Estado_Civil"),
                                            res.getString("idEmpresa"),res.getString("cargoEmpresa"), res.getString("NumHijos"));
+                    System.out.println("se cargaron los datos ");
 
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+    }
+    public static boolean estaInstanciado(){
+        return (instance != null)?true:false;
     }
     
 
@@ -77,6 +83,38 @@ public class Cliente extends User{
 
     public void setNumHijos(String NumHijos) {
         this.NumHijos = NumHijos;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getEstadoCivil() {
+        return estadoCivil;
+    }
+
+    public String getPasaporte() {
+        return pasaporte;
     }
 
     

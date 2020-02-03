@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.Cliente;
+import Model.Empleado;
 import Model.User;
 import java.io.IOException;
 import java.net.URL;
@@ -33,7 +34,8 @@ public class FXMLLoginController extends Ventana implements Initializable{
     @FXML
     private PasswordField txtPass;
     
-    private final FXMLMainController main = new FXMLMainController();
+    private final FXMLMainController mainCliente = new FXMLMainController();
+    private final FXMLVendedorController mainVendedor = new FXMLVendedorController();
     private Login login;
     private ResultSet res;
    
@@ -49,20 +51,32 @@ public class FXMLLoginController extends Ventana implements Initializable{
         if(validaCampos() && login.accionIngresar()){
             int n = login.obtenerRol();
             switch (n) {
-                case 1:
+                case 0: //Cliente
+                    Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
+                    this.abrirMainCliente();
+                    
+                    //abrir mainCliente.abrirVentana();
+                    //this.cerrarVentana();
                     break;
-                case 2:
+                case 1: //Vendedor
+                    //Empleado.getInstance().cargarDatosEmpleado(txtCedula.getText());
+                    mainVendedor.abrirVentana();
+                    this.cerrarVentana();
                     break;
-                default:
+                case 2: //Administrador
+                    accionAbrirVentanaSinLogin();
+                    //abrir mainCliente.abrirVentana();
+                    //this.cerrarVentana();
+                    
                     //Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
                     break;
             }
-            this.abrir();
-            
+            //this.abrirSinLogin(); 
         } 
     }
-     public void accionAbrirVentana(){
-             this.abrir();
+     
+    public void accionAbrirVentanaSinLogin(){
+             this.abrirMainCliente();
     }
    
     @Override
@@ -75,7 +89,8 @@ public class FXMLLoginController extends Ventana implements Initializable{
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-     }
+    }
+     
     private boolean validaCampos(){
         if(!txtCedula.getText().equals("") && !txtPass.getText().equals("")){ 
             login = new Login(txtCedula.getText(),txtPass.getText());
@@ -85,12 +100,13 @@ public class FXMLLoginController extends Ventana implements Initializable{
         }
         return false;
     }
-    private void abrir(){
-        main.abrirVentana();
+    private void abrirMainCliente(){
+        mainCliente.abrirVentana();
         this.cerrarVentana();
     }
     public void setRoot(Stage root) {
         this.root = root;
     }
+
 
 }

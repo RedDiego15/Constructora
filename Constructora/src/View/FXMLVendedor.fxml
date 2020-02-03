@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" style="-fx-background-color: #474c5f;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXMLVendedorController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="175.0" style="-fx-background-color: #474c5f;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="625.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="152.0" text="Vista Vendedor" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="2.0" layoutY="50.0" onMouseClicked="#mostrarClientes" prefHeight="27.0" prefWidth="174.0" style="-fx-background-color: #ffffff;" text="Ver Clientes" textFill="#474c5f" />
+            <Label layoutX="14.0" layoutY="518.0" text="Perfil" textFill="WHITE" underline="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="553.0" onMouseClicked="#mostrarLogin" text="Cerrar Sesion" textFill="WHITE" underline="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <BorderPane fx:id="borderPaneVendedor" layoutX="174.0" prefHeight="592.0" prefWidth="622.0" style="-fx-background-radius: 25; -fx-background-color: #ffffff;" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+         <top>
+            <Pane prefHeight="90.0" prefWidth="622.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="titlePaneVendedor" layoutX="65.0" layoutY="44.0" text="Clientes" textFill="#474c5f">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Line endX="394.0" layoutX="166.0" layoutY="74.0" startX="-100.0" stroke="#474c5f" />
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <ScrollPane style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+               <content>
+                  <VBox fx:id="vBoxClientes" prefHeight="494.0" prefWidth="602.0" style="-fx-background-color: #ffffff;">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding></VBox>
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
