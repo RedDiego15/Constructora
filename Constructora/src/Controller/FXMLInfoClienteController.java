@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.DAO.Cliente.ClienteDaoImpl;
+import Model.Empleado;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
@@ -76,20 +77,19 @@ public class FXMLInfoClienteController implements Initializable {
     
     @FXML
     public void actualizarCliente(){
-        ClienteDaoImpl.actualizarCliente(cedula,txtNombre.getText().trim(),txtApellido.getText().trim(),txtPasaporte.getText().trim(),
+        Empleado.actualizarCliente(cedula,txtNombre.getText().trim(),txtApellido.getText().trim(),txtPasaporte.getText().trim(),
                                         txtCorreo.getText().trim(),txtCelular.getText().trim(),txtDireccion.getText().trim(),txtNumHijos.getText().trim());
     }
     
     public void mostrarCasas(BorderPane bPCliente,Label titlePaneVendedor){
-        //List<String> casas = new LinkedList<>(); //llamar al metodo que me retorna las casas(nombre,id)
+        List<String> casas = Empleado.obtenerCasas(cedula);
         int cont=1;
-        //for(String c:casas){
-           // String[] data= c.split(","); //esta la casa por id, nombre
+        for(String c:casas){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLmoldeCasa.fxml"));
             try {
                 Node node = loader.load();
                 FXMLmoldeCasaController mCasa = loader.getController();
-                //mCasa.setCasa("Casa "+cont,data[0]);
+                mCasa.setCasa("Casa "+cont,c);
                 
                 mCasa.setCliente(txtNombre.getText().trim().toUpperCase()+" "+txtApellido.getText().trim().toUpperCase());
                 mCasa.setbPCliente(bPCliente,titlePaneVendedor);
@@ -98,7 +98,7 @@ public class FXMLInfoClienteController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        //}
+        }
         
     }
     

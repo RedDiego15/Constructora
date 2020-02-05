@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.DAO.Cliente.ClienteDaoImpl;
+import Model.Empleado;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +32,7 @@ public class FXMLItemCustomerController implements Initializable {
     private Label Lname;
     private BorderPane bPCliente;
     private Label title;
+    private String cargo;
     /**
      * Initializes the controller class.
      */
@@ -38,6 +40,10 @@ public class FXMLItemCustomerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
     
     public void setearLabel(String data){
         Lname.setText(data);
@@ -49,17 +55,19 @@ public class FXMLItemCustomerController implements Initializable {
     }
     
     public void verInfoCliente(){
-        List<String> dataCliente = ClienteDaoImpl.obtenerDatosCliente(cedula);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLInfoCliente.fxml"));
-        try {
-            Node node = loader.load();
-            FXMLInfoClienteController ctr = loader.getController();
-            ctr.setearCamposCliente(dataCliente);
-            ctr.mostrarCasas(bPCliente, title);
-            bPCliente.setCenter(node);
-            title.setText("Detalles");
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+        if(cargo== null || !cargo.equals("Vendedor")){
+            List<String> dataCliente = Empleado.obtenerDatosCliente(cedula);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/FXMLInfoCliente.fxml"));
+            try {
+                Node node = loader.load();
+                FXMLInfoClienteController ctr = loader.getController();
+                ctr.setearCamposCliente(dataCliente);
+                ctr.mostrarCasas(bPCliente, title);
+                bPCliente.setCenter(node);
+                title.setText("Detalles");
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLItemCustomerController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }

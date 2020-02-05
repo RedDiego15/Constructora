@@ -36,6 +36,9 @@ public class FXMLLoginController extends Ventana implements Initializable{
     
     private final FXMLMainController mainCliente = new FXMLMainController();
     private final FXMLVendedorController mainVendedor = new FXMLVendedorController();
+    private final FXMLAdministradorController mainAdmin = new FXMLAdministradorController();
+        
+    
     private Login login;
     private ResultSet res;
    
@@ -49,29 +52,22 @@ public class FXMLLoginController extends Ventana implements Initializable{
     }
      public void accionIngresar() {
         if(validaCampos() && login.accionIngresar()){
-            int n = login.obtenerRol();
-            switch (n) {
+            int rol = login.obtenerRol();
+            switch (rol) {
                 case 0: //Cliente
-                    Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
+                    Cliente.cargarDatosCliente(txtCedula.getText());
                     this.abrirMainCliente();
-                    
-                    //abrir mainCliente.abrirVentana();
-                    //this.cerrarVentana();
                     break;
                 case 1: //Vendedor
-                    //Empleado.getInstance().cargarDatosEmpleado(txtCedula.getText());
+                    Empleado.cargarDatosEmpleado(txtCedula.getText());
                     mainVendedor.abrirVentana();
                     this.cerrarVentana();
                     break;
                 case 2: //Administrador
-                    accionAbrirVentanaSinLogin();
-                    //abrir mainCliente.abrirVentana();
-                    //this.cerrarVentana();
-                    
-                    //Cliente.getInstance().cargarDatosCliente(txtCedula.getText());
+                    mainAdmin.abrirVentana();
+                    this.cerrarVentana();
                     break;
             }
-            //this.abrirSinLogin(); 
         } 
     }
      
@@ -85,7 +81,7 @@ public class FXMLLoginController extends Ventana implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLLogin.fxml"));
             Parent root = loader.load();
             FXMLLoginController main = loader.getController();
-            main.setRoot(nuevaVentana(root,"Login"));
+            main.setRoot(nuevaVentana(root,"Constructora"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -70,8 +70,9 @@ public class FXMLRegisterEmpleadoController extends Ventana  implements Initiali
     public void abrirVentana() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLRegisterEmpleado.fxml"));
+            Parent root = loader.load();
             FXMLRegisterEmpleadoController main = loader.getController();
-            main.setRoot(nuevaVentana((Parent)loader.load(),"RegistroEmpleado"));
+            main.setRoot(nuevaVentana(root,"RegistroEmpleado"));
         } catch (IOException ex) {
             Logger.getLogger(FXMLLoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -57,7 +57,7 @@ public class Cliente extends User{
         
     }
     public static boolean estaInstanciado(){
-        return (instance != null)?true:false;
+        return (instance != null);
     }
     
 
@@ -84,39 +84,10 @@ public class Cliente extends User{
     public void setNumHijos(String NumHijos) {
         this.NumHijos = NumHijos;
     }
-
-    public String getCedula() {
-        return cedula;
+    
+    public static void sacarInstanciaCliente(){
+        instance = null;
     }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public String getEstadoCivil() {
-        return estadoCivil;
-    }
-
-    public String getPasaporte() {
-        return pasaporte;
-    }
-
     
     
 }
